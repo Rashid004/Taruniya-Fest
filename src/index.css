@@ -1,0 +1,27 @@
+/** @format */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* background: rgb(101, 1, 35);
+  background: linear-gradient(
+    90deg,
+    rgba(101, 1, 35, 1) 8%,
+    rgba(245, 109, 33, 1) 98%
+  );
+  color: #ffffcc; */
+  background-color: #ac1212;
+  font-family: Poppins;
+}
+
+@layer base {
+  .border-RadiusTop {
+    @apply rounded-t-md rounded-b-none;
+  }
+  .border-RadiusBottom {
+    @apply rounded-b-md rounded-t-none;
+  }
+}
