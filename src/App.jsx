@@ -12,6 +12,7 @@ import Contact from "./page/Contact";
 import AppLayout from "./ui/AppLayout";
 import Commitee from "./page/Commitee";
 import { Toaster } from "react-hot-toast";
+import EventsDetail from "./page/EventDetail/EventsDetail";
 
 function App() {
   const router = createBrowserRouter([
@@ -36,6 +37,10 @@ function App() {
           element: <Events />,
         },
         {
+          path: "events/:eventId", // Dynamic route for event details
+          element: <EventsDetail />, // Render specific event content
+        },
+        {
           path: "swar",
           element: <Swar />,
         },
@@ -58,6 +63,7 @@ function App() {
       ],
     },
   ]);
+
   return (
     <>
       <RouterProvider router={router} />

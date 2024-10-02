@@ -6,13 +6,6 @@
 @tailwind utilities;
 
 body {
-  /* background: rgb(101, 1, 35);
-  background: linear-gradient(
-    90deg,
-    rgba(101, 1, 35, 1) 8%,
-    rgba(245, 109, 33, 1) 98%
-  );
-  color: #ffffcc; */
   background-color: #ac1212;
   font-family: Poppins;
 }
@@ -23,5 +16,11 @@ body {
   }
   .border-RadiusBottom {
     @apply rounded-b-md rounded-t-none;
+  }
+  .shadows-hover {
+    @apply transition-shadow duration-300 ease-in;
+  }
+  .shadows-hover:hover {
+    @apply shadow-[0px_40px_45px_rgba(222,203,167,0.3),0px_-20px_25px_rgba(222,203,167,0.2),15px_0px_25px_rgba(222,203,167,0.2),-15px_0px_25px_rgba(222,203,167,0.2),0px_10px_15px_rgba(222,203,167,0.25),0px_-5px_10px_rgba(222,203,167,0.15)];
   }
 }

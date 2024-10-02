@@ -28,7 +28,7 @@ function Navigation() {
   }
 
   return (
-    <header className="relative border-b-2 border-[#bca476] ">
+    <header className="relative border-b-[1px] border-[#bca476] ">
       {/* Desktop Navigation */}
       <nav className="bg-transparent hidden lg:flex justify-between items-center px-4 lg:px-8 pt-4">
         <Logo />
