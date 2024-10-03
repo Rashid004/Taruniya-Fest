@@ -1,5 +1,6 @@
 /** @format */
 
+import { lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/Home";
 import Sponsors from "./page/Sponsor";
@@ -12,7 +13,8 @@ import Contact from "./page/Contact";
 import AppLayout from "./ui/AppLayout";
 import Commitee from "./page/Commitee";
 import { Toaster } from "react-hot-toast";
-import EventsDetail from "./page/EventDetail/EventsDetail";
+const EventsDetail = lazy(() => import("./page/EventsDetail"));
+import NotFoundPage from "./ui/NotFoundPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -61,6 +63,10 @@ function App() {
           element: <Sponsors />,
         },
       ],
+    },
+    {
+      path: "*",
+      element: <NotFoundPage />,
     },
   ]);
 

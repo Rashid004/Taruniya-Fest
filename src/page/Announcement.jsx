@@ -105,8 +105,8 @@ const AnnouncementsPage = () => {
   return (
     <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-5xl font-semibold text-center text-[#DECBA7] mb-8">
-          🎉 Taruniya Announcements 🎉
+        <h1 className="text-3xl md:text-5xl font-semibold text-center text-[#DECBA7] mb-8 tracking-wider">
+          Taruniya Announcements
         </h1>
         <div className="space-y-6">
           {announcements.map((announcement) => (

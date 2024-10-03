@@ -24,3 +24,22 @@ body {
     @apply shadow-[0px_40px_45px_rgba(222,203,167,0.3),0px_-20px_25px_rgba(222,203,167,0.2),15px_0px_25px_rgba(222,203,167,0.2),-15px_0px_25px_rgba(222,203,167,0.2),0px_10px_15px_rgba(222,203,167,0.25),0px_-5px_10px_rgba(222,203,167,0.15)];
   }
 }
+
+/* Swiper CSS */
+
+.swiper {
+  /* width: 100%;
+  height: 100%; */
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
