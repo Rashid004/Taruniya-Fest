@@ -3,7 +3,6 @@
 import { lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/Home";
-import Sponsors from "./page/Sponsor";
 import Workforce from "./page/Workforce";
 import Conclave from "./page/Conclave";
 import Swar from "./page/Swar";
@@ -11,10 +10,11 @@ import Events from "./page/Events";
 import Announcement from "./page/Announcement";
 import Contact from "./page/Contact";
 import AppLayout from "./ui/AppLayout";
-import Commitee from "./page/Commitee";
 import { Toaster } from "react-hot-toast";
+import SponsorsPage from "./page/SponsorsPage";
+import CommiteePage from "./page/CommiteePage";
 const EventsDetail = lazy(() => import("./page/EventsDetail"));
-import NotFoundPage from "./ui/NotFoundPage";
+// import NotFoundPage from "./ui/NotFoundPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -56,23 +56,24 @@ function App() {
         },
         {
           path: "commitee",
-          element: <Commitee />,
+          element: <CommiteePage />,
         },
         {
           path: "sponsors",
-          element: <Sponsors />,
+          element: <SponsorsPage />,
         },
       ],
     },
-    {
-      path: "*",
-      element: <NotFoundPage />,
-    },
+    // {
+    //   path: "*",
+    //   element: <NotFoundPage />,
+    // },
   ]);
 
   return (
     <>
       <RouterProvider router={router} />
+
       <Toaster
         toastOptions={{
           style: {

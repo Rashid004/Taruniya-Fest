@@ -11,6 +11,7 @@ import {
   FiClock,
   FiMapPin,
 } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const announcements = [
   {
@@ -21,6 +22,7 @@ const announcements = [
     location: "Main Auditorium",
     description:
       "Join us for the grand opening of Taruniya 2024! Featuring special guests and exciting performances.",
+    link: "",
   },
   {
     id: 2,
@@ -30,6 +32,7 @@ const announcements = [
     location: "Open Air Theatre",
     description:
       "Show off your moves at our annual dance competition. Solo and group categories available.",
+    link: "",
   },
   {
     id: 3,
@@ -39,6 +42,7 @@ const announcements = [
     location: "Seminar Hall",
     description:
       "Discover the latest trends in Artificial Intelligence with our expert panel of speakers.",
+    link: "",
   },
   // Add more announcements as needed
 ];
@@ -94,6 +98,12 @@ const AnnouncementCard = ({ announcement }) => {
               </div>
             </div>
             <p className="text-[#9c814e]">{announcement.description}</p>
+            <Link
+              to={announcement.link}
+              className="text-[#DECBA7] text-sm underline hover:text-[#dc901e] py-2"
+            >
+              ✅ Check out the event
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

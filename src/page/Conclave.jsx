@@ -2,72 +2,74 @@
 
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel, Keyboard } from "swiper/modules";
+import { Navigation, Mousewheel, Keyboard } from "swiper/modules";
 import { motion, AnimatePresence } from "framer-motion";
 import "swiper/css";
+import "swiper/css/navigation";
+import ConclaveGrid from "../components/conclave/ConclaveGrid";
 
 const slideData = [
   {
     id: 1,
     description:
-      "lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quolibero aliquam ipsa totam voluptatibus blanditiis distinctio,recusandae dolore eligendi, deleniti perspiciatis cumque saepe rem aspernatur, molestiae temporibus culpa impedit est. dolor sit amet",
-    image:
-      "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo libero aliquam ipsa totam voluptatibus blanditiis distinctio, recusandae dolore eligendi, deleniti perspiciatis cumque saepe rem aspernatur, molestiae temporibus culpa impedit est.",
+    image: "/images/conclaveslider5.webp",
   },
   {
     id: 2,
     description:
-      "lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quolibero aliquam ipsa totam voluptatibus blanditiis distinctio,recusandae dolore eligendi, deleniti perspiciatis cumque saepe rem aspernatur, molestiae temporibus culpa impedit est.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc9APxkj0xClmrU3PpMZglHQkx446nQPG6lA&s",
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo libero aliquam ipsa totam voluptatibus blanditiis distinctio, recusandae dolore eligendi, deleniti perspiciatis cumque saepe rem aspernatur, molestiae temporibus culpa impedit est.",
+    image: "/images/conclave.webp",
   },
   {
     id: 3,
     description:
-      "lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quolibero aliquam ipsa totam voluptatibus blanditiis distinctio,recusandae dolore eligendi, deleniti perspiciatis cumque saepe rem aspernatur, molestiae temporibus culpa impedit est.",
-    image:
-      "https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D",
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo libero aliquam ipsa totam voluptatibus blanditiis distinctio, recusandae dolore eligendi, deleniti perspiciatis cumque saepe rem aspernatur, molestiae temporibus culpa impedit est.",
+    image: "/images/conclaveslider3.webp",
   },
 ];
 
 function Conclave() {
   const [swiper, setSwiper] = useState(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handlePrev = () => {
-    if (swiper) swiper.slidePrev();
-  };
-
-  const handleNext = () => {
-    if (swiper) swiper.slideNext();
-  };
 
   return (
-    <section>
+    <section className=" min-h-screen flex flex-col items-center justify-center">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-6xl font-bold text-center text-[#DECBA7] tracking-wider mt-8">
+        <h1 className="text-4xl md:text-6xl font-bold text-center text-[#DECBA7] tracking-wider mb-8">
           Conclave
         </h1>
-        <div className="relative w-full h-full flex items-center justify-center gap-1 mt-8 bg-black rounded-3xl border-2 border-[#DECBA7]">
+        <div className="relative w-full bg-black rounded-3xl border-2 border-[#DECBA7] overflow-hidden">
           <Swiper
             onSwiper={setSwiper}
-            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+            modules={[Navigation, Mousewheel, Keyboard]}
             mousewheel={true}
             keyboard={true}
-            modules={[Mousewheel, Keyboard]}
-            loop={true}
+            rewind={true}
+            navigation={{
+              prevEl: ".swiper-button-prev ",
+              nextEl: ".swiper-button-next",
+            }}
+            className="h-[600px]"
           >
             {slideData.map((slide) => (
-              <SwiperSlide key={slide.id}>
-                <div className="flex flex-col md:flex-row items-center h-full">
-                  <div className="w-full md:w-1/2  h-full">
-                    <img
-                      src={slide.image}
-                      alt="conclave"
-                      className="w-full h-full object-cover overflow-hidden  md:rounded-l-3xl md:rounded-tr-none"
-                    />
+              <SwiperSlide
+                key={slide.id}
+                className="flex items-center justify-center"
+              >
+                <div className="flex flex-col md:flex-row items-center h-full w-full">
+                  <div className="w-full md:w-1/2 h-1/2 md:h-full">
+                    <AnimatePresence mode="wait">
+                      <motion.img
+                        initial={{ x: 300, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: -300, opacity: 0 }}
+                        src={slide.image}
+                        alt={`conclave-${slide.id}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </AnimatePresence>
                   </div>
-                  <div className="w-full md:w-1/2 h-full flex items-center justify-center p-4">
+                  <div className="w-full md:w-1/2 h-full flex items-center justify-center p-4 bg-black">
                     <AnimatePresence mode="wait">
                       <motion.p
                         key={slide.id}
@@ -85,22 +87,11 @@ function Conclave() {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="flex items-center justify-between gap-2 px-4 py-2 absolute bottom-4 left-4 right-4 z-10">
-            <button
-              onClick={handlePrev}
-              className="rounded-full bg-[#8A0000] text-[#DECBA7] px-4 py-3 font-medium text-xl transition-colors ease-linear duration-150 hover:text-[#decba7c4] hover:bg-[#ac1212] focus:outline-none focus:border-[#decba7] focus:ring-[#decba7] focus:ring-2 ring-offset-1 ring-offset-[#ac1212]"
-            >
-              &larr;
-            </button>
-            <button
-              onClick={handleNext}
-              className="bg-[#8A0000] text-[#DECBA7] px-4 py-3 font-medium text-xl rounded-full transition-colors ease-linear duration-150 hover:text-[#decba7c4] hover:bg-[#ac1212] focus:outline-none focus:border-[#decba7] focus:ring-[#decba7] focus:ring-2 ring-offset-1 ring-offset-[#ac1212]"
-            >
-              &rarr;
-            </button>
-          </div>
+          <div className="swiper-button-prev text-2xl !text-[#DECBA7] !left-4 py-8 px-8 bg-[#000000] border-2 border-[#DECBA7] opacity-55 hover:opacity-100 transition-opacity ease-linear duration-300 hover:bg-red-500 rounded-full"></div>
+          <div className="swiper-button-next !text-[#DECBA7] !right-4 py-8 px-8 bg-[#000000] opacity-55 hover:opacity-100 transition-opacity ease-linear duration-300 hover:bg-red-500 rounded-full border-2 border-[#DECBA7] "></div>
         </div>
       </div>
+      <ConclaveGrid />
     </section>
   );
 }
