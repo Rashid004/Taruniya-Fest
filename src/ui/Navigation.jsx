@@ -58,12 +58,12 @@ function Navigation() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-[99999] lg:hidden transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 z-[999] lg:hidden transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div
-          className="absolute inset-0 z-[99999] bg-black bg-opacity-50 backdrop-blur-sm"
+          className="absolute inset-0 z-[999] bg-black bg-opacity-50 backdrop-blur-sm"
           onClick={toggleMenu}
         ></div>
         <nav className="absolute top-0 right-0 bottom-0 w-full shadow-xl transform transition-transform duration-300 ease-in-out flex flex-col z-[9999]">

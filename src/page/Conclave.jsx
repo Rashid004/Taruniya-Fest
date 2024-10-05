@@ -51,7 +51,7 @@ function Conclave() {
         <h1 className="text-4xl md:text-6xl font-bold text-center text-[#DECBA7] tracking-wider mb-12">
           Conclave
         </h1>
-        <div className=" relative bg-black bg-opacity-80 opacity-100 shadow-2xl shadow-red-500/60 border-2 border-[#DECBA7] overflow-hidden mb-16 rounded-2xl">
+        <div className="z-[99] relative bg-black bg-opacity-80 opacity-100 shadow-2xl shadow-red-500/60 border-2 border-[#DECBA7] overflow-hidden mb-16 rounded-2xl">
           <Swiper
             spaceBetween={50}
             slidesPerView={1}
@@ -68,7 +68,7 @@ function Conclave() {
                 key={slide.id}
                 className="flex items-center justify-center"
               >
-                <div className=" flex items-center justify-center w-full h-[300px] md:h-[400px] lg:h-[500px]">
+                <div className="flex items-center justify-center w-full h-[300px] md:h-[400px] lg:h-[500px]">
                   <div className="w-full md:w-1/2 h-full">
                     <img
                       src={slide.image}
@@ -89,10 +89,10 @@ function Conclave() {
             ))}
           </Swiper>
           <div className="flex items-center justify-between">
-            <button className="custom-prev z-[9999] absolute left-2 bottom-0 transform -translate-y-1/2 bg-[#000000] bg-opacity-50 p-2 rounded-full md:left-4  md:w-6 md:h-6 lg:left-6 lg:w-10 lg:h-10 flex justify-center items-center border-2 border-[#DECBA7] ">
+            <button className="custom-prev z-[999] absolute left-2 bottom-0 transform -translate-y-1/2 bg-[#000000] bg-opacity-50 p-2 rounded-full md:left-4  md:w-8 md:h-8 lg:left-6 lg:w-10 lg:h-10 flex justify-center items-center border-2 border-[#DECBA7] ">
               <FiChevronLeft size={24} color="white" />
             </button>
-            <button className="custom-next z-[9999] absolute right-2 bottom-0 transform -translate-y-1/2 bg-[#000000] bg-opacity-50  p-2 rounded-full md:right-4   md:w-6 md:h-6 lg:right-6 lg:w-10 lg:h-10 flex justify-center items-center border-2 border-[#DECBA7]">
+            <button className="custom-next z-[999] absolute right-2 bottom-0 transform -translate-y-1/2 bg-[#000000] bg-opacity-50  p-2 rounded-full md:right-4   md:w-6 md:h-6 lg:right-6 lg:w-10 lg:h-10 flex justify-center items-center border-2 border-[#DECBA7]">
               <FiChevronRight size={24} color="white" />
             </button>
           </div>
