@@ -1,94 +1,113 @@
 /** @format */
 
-import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Mousewheel, Keyboard } from "swiper/modules";
-import { motion, AnimatePresence } from "framer-motion";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import { Swiper as SwiperInstance } from "swiper";
+
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { useState } from "react";
 import ConclaveGrid from "../components/conclave/ConclaveGrid";
 
 const slideData = [
   {
     id: 1,
+    name: "Dr. Ryan Fernando",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo libero aliquam ipsa totam voluptatibus blanditiis distinctio, recusandae dolore eligendi, deleniti perspiciatis cumque saepe rem aspernatur, molestiae temporibus culpa impedit est.",
-    image: "/images/conclaveslider5.webp",
+      "Awarded the Best Nutritionist of the Year by an International Jury from ATP International Fitness and Sports Convention, Member, Olympic Committee Anti-Doping Council of India",
+    image:
+      "https://imgs.search.brave.com/gHbnZ4kPd5nW5eKm1QAbWq9RPyPkJt2NOGK2LUF9SGU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tdWxn/cmF2ZXByaXZhdGUu/Y29tLmF1L2ltYWdl/ci91cGxvYWRzL211/bGdyYXZlcHJpdmF0/ZS5jb20uYXUvNDU1/Ni9kcklhbk1hdHRo/ZXdzXzFlODU5ZDc5/OWYzMGVhY2E3ZDRm/MThhYWVlYzY1NWQ0/LmpwZw",
   },
   {
     id: 2,
+    name: "Dr. Random",
+
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo libero aliquam ipsa totam voluptatibus blanditiis distinctio, recusandae dolore eligendi, deleniti perspiciatis cumque saepe rem aspernatur, molestiae temporibus culpa impedit est.",
+      "Join us for inspiring talks by industry leaders and alumni, sharing insights on the future of technology and career opportunities in the digital age.",
     image: "/images/conclave.webp",
   },
   {
     id: 3,
+    name: "Dr. Random dummy",
+
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo libero aliquam ipsa totam voluptatibus blanditiis distinctio, recusandae dolore eligendi, deleniti perspiciatis cumque saepe rem aspernatur, molestiae temporibus culpa impedit est.",
+      "Participate in exciting hackathons and coding competitions, putting your skills to the test and collaborating with peers to solve real-world challenges.",
     image: "/images/conclaveslider3.webp",
   },
 ];
 
 function Conclave() {
-  const [swiper, setSwiper] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  const slideCount = slideData.length;
+
+  const onSlideChange = (SwiperInstance) => {
+    setActiveIndex(SwiperInstance.realIndex); // Update activeIndex when slide changes
+  };
   return (
-    <section className=" min-h-screen flex flex-col items-center justify-center">
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl md:text-6xl font-bold text-center text-[#DECBA7] tracking-wider mb-8">
+    <section className="min-h-screen flex flex-col items-center justify-center py-12">
+      <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="text-4xl md:text-6xl font-bold text-center text-[#DECBA7] tracking-wider mb-12">
           Conclave
         </h1>
-        <div className="relative w-full bg-black rounded-3xl border-2 border-[#DECBA7] overflow-hidden">
+        <div className=" relative bg-black bg-opacity-80 opacity-100 shadow-2xl shadow-red-500/60 border-2 border-[#DECBA7] overflow-hidden mb-16 rounded-2xl">
           <Swiper
-            onSwiper={setSwiper}
-            modules={[Navigation, Mousewheel, Keyboard]}
-            mousewheel={true}
-            keyboard={true}
+            spaceBetween={50}
+            slidesPerView={1}
+            modules={[Navigation]}
             rewind={true}
+            onSlideChange={onSlideChange} // Call this function when the slide changes
             navigation={{
-              prevEl: ".swiper-button-prev ",
-              nextEl: ".swiper-button-next",
+              nextEl: ".custom-next",
+              prevEl: ".custom-prev",
             }}
-            className="h-[600px]"
           >
             {slideData.map((slide) => (
               <SwiperSlide
                 key={slide.id}
                 className="flex items-center justify-center"
               >
-                <div className="flex flex-col md:flex-row items-center h-full w-full">
-                  <div className="w-full md:w-1/2 h-1/2 md:h-full">
-                    <AnimatePresence mode="wait">
-                      <motion.img
-                        initial={{ x: 300, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        exit={{ x: -300, opacity: 0 }}
-                        src={slide.image}
-                        alt={`conclave-${slide.id}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </AnimatePresence>
+                <div className=" flex items-center justify-center w-full h-[300px] md:h-[400px] lg:h-[500px]">
+                  <div className="w-full md:w-1/2 h-full">
+                    <img
+                      src={slide.image}
+                      alt={slide.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <div className="w-full md:w-1/2 h-full flex items-center justify-center p-4 bg-black">
-                    <AnimatePresence mode="wait">
-                      <motion.p
-                        key={slide.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.5 }}
-                        className="text-sm md:text-base lg:text-lg text-[#DECBA7] text-center px-4"
-                      >
-                        {slide.description}
-                      </motion.p>
-                    </AnimatePresence>
+                  <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center p-4 md:p-8">
+                    <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#DECBA7] mb-4">
+                      {slide.name}
+                    </h2>
+                    <p className="text-xs md:text-base text-[#DECBA7]">
+                      {slide.description}
+                    </p>
                   </div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="swiper-button-prev text-2xl !text-[#DECBA7] !left-4 py-8 px-8 bg-[#000000] border-2 border-[#DECBA7] opacity-55 hover:opacity-100 transition-opacity ease-linear duration-300 hover:bg-red-500 rounded-full"></div>
-          <div className="swiper-button-next !text-[#DECBA7] !right-4 py-8 px-8 bg-[#000000] opacity-55 hover:opacity-100 transition-opacity ease-linear duration-300 hover:bg-red-500 rounded-full border-2 border-[#DECBA7] "></div>
+          <div className="flex items-center justify-between">
+            <button className="custom-prev z-[9999] absolute left-2 bottom-0 transform -translate-y-1/2 bg-[#000000] bg-opacity-50 p-2 rounded-full md:left-4  md:w-6 md:h-6 lg:left-6 lg:w-10 lg:h-10 flex justify-center items-center border-2 border-[#DECBA7] ">
+              <FiChevronLeft size={24} color="white" />
+            </button>
+            <button className="custom-next z-[9999] absolute right-2 bottom-0 transform -translate-y-1/2 bg-[#000000] bg-opacity-50  p-2 rounded-full md:right-4   md:w-6 md:h-6 lg:right-6 lg:w-10 lg:h-10 flex justify-center items-center border-2 border-[#DECBA7]">
+              <FiChevronRight size={24} color="white" />
+            </button>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center z-[999] gap-2">
+            {Array.from({ length: slideCount }).map((_, index) => (
+              <span
+                key={index}
+                className={` mb-4 w-3 h-3 rounded-full ${
+                  activeIndex === index
+                    ? "bg-[#DECBA7] transition-colors duration-300 ease-in-out"
+                    : "bg-[#D1D5DB]"
+                }`}
+              ></span>
+            ))}
+          </div>
         </div>
       </div>
       <ConclaveGrid />

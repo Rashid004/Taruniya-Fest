@@ -12,7 +12,7 @@ const navLinks = [
   { id: 2, href: "/contact", label: "Contact" },
   { id: 3, href: "/announcement", label: "Announcement" },
   { id: 4, href: "/events", label: "Events" },
-  { id: 5, href: "/swar", label: "Swar|Blog" },
+  { id: 5, href: "/blog", label: "Blog" },
   { id: 6, href: "/conclave", label: "Conclave" },
   { id: 7, href: "/workforce", label: "Workforce" },
   { id: 8, href: "/commitee", label: "Commitee" },

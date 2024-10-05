@@ -1,11 +1,10 @@
 /** @format */
 
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/Home";
 import Workforce from "./page/Workforce";
 import Conclave from "./page/Conclave";
-import Swar from "./page/Swar";
 import Events from "./page/Events";
 import Announcement from "./page/Announcement";
 import Contact from "./page/Contact";
@@ -13,8 +12,10 @@ import AppLayout from "./ui/AppLayout";
 import { Toaster } from "react-hot-toast";
 import SponsorsPage from "./page/SponsorsPage";
 import CommiteePage from "./page/CommiteePage";
+import Loading from "./ui/Loading";
+import Blog from "./page/Blog";
 const EventsDetail = lazy(() => import("./page/EventsDetail"));
-// import NotFoundPage from "./ui/NotFoundPage";
+import NotFoundPage from "./ui/NotFoundPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -40,11 +41,15 @@ function App() {
         },
         {
           path: "events/:eventId", // Dynamic route for event details
-          element: <EventsDetail />, // Render specific event content
+          element: (
+            <Suspense fallback={<Loading />}>
+              <EventsDetail />
+            </Suspense>
+          ), // Render specific event content
         },
         {
-          path: "swar",
-          element: <Swar />,
+          path: "blog",
+          element: <Blog />,
         },
         {
           path: "conclave",
@@ -64,10 +69,10 @@ function App() {
         },
       ],
     },
-    // {
-    //   path: "*",
-    //   element: <NotFoundPage />,
-    // },
+    {
+      path: "*",
+      element: <NotFoundPage />,
+    },
   ]);
 
   return (
