@@ -58,7 +58,7 @@ function Navigation() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-[999] lg:hidden transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 z-[99999] lg:hidden transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
