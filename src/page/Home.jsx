@@ -1,7 +1,7 @@
 /** @format */
 
 function Home() {
-  return <div>Home Page</div>;
+  return <section className="min-h-screen">Home Page</section>;
 }
 
 export default Home;

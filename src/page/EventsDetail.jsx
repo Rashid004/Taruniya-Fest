@@ -157,7 +157,7 @@ function EventsDetail() {
   if (!event) return <div>Event not found</div>;
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8">
+    <div className="px-4 sm:px-6 lg:px-8 min-h-screen">
       <div className="max-w-6xl mx-auto w-full">
         {eventId ? (
           <>
