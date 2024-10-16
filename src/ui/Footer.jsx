@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="flex items-center justify-center gap-6 py-8">
+    <div className="flex items-center justify-center gap-6 py-8 bg-transparent relative z-50">
       <Link
         to="#"
         className="hover:opacity-80 hover:scale-110 transition-all duration-150 ease-in-out"

@@ -6,8 +6,10 @@
 @tailwind utilities;
 
 body {
-  background: linear-gradient(135deg, #a62639, #800020);
   font-family: "Inter", sans-serif;
+  background-image: url("/home/home-bg.png");
+  background-size: cover;
+  background-position: center;
 }
 
 @layer base {
