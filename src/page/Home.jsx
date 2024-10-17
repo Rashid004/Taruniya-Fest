@@ -1,137 +1,174 @@
 /** @format */
 
+// import { useEffect, useRef } from "react";
+// import gsap from "gsap";
+
 function Home() {
+  // const cloudLeft1Ref = useRef(null);
+  // const cloudLeft2Ref = useRef(null);
+  // const cloudRight1Ref = useRef(null);
+  // const cloudRight2Ref = useRef(null);
+  // const cloudMiddleRef = useRef(null);
+
+  // useEffect(() => {
+  //   // GSAP Animations
+  //   gsap.from(cloudLeft1Ref.current, {
+  //     x: -200,
+  //     opacity: 0,
+  //     duration: 2,
+  //   });
+
+  //   gsap.from(cloudLeft2Ref.current, {
+  //     x: -300,
+  //     opacity: 0,
+  //     delay: 0.5,
+  //     duration: 2,
+  //   });
+
+  //   gsap.from(cloudRight1Ref.current, {
+  //     x: 200,
+  //     opacity: 0,
+  //     duration: 2,
+  //   });
+
+  //   gsap.from(cloudRight2Ref.current, {
+  //     x: 300,
+  //     opacity: 0,
+  //     delay: 0.5,
+  //     duration: 2,
+  //   });
+
+  //   gsap.from(cloudMiddleRef.current, {
+  //     y: -100,
+  //     opacity: 0,
+  //     delay: 1,
+  //     duration: 2,
+  //   });
+  // }, []);
+
   return (
-    <section className="h-[80vh] relative">
-      {/* Clouds Left-1 */}
-      <div className="absolute left-[22%] right-0 top-10 z-[-1]">
-        <img
-          src="/home/cloudleft-1.png"
-          alt="Cloud Left-1"
-          className="w-[150px] sm:w-[100px] lg:w-[150px] object-cover"
-        />
-      </div>
+    <section className="relative w-full h-[90vh] overflow-hidden ">
+      <img
+        src="/home/cloudleft-1.png"
+        alt="Cloud Left-1"
+        className="w-[15vw] max-w-[150px] min-w-[100px] absolute left-1/3 top-[15%] z-10"
+      />
 
       {/* Clouds Left-2 */}
-      <div className="absolute -left-14 right-0 top-16 z-[-1]">
-        <img
-          src="/home/cloudleft-2.png"
-          alt="Cloud left-2"
-          className="w-[150px] sm:w-[100px] lg:w-[150px] object-cover"
-        />
-      </div>
+      <img
+        src="/home/cloudleft-2.png"
+        alt="Cloud left-2"
+        className="w-[15vw] max-w-[150px] min-w-[100px] absolute left-[10%] top-[10%] z-20"
+      />
 
       {/* Clouds Right-1 */}
-      <div className="absolute -right-[6%] top-6 z-[-1]">
+      <div className="absolute right-0 top-1/4 lg:right-[20%] lg:top-[20%] z-30">
         <img
           src="/home/cloudright-1.png"
           alt="Cloud right-1"
-          className="w-[350px] sm:w-[200px] md:w-[250px] lg:w-[350px] object-cover"
+          className="w-[30vw] max-w-[370px] min-w-[180px] object-contain"
         />
       </div>
 
       {/* Clouds Right-2 */}
-      <div className="absolute -right-[5%] top-[28%] z-[-1]">
+      <div className="absolute right-0 top-0 z-40">
         <img
           src="/home/cloudright-2.png"
           alt="Cloud right-2"
-          className="w-[220px] sm:w-[150px] md:w-[180px] lg:w-[220px] object-cover"
+          className="w-[20vw] max-w-[230px] min-w-[120px] object-contain"
         />
       </div>
 
       {/* Clouds Middle */}
-      <div className="absolute right-1/4 top-[28%] z-[-1]">
+      <div className="absolute left-0 top-0 right-0 z-50">
         <img
           src="/home/cloudmiddle.png"
           alt="Cloud middle"
-          className="w-[180px] sm:w-[100px] md:w-[140px] lg:w-[180px] object-cover"
-        />
-      </div>
-
-      {/* Logo */}
-      <div className="absolute right-0 left-0 translate-x-[40%] top-0 z-[-1]">
-        <img
-          src="/home/logo.png"
-          alt="Logo of Navneet Fest"
-          className="w-[350px] sm:w-[200px] md:w-[280px] lg:w-[350px] object-cover"
+          className="w-[15vw] max-w-[180px] min-w-[100px] object-contain"
         />
       </div>
 
       {/* Left Building */}
-      <div className="absolute left-0 right-0 top-0 z-[-1]">
+      <div className="absolute left-0 bottom-[20%] 2md:bottom-1/4 transform -translate-x-6 lg:-translate-x-4 w-[40vw] max-w-[300px] min-w-[220px] md:min-w-[350px] md:max-w-[500px] 2md:max-w-[600px] 2md:min-w-[300px] lg:min-w-[200px] lg:max-w-[550px]">
         <img
           src="/home/leftbuilding.png"
           alt="left-building"
-          className="w-[500px] sm:w-[250px] md:w-[400px] lg:w-[500px] object-cover"
+          className="w-full object-contain"
         />
       </div>
 
       {/* Gateway of India */}
-      <div className="absolute left-0 translate-x-[6%] right-0 top-[30%] z-[-1]">
+      <div className="absolute left-[6%] bottom-[20%] 2md:bottom-[25%] w-[25vw] max-w-[300px] min-w-[140px] md:min-w-[250px] md:max-w-[400px]">
         <img
           src="/home/gateway.png"
           alt="Gateway of India"
-          className="w-[330px] sm:w-[150px] md:w-[250px] lg:w-[330px] object-cover"
+          className="w-full object-contain"
         />
       </div>
 
       {/* Right Building */}
-      <div className="absolute right-0 translate-x-[6%] top-[25%] z-[-1]">
+      <div className="absolute right-0 top-[65%] md:top-[54%] 2md:top-[40%] lg:top-[35%] w-[45vw] max-w-[400px] min-w-[200px] md:max-w-[500px] md:min-w-[250px] 2md:max-w-[600px] 2md:min-w-[300px]">
         <img
           src="/home/buildingright.png"
           alt="building right"
-          className="w-[600px] sm:w-[300px] md:w-[500px] lg:w-[600px] object-cover"
+          className="w-full object-contain"
         />
       </div>
 
       {/* Clock Tower */}
-      <div className="absolute right-[15%] top-3 z-[-1]">
+      <div className="absolute right-[20%] lg:right-[15%] bottom-[20%] 2md:bottom-[25%] w-[5vw] max-w-[100px] min-w-[50px] md:max-w-[150px] md:min-w-[80px] lg:max-w-[90px] lg:min-w-[45px]">
         <img
           src="/home/clocktower.png"
           alt="Clock Tower"
-          className="w-[74px] sm:w-[50px] lg:w-[74px] object-cover"
+          className="w-full object-contain"
         />
       </div>
 
       {/* Line Background */}
-      <div className="absolute left-0 right-0 bottom-[30%] z-[-1]">
-        <img src="/home/linebg.png" alt="Line bg" className="w-full" />
+      <div className="absolute left-0 right-0 bottom-[20%] 2md:bottom-1/4">
+        <img
+          src="/home/linebg.png"
+          alt="Line bg"
+          className="w-full object-cover"
+        />
       </div>
 
-      {/* Cars and Bus */}
-      <div className="absolute -left-32 top-[60%] translate-y-[65%] z-[-1]">
+      {/* Vehicles */}
+      <div className="absolute bottom-0  w-full h-[20vh] overflow-hidden">
         <img
           src="/home/carleft-1.png"
-          alt="car-left-1"
-          className="w-[300px] sm:w-[200px] lg:w-[300px] object-cover"
+          alt="Car left 1"
+          className="absolute -left-[10%] lg:-left-[5%] bottom-16 md:bottom-20 2md:bottom-24 w-[20vw] max-w-[150px] min-w-[100px]  lg:max-w-[250px] lg:min-w-[120px] object-contain "
         />
-      </div>
-      <div className="absolute left-40 top-[88%] z-[-1]">
         <img
           src="/home/carleft-2.png"
-          alt="car-left-2"
-          className="w-[300px] sm:w-[200px] lg:w-[300px] object-cover"
+          alt="Car left 2"
+          className="absolute left-0 md:left-12 lg:left-[15%] bottom-0 transform -translate-y-2 w-[20vw] max-w-[150px] min-w-[100px]  lg:max-w-[250px] lg:min-w-[120px] object-contain"
         />
-      </div>
-      <div className="absolute left-1/3 top-[65%] z-[-1] translate-y-1/2">
+        {/* Bus  */}
         <img
           src="/home/bus.png"
           alt="Bus"
-          className="w-[600px] sm:w-[300px] md:w-[450px] lg:w-[600px] object-cover"
+          className="absolute left-1/2 md:left-[48%] bottom-0 transform -translate-x-1/2 w-[40vw] max-w-[400px] min-w-[200px]  md:max-w-[400px] md:min-w-[200px]  lg:max-w-[500px] lg:min-w-[200px] object-contain"
         />
-      </div>
-      <div className="absolute right-[16%] top-[80%] z-[-1] translate-y-1/2">
         <img
           src="/home/carright-1.png"
-          alt="car-right-1"
-          className="w-[300px] sm:w-[200px] lg:w-[300px] object-cover"
+          alt="Car right 1"
+          className="absolute right-[15%] md:right-[10%] lg:right-1/4 bottom-0 w-[20vw] max-w-[300px] min-w-[150px] lg:max-w-[250px] lg:min-w-[120px] object-contain hidden md:block"
         />
-      </div>
-      <div className="absolute right-5 top-[70%] z-[-1] translate-y-1/2">
         <img
           src="/home/carright-2.png"
-          alt="car-right-2"
-          className="w-[300px] sm:w-[200px] lg:w-[300px] object-cover"
+          alt="Car right 2"
+          className="absolute right-0 lg:right-[10%] bottom-0 md:bottom-16 2md:bottom-20 w-[20vw] max-w-[150px] min-w-[100px]  lg:max-w-[250px] lg:min-w-[120px] object-contain"
+        />
+      </div>
+
+      {/* Content Overlay */}
+      <div className="absolute inset-0 transform md:-translate-y-[20%] flex flex-col items-center justify-center text-white">
+        <img
+          src="/home/logo.png"
+          alt="Tarunya Logo"
+          className="w-[30vw] max-w-[160px] min-w-[120px] md:max-w-[350px] md:min-w-[200px] mb-4"
         />
       </div>
     </section>
