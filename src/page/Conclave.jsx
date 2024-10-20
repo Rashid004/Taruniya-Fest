@@ -57,6 +57,8 @@ function Conclave() {
             slidesPerView={1}
             modules={[Navigation]}
             rewind={true}
+            // fadeEffect={{ crossFade: true }}
+            // fadedSlideClass="opacity-0"
             onSlideChange={onSlideChange} // Call this function when the slide changes
             navigation={{
               nextEl: ".custom-next",
