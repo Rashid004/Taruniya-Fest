@@ -110,7 +110,7 @@ const CommitteeMember = ({ member, index }) => {
   );
 };
 
-const CommitteePage = () => {
+const OurTeam = () => {
   return (
     <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -132,4 +132,4 @@ const CommitteePage = () => {
   );
 };
 
-export default CommitteePage;
+export default OurTeam;

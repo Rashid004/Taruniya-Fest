@@ -8,15 +8,17 @@ import { FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import Logo from "./Logo";
 
 const navLinks = [
-  { id: 1, href: "/", label: "Home" },
-  { id: 2, href: "/contact", label: "Contact" },
-  { id: 3, href: "/announcement", label: "Announcement" },
-  { id: 4, href: "/events", label: "Events" },
-  { id: 5, href: "/blog", label: "Blog" },
-  { id: 6, href: "/conclave", label: "Conclave" },
-  { id: 7, href: "/workforce", label: "Workforce" },
-  { id: 8, href: "/commitee", label: "Commitee" },
-  { id: 9, href: "/sponsors", label: "Sponsors" },
+  { href: "/", label: "Home" },
+  { href: "/about-us", label: "About Us" },
+  { href: "/conclave", label: "Conclave" },
+  { href: "/announcement", label: "Announcement" },
+  { href: "/events", label: "Events" },
+  { href: "/leaderboard", lablel: "Leader Board" },
+  { href: "/blog", label: "Blog" },
+  { href: "/sponsors", label: "Sponsors" },
+  { href: "/ourteam", label: "our Team" },
+  // {  href: "/workforce", label: "Workforce" },
+  { href: "/contact", label: "Contact" },
 ];
 
 function Navigation() {
@@ -28,15 +30,15 @@ function Navigation() {
   }
 
   return (
-    <header className="relative border-b-[1px] border-[#bca476] ">
+    <header className="relative border-b-[1px] border-secondary ">
       {/* Desktop Navigation */}
-      <nav className="bg-transparent hidden lg:flex justify-between items-center px-4 lg:px-8 pt-4">
+      <nav className="bg-transparent hidden lg:flex justify-between items-center px-4 lg:px-8 py-4 ">
         <Logo />
-        <ul className="flex items-center lg:gap-[9px] xl:gap-12">
-          {navLinks.map((link) => (
+        <ul className="flex items-center lg:gap-[9px] xl:gap-8">
+          {navLinks.map((link, index) => (
             <li
-              key={link.id}
-              className="text-[#bca476] hover:text-[#DECBA7] transition-colors duration-300 text-lg font-medium"
+              key={index}
+              className="text-secondary text-nowrap tracking-wider hover:text-secondary-yellow transition-colors duration-300 text-lg xl:text-xl font-medium uppercase"
             >
               <Link to={link.href}>{link.label}</Link>
             </li>
@@ -74,12 +76,12 @@ function Navigation() {
             </button>
           </div>
           <div className="flex flex-col gap-4 p-4 ">
-            {navLinks.map((item) => (
+            {navLinks.map((item, index) => (
               <Link
-                key={item.id}
+                key={index}
                 to={item.href}
-                className={`block py-3 text-lg text-[#bca476] font-medium hover:text-[#DECBA7] transition-colors ${
-                  activeLink === item.href ? "text-[#DECBA7]" : ""
+                className={`tracking-wider block py-3 text-lg text-secondary font-medium hover:text-secondary-yellow transition-colors ${
+                  activeLink === item.href ? "text-secondary-yellow" : ""
                 }`}
                 onClick={() => {
                   toggleMenu();
@@ -94,15 +96,15 @@ function Navigation() {
           <div className="flex justify-center space-x-6 p-4 ">
             <FaInstagram
               size="1.5em"
-              className="text-gray-600 hover:text-[#DECBA7] transition-colors duration-300"
+              className="text-gray-600 hover:text-secondary-yellow transition-colors duration-300"
             />
             <FaLinkedin
               size="1.5em"
-              className="text-gray-600 hover:text-[#DECBA7] transition-colors duration-300"
+              className="text-gray-600 hover:text-secondary-yellow transition-colors duration-300"
             />
             <FaXTwitter
               size="1.5em"
-              className="text-gray-600 hover:text-[#DECBA7] transition-colors duration-300"
+              className="text-gray-600 hover:text-secondary-yellow transition-colors duration-300"
             />
           </div>
         </nav>

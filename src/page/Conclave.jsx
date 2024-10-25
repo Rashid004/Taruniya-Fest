@@ -48,10 +48,8 @@ function Conclave() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center py-12">
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl md:text-6xl font-bold text-center text-[#DECBA7] tracking-wider mb-12">
-          Conclave
-        </h1>
-        <div className="z-[99] relative bg-black bg-opacity-80 opacity-100 shadow-2xl shadow-red-500/60 border-2 border-[#DECBA7] overflow-hidden mb-16 rounded-2xl">
+        <h1 className="main-heading">Conclave</h1>
+        <div className="z-[99] relative bg-primaryDark  opacity-100 shadow-2xl shadow-red-500/60 overflow-hidden mb-16 rounded-2xl">
           <Swiper
             spaceBetween={50}
             slidesPerView={1}

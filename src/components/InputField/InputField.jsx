@@ -5,7 +5,10 @@ import { ValidationError } from "@formspree/react";
 export default function InputField({ label, name, type, placeholder }) {
   return (
     <div className="flex flex-col gap-2 items-start w-full">
-      <label className="text-lg font-medium text-[#DECBA7]" htmlFor={name}>
+      <label
+        className="text-base md:text-lg font-medium text-[#DECBA7]"
+        htmlFor={name}
+      >
         {label}
       </label>
       <input

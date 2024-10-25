@@ -52,9 +52,7 @@ function Events() {
   return (
     <section>
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 ">
-        <h1 className="text-6xl font-bold text-center text-[#DECBA7] tracking-wider mt-8">
-          Events
-        </h1>
+        <h1 className="main-heading">Events</h1>
         {events.map((event) => (
           <EventCard
             key={event.id}

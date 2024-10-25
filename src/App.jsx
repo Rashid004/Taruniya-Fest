@@ -3,7 +3,6 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/Home";
-import Workforce from "./page/Workforce";
 import Conclave from "./page/Conclave";
 import Events from "./page/Events";
 import Announcement from "./page/Announcement";
@@ -11,11 +10,13 @@ import Contact from "./page/Contact";
 import AppLayout from "./ui/AppLayout";
 import { Toaster } from "react-hot-toast";
 import SponsorsPage from "./page/SponsorsPage";
-import CommiteePage from "./page/CommiteePage";
 import Loading from "./ui/Loading";
 import Blog from "./page/Blog";
 const EventsDetail = lazy(() => import("./page/EventsDetail"));
 import NotFoundPage from "./ui/NotFoundPage";
+import LeaderBoard from "./page/LeaderBoard";
+import OurTeam from "./page/OurTeam";
+import About from "./page/About";
 
 function App() {
   const router = createBrowserRouter([
@@ -32,12 +33,20 @@ function App() {
           element: <Contact />,
         },
         {
+          path: "about-us",
+          element: <About />,
+        },
+        {
           path: "announcement",
           element: <Announcement />,
         },
         {
           path: "events",
           element: <Events />,
+        },
+        {
+          path: "leaderboard",
+          element: <LeaderBoard />,
         },
         {
           path: "events/:eventId", // Dynamic route for event details
@@ -55,13 +64,13 @@ function App() {
           path: "conclave",
           element: <Conclave />,
         },
+        // {
+        //   path: "workforce",
+        //   element: <Workforce />,
+        // },
         {
-          path: "workforce",
-          element: <Workforce />,
-        },
-        {
-          path: "commitee",
-          element: <CommiteePage />,
+          path: "ourteam",
+          element: <OurTeam />,
         },
         {
           path: "sponsors",

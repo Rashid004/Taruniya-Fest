@@ -53,7 +53,7 @@ const AnnouncementCard = ({ announcement }) => {
   return (
     <motion.div
       layout
-      className="bg-[#000000] rounded-lg shadow-md overflow-hidden mb-4"
+      className="bg-primaryDark rounded-2xl shadow-md overflow-hidden mb-4"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -115,9 +115,7 @@ const AnnouncementsPage = () => {
   return (
     <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8 animate-morph">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl md:text-5xl font-semibold text-center text-[#DECBA7] mb-8 tracking-wider font-naughty">
-          Taruniya Announcements
-        </h1>
+        <h1 className="main-heading"> Announcements</h1>
         <div className="space-y-6">
           {announcements.map((announcement) => (
             <AnnouncementCard

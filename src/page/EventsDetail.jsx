@@ -161,9 +161,7 @@ function EventsDetail() {
       <div className="max-w-6xl mx-auto w-full">
         {eventId ? (
           <>
-            <h1 className="text-6xl font-bold text-center text-[#DECBA7] tracking-wider mt-8 mb-8">
-              {event.heading}
-            </h1>
+            <h1 className="main-heading">{event.heading}</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
               {event.events.map((item, index) => (
                 <motion.div
@@ -171,12 +169,12 @@ function EventsDetail() {
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.4 }}
-                  className="bg-[#000000] bg-opacity-40 rounded-3xl shadow-md px-4 py-8 flex flex-col items-center gap-8 border-2 border-[#DECBA7]"
+                  className="bg-primaryDark bg-opacity-40 rounded-3xl shadow-md px-4 py-8 flex flex-col items-center gap-8 border-sectext-secondary-yellow shadow-hover w-full h-auto overflow-hidden mt-8 ease-linear duration-300 group relative p-6  transform hover:scale-105 transition-all"
                 >
-                  <h2 className="text-[#DECBA7] text-4xl font-medium text-wrap text-center">
+                  <h2 className="text-secondary-yellow text-4xl font-medium text-wrap text-center tracking-wide">
                     {item.title}
                   </h2>
-                  <p className="text-[#DECBA7] text-xl font-medium text-center w-full md:w-[95%] leading-[30px] ">
+                  <p className="text-secondary-yellow text-xl font-medium text-center w-full md:w-[95%] leading-[30px] ">
                     {item.description}
                   </p>
                 </motion.div>

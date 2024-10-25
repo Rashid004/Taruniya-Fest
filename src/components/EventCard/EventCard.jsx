@@ -3,8 +3,10 @@
 import { Link } from "react-router-dom";
 
 const EventCard = ({ title, description, link }) => (
-  <div className="shadows-hover w-full h-auto bg-[#000000] rounded-3xl shadow-md overflow-hidden mt-8 px-12 py-8 flex flex-col items-center gap-8 border-2 border-[#DECBA7] transition-shadow ease-linear duration-300">
-    <h2 className="text-[#DECBA7] text-4xl font-medium">{title}</h2>
+  <div className="shadow-hover w-full h-auto bg-primaryDark rounded-3xl shadow-md overflow-hidden mt-8 px-12 py-8 flex flex-col items-center gap-8   ease-linear duration-300 group relative p-6  transform hover:scale-105 transition-all  ">
+    <h2 className="text-[#DECBA7] text-4xl font-medium tracking-widest">
+      {title}
+    </h2>
     <p className="text-[#DECBA7] text-xl font-medium text-center w-[90%] leading-[30px]">
       {description}
     </p>

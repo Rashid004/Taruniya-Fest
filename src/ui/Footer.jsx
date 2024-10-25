@@ -1,26 +1,29 @@
 /** @format */
 import { FiInstagram } from "react-icons/fi";
-import { FaFacebook, FaTwitter } from "react-icons/fa";
+import { FaTwitter, FaYoutube } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <div className="flex items-center justify-center gap-6 py-8 bg-transparent relative z-50">
       <Link
-        to="#"
+        to="https://www.instagram.com/tarunyafest/profilecard/?igsh=eWdmNDlyMGIwcWh3"
         className="hover:opacity-80 hover:scale-110 transition-all duration-150 ease-in-out"
+        target="_blank"
       >
         <FiInstagram size="2em" color="#DECBA7" />
       </Link>
       <Link
-        to="#"
+        to="https://youtube.com/@tarunyafest?si=ehw27yvxBbKKKTKY"
         className="hover:opacity-80 hover:scale-110 transition-all duration-150 ease-in-out"
+        target="_blank"
       >
-        <FaFacebook size="2em" color="#DECBA7" />
+        <FaYoutube size="2em" color="#DECBA7" />
       </Link>
       <Link
-        to="#"
+        to="https://x.com/tarunyafest?t=qgszwIblj4WjxhZ0xssERw&s=09"
         className="hover:opacity-80 hover:scale-110 transition-all duration-150 ease-in-out"
+        target="_blank"
       >
         <FaTwitter size="2em" color="#DECBA7" />
       </Link>

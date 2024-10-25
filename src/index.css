@@ -1,48 +1,68 @@
 /** @format */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+/* @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"); */
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/path/to/gotham-regular.woff2") format("woff2"),
+    url("/path/to/gotham-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/path/to/gotham-bold.woff2") format("woff2"),
+    url("/path/to/gotham-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Apply the global font */
 body {
-  font-family: "Inter", sans-serif;
-  background-image: url("/home/home-bg.png");
-  background-size: cover;
-  background-position: center;
+  background-color: #6d0b29;
+  @apply font-gotham;
 }
 
 @layer base {
-  .border-RadiusTop {
+  .main-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center text-secondary-yellow tracking-[0.3em] my-12;
+  }
+  .rounded-top {
     @apply rounded-t-md rounded-b-none;
   }
-  .border-RadiusBottom {
+  .rounded-bottom {
     @apply rounded-b-md rounded-t-none;
   }
-  .shadows-hover {
+  .shadow-hover {
     @apply transition-shadow duration-300 ease-in;
   }
-  .shadows-hover:hover {
+  .shadow-hover:hover {
     @apply shadow-[0px_40px_45px_rgba(222,203,167,0.3),0px_-20px_25px_rgba(222,203,167,0.2),15px_0px_25px_rgba(222,203,167,0.2),-15px_0px_25px_rgba(222,203,167,0.2),0px_10px_15px_rgba(222,203,167,0.25),0px_-5px_10px_rgba(222,203,167,0.15)];
   }
 }
 
 /* Swiper CSS */
 .swiper {
-  /* width: 100%;
-  height: 100%; */
+  width: 100%;
+  height: 100%;
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .swiper-slide img {
   display: block;
-  /* width: 100%;
-  height: 100%; */
+  width: 100%;
+  height: auto;
   object-fit: cover;
 }
-
-/* Morphing Animation */
