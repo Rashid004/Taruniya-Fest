@@ -17,6 +17,7 @@ import NotFoundPage from "./ui/NotFoundPage";
 import LeaderBoard from "./page/LeaderBoard";
 import OurTeam from "./page/OurTeam";
 import About from "./page/About";
+import AdminPanel from "./page/AdminPanel";
 
 function App() {
   const router = createBrowserRouter([
@@ -64,10 +65,10 @@ function App() {
           path: "conclave",
           element: <Conclave />,
         },
-        // {
-        //   path: "workforce",
-        //   element: <Workforce />,
-        // },
+        {
+          path: "admin-panel",
+          element: <AdminPanel />,
+        },
         {
           path: "ourteam",
           element: <OurTeam />,

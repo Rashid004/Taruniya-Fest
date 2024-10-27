@@ -13,11 +13,10 @@ const navLinks = [
   { href: "/conclave", label: "Conclave" },
   { href: "/announcement", label: "Announcement" },
   { href: "/events", label: "Events" },
-  { href: "/leaderboard", lablel: "Leader Board" },
+  { href: "/leaderboard", label: "Leader Board" },
   { href: "/blog", label: "Blog" },
   { href: "/sponsors", label: "Sponsors" },
-  { href: "/ourteam", label: "our Team" },
-  // {  href: "/workforce", label: "Workforce" },
+  { href: "/ourteam", label: "Our Team" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -30,15 +29,14 @@ function Navigation() {
   }
 
   return (
-    <header className="relative border-b-[1px] border-secondary ">
+    <header className="relative border-b-[1px] border-secondary">
       {/* Desktop Navigation */}
-      <nav className="bg-transparent hidden lg:flex justify-between items-center px-4 lg:px-8 py-4 ">
-        <Logo />
-        <ul className="flex items-center lg:gap-[9px] xl:gap-8">
+      <nav className="bg-transparent hidden xl:flex justify-center items-center px-4 xl:px-6 py-8">
+        <ul className="flex items-center lg:gap-[9px] xl:gap-6 2xl:gap-14">
           {navLinks.map((link, index) => (
             <li
               key={index}
-              className="text-secondary text-nowrap tracking-wider hover:text-secondary-yellow transition-colors duration-300 text-lg xl:text-xl font-medium uppercase"
+              className="text-secondary text-nowrap tracking-wider hover:text-secondary-yellow transition-colors duration-300 text-lg 2xl:text-xl font-medium uppercase"
             >
               <Link to={link.href}>{link.label}</Link>
             </li>
@@ -47,7 +45,7 @@ function Navigation() {
       </nav>
 
       {/* Mobile Navigation */}
-      <div className="lg:hidden flex justify-between px-4 py-4">
+      <div className="xl:hidden flex justify-between px-4 py-4">
         <Logo />
         <button
           className="z-50 focus:outline-none"
@@ -60,7 +58,7 @@ function Navigation() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-[999] lg:hidden transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 z-[999] xl:hidden transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -75,7 +73,7 @@ function Navigation() {
               <IoClose size="2em" color="#DECBA7" />
             </button>
           </div>
-          <div className="flex flex-col gap-4 p-4 ">
+          <div className="flex flex-col gap-4 p-4">
             {navLinks.map((item, index) => (
               <Link
                 key={index}
@@ -93,7 +91,7 @@ function Navigation() {
             ))}
           </div>
 
-          <div className="flex justify-center space-x-6 p-4 ">
+          <div className="flex justify-center space-x-6 p-4">
             <FaInstagram
               size="1.5em"
               className="text-gray-600 hover:text-secondary-yellow transition-colors duration-300"

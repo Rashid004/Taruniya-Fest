@@ -3,7 +3,7 @@
 import { useForm } from "@formspree/react";
 import { MdOutlineMail } from "react-icons/md";
 import { FiInstagram } from "react-icons/fi";
-import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaTwitter, FaYoutube } from "react-icons/fa";
 import { Toaster, toast } from "react-hot-toast";
 import InputField from "../components/InputField/InputField";
 import TextAreaField from "../components/InputField/TextArea";

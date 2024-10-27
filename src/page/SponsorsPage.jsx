@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   FaRocket,
@@ -9,6 +9,7 @@ import {
   FaLaughSquint,
   FaBolt,
 } from "react-icons/fa";
+import SponsorCard from "../components/Sponsor/SponsorsCard";
 
 const featuredSponsor = {
   name: "Blinkit",
@@ -57,65 +58,6 @@ const sponsors = [
   },
 ];
 
-const SponsorCard = ({ sponsor, isHovered, onHover, isFeatured = false }) => (
-  <motion.div
-    className={`bg-white rounded-lg shadow-lg p-6 transition-all duration-300 transform ${
-      isHovered ? "scale-105" : ""
-    } ${isFeatured ? "col-span-full lg:col-span-2" : ""}`}
-    onMouseEnter={() => onHover(sponsor.name)}
-    onMouseLeave={() => onHover(null)}
-    initial={{ opacity: 0, y: 50 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-  >
-    <div
-      className={`flex ${
-        isFeatured ? "flex-col lg:flex-row" : "flex-col"
-      } items-center`}
-    >
-      <motion.img
-        src={sponsor.image}
-        alt={sponsor.name}
-        className={`${
-          isFeatured ? "w-64 h-64" : "w-32 h-32"
-        } mx-auto mb-4 object-contain`}
-        whileHover={{ scale: 1.05 }}
-      />
-      <div className={`${isFeatured ? "lg:ml-8" : ""} flex-1`}>
-        <motion.h2
-          className={`${
-            isFeatured ? "text-4xl" : "text-2xl"
-          } font-bold text-center mb-2`}
-          whileHover={{ scale: 1.05, color: "#4A90E2" }}
-        >
-          {sponsor.name}
-        </motion.h2>
-        <motion.h3
-          className={`${
-            isFeatured ? "text-2xl" : "text-xl"
-          } text-center text-gray-600 mb-4`}
-          whileHover={{ scale: 1.05, color: "#4A90E2" }}
-        >
-          {sponsor.title}
-        </motion.h3>
-        <p className="text-gray-700 text-center mb-4">{sponsor.description}</p>
-        <div className="flex justify-center">
-          <motion.div
-            whileHover={{ scale: 1.2, rotate: 360 }}
-            transition={{ duration: 0.5 }}
-          >
-            <sponsor.icon
-              className={`${
-                isFeatured ? "text-6xl" : "text-4xl"
-              } text-blue-500`}
-            />
-          </motion.div>
-        </div>
-      </div>
-    </div>
-  </motion.div>
-);
-
 const SponsorsPage = () => {
   const [hoveredSponsor, setHoveredSponsor] = useState(null);
   const [showEasterEgg, setShowEasterEgg] = useState(false);
@@ -156,14 +98,14 @@ const SponsorsPage = () => {
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.h1
-          className="text-5xl font-extrabold text-center text-[#DECBA7] mb-12"
+          className="main-heading"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           Our Awesome Sponsors
         </motion.h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <SponsorCard
             key={featuredSponsor.name}
             sponsor={featuredSponsor}

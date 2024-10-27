@@ -46,17 +46,15 @@ function Conclave() {
     setActiveIndex(SwiperInstance.realIndex); // Update activeIndex when slide changes
   };
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center py-12">
+    <section className="min-h-screen flex flex-col items-center justify-center">
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="main-heading">Conclave</h1>
-        <div className="z-[99] relative bg-primaryDark  opacity-100 shadow-2xl shadow-red-500/60 overflow-hidden mb-16 rounded-2xl">
+        <div className="z-[99]  border border-secondary-yellow relative bg-primaryDark  opacity-100 shadow-2xl shadow-red-500/60 overflow-hidden mb-16 rounded-2xl">
           <Swiper
             spaceBetween={50}
             slidesPerView={1}
             modules={[Navigation]}
             rewind={true}
-            // fadeEffect={{ crossFade: true }}
-            // fadedSlideClass="opacity-0"
             onSlideChange={onSlideChange} // Call this function when the slide changes
             navigation={{
               nextEl: ".custom-next",
@@ -73,7 +71,7 @@ function Conclave() {
                     <img
                       src={slide.image}
                       alt={slide.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center p-4 md:p-8">

@@ -5,11 +5,13 @@ import Navigation from "./Navigation";
 import Footer from "./Footer";
 
 function AppLayout() {
-  const location = useLocation(); // Hook to get the current location (pathname)
+  const location = useLocation();
+
+  const isAdminPanel = location.pathname === "/admin-panel";
 
   return (
     <>
-      <Navigation />
+      {!isAdminPanel && <Navigation />}
       <main>
         <Outlet />
       </main>
