@@ -102,168 +102,169 @@ function Home() {
   }, [controls]);
 
   return (
-    <section className="relative w-full h-[88vh] overflow-hidden">
-      {/* Clouds Left-1 */}
-      <motion.img
-        initial={{ x: -500 }}
-        animate={controls.cloudLeft1}
-        src="/home/cloudleft-1.png"
-        alt="Cloud Left-1"
-        className="w-[15vw] max-w-[150px] min-w-[100px] absolute left-1/3 top-[15%] z-10"
-      />
+    // <section className="relative w-full h-[88vh] overflow-hidden">
+    //   {/* Clouds Left-1 */}
+    //   <motion.img
+    //     initial={{ x: -500 }}
+    //     animate={controls.cloudLeft1}
+    //     src="/home/cloudleft-1.png"
+    //     alt="Cloud Left-1"
+    //     className="w-[15vw] max-w-[150px] min-w-[100px] absolute left-1/3 top-[15%] z-10"
+    //   />
 
-      {/* Clouds Left-2 */}
-      <motion.img
-        initial={{ x: -500 }}
-        animate={controls.cloudLeft2}
-        src="/home/cloudleft-2.png"
-        alt="Cloud left-2"
-        className="w-[15vw] max-w-[150px] min-w-[100px] absolute left-[10%] top-[10%] z-20"
-      />
+    //   {/* Clouds Left-2 */}
+    //   <motion.img
+    //     initial={{ x: -500 }}
+    //     animate={controls.cloudLeft2}
+    //     src="/home/cloudleft-2.png"
+    //     alt="Cloud left-2"
+    //     className="w-[15vw] max-w-[150px] min-w-[100px] absolute left-[10%] top-[10%] z-20"
+    //   />
 
-      {/* Clouds Right-1 */}
-      <motion.div
-        initial={{ x: 500 }}
-        animate={controls.cloudRight1}
-        className="absolute right-0 top-1/4 lg:right-[20%] lg:top-[20%] z-30"
-      >
-        <img
-          src="/home/cloudright-1.png"
-          alt="Cloud right-1"
-          className="w-[30vw] max-w-[370px] min-w-[180px] object-contain"
-        />
-      </motion.div>
+    //   {/* Clouds Right-1 */}
+    //   <motion.div
+    //     initial={{ x: 500 }}
+    //     animate={controls.cloudRight1}
+    //     className="absolute right-0 top-1/4 lg:right-[20%] lg:top-[20%] z-30"
+    //   >
+    //     <img
+    //       src="/home/cloudright-1.png"
+    //       alt="Cloud right-1"
+    //       className="w-[30vw] max-w-[370px] min-w-[180px] object-contain"
+    //     />
+    //   </motion.div>
 
-      {/* Clouds Right-2 */}
-      <motion.div
-        initial={{ x: 500 }}
-        animate={controls.cloudRight2}
-        className="absolute right-0 top-0 z-40"
-      >
-        <img
-          src="/home/cloudright-2.png"
-          alt="Cloud right-2"
-          className="w-[20vw] max-w-[230px] min-w-[120px] object-contain"
-        />
-      </motion.div>
+    //   {/* Clouds Right-2 */}
+    //   <motion.div
+    //     initial={{ x: 500 }}
+    //     animate={controls.cloudRight2}
+    //     className="absolute right-0 top-0 z-40"
+    //   >
+    //     <img
+    //       src="/home/cloudright-2.png"
+    //       alt="Cloud right-2"
+    //       className="w-[20vw] max-w-[230px] min-w-[120px] object-contain"
+    //     />
+    //   </motion.div>
 
-      {/* Left Building */}
-      <motion.div
-        initial={{ y: 500, opacity: 0.5 }}
-        animate={controls.buildingLeft}
-        className="absolute left-0 bottom-[20%]"
-      >
-        <img
-          src="/home/leftbuilding.png"
-          alt="left-building"
-          className="w-full object-contain"
-        />
-      </motion.div>
+    //   {/* Left Building */}
+    //   <motion.div
+    //     initial={{ y: 500, opacity: 0.5 }}
+    //     animate={controls.buildingLeft}
+    //     className="absolute left-0 bottom-[20%]"
+    //   >
+    //     <img
+    //       src="/home/leftbuilding.png"
+    //       alt="left-building"
+    //       className="w-full object-contain"
+    //     />
+    //   </motion.div>
 
-      {/* Gateway of India */}
-      <motion.div
-        initial={{ y: -900 }}
-        animate={controls.gateway}
-        className="absolute left-[6%] bottom-[20%] w-[25vw]"
-      >
-        <img
-          src="/home/gateway.png"
-          alt="Gateway of India"
-          className="w-full object-contain"
-        />
-      </motion.div>
+    //   {/* Gateway of India */}
+    //   <motion.div
+    //     initial={{ y: -900 }}
+    //     animate={controls.gateway}
+    //     className="absolute left-[6%] bottom-[20%] w-[25vw]"
+    //   >
+    //     <img
+    //       src="/home/gateway.png"
+    //       alt="Gateway of India"
+    //       className="w-full object-contain"
+    //     />
+    //   </motion.div>
 
-      {/* Right Building */}
-      <motion.div
-        initial={{ y: 500, opacity: 0.5 }}
-        animate={controls.buildingRight}
-        className="absolute right-0 top-[65%]"
-      >
-        <img
-          src="/home/buildingright.png"
-          alt="building right"
-          className="w-full object-contain"
-        />
-      </motion.div>
+    //   {/* Right Building */}
+    //   <motion.div
+    //     initial={{ y: 500, opacity: 0.5 }}
+    //     animate={controls.buildingRight}
+    //     className="absolute right-0 top-[65%]"
+    //   >
+    //     <img
+    //       src="/home/buildingright.png"
+    //       alt="building right"
+    //       className="w-full object-contain"
+    //     />
+    //   </motion.div>
 
-      {/* Clock Tower */}
-      <motion.div
-        initial={{ y: 800 }}
-        animate={controls.clockTower}
-        className="absolute right-[20%] bottom-[20%]"
-      >
-        <img
-          src="/home/clocktower.png"
-          alt="Clock Tower"
-          className="w-full object-contain"
-        />
-      </motion.div>
+    //   {/* Clock Tower */}
+    //   <motion.div
+    //     initial={{ y: 800 }}
+    //     animate={controls.clockTower}
+    //     className="absolute right-[20%] bottom-[20%]"
+    //   >
+    //     <img
+    //       src="/home/clocktower.png"
+    //       alt="Clock Tower"
+    //       className="w-full object-contain"
+    //     />
+    //   </motion.div>
 
-      {/* Line Background */}
-      <motion.div
-        initial={{ y: 400 }}
-        animate={controls.lineBg}
-        className="absolute left-0 right-0 bottom-[20%]"
-      >
-        <img
-          src="/home/linebg.png"
-          alt="Line bg"
-          className="w-full object-cover"
-        />
-      </motion.div>
+    //   {/* Line Background */}
+    //   <motion.div
+    //     initial={{ y: 400 }}
+    //     animate={controls.lineBg}
+    //     className="absolute left-0 right-0 bottom-[20%]"
+    //   >
+    //     <img
+    //       src="/home/linebg.png"
+    //       alt="Line bg"
+    //       className="w-full object-cover"
+    //     />
+    //   </motion.div>
 
-      {/* Vehicles */}
-      <div className="absolute bottom-0 w-full h-[20vh] overflow-hidden">
-        <motion.img
-          initial={{ x: -300 }}
-          animate={controls.carLeft1}
-          src="/home/carleft-1.png"
-          alt="Car left 1"
-          className="absolute -left-[10%] bottom-16 w-[20vw]"
-        />
-        <motion.img
-          initial={{ x: -600 }}
-          animate={controls.carLeft2}
-          src="/home/carleft-2.png"
-          alt="Car left 2"
-          className="absolute left-0 bottom-0 w-[20vw]"
-        />
-        <motion.img
-          initial={{ x: -600 }}
-          animate={controls.bus}
-          src="/home/bus.png"
-          alt="Bus"
-          className="absolute left-1/2 bottom-0 w-[40vw]"
-        />
-        <motion.img
-          initial={{ x: -500 }}
-          animate={controls.carRight1}
-          src="/home/carright-1.png"
-          alt="Car right 1"
-          className="absolute right-[15%] bottom-0 w-[20vw] hidden md:block"
-        />
-        <motion.img
-          initial={{ x: -500 }}
-          animate={controls.carRight2}
-          src="/home/carright-2.png"
-          alt="Car right 2"
-          className="absolute right-0 bottom-0 w-[20vw]"
-        />
-      </div>
+    //   {/* Vehicles */}
+    //   <div className="absolute bottom-0 w-full h-[20vh] overflow-hidden">
+    //     <motion.img
+    //       initial={{ x: -300 }}
+    //       animate={controls.carLeft1}
+    //       src="/home/carleft-1.png"
+    //       alt="Car left 1"
+    //       className="absolute -left-[10%] bottom-16 w-[20vw]"
+    //     />
+    //     <motion.img
+    //       initial={{ x: -600 }}
+    //       animate={controls.carLeft2}
+    //       src="/home/carleft-2.png"
+    //       alt="Car left 2"
+    //       className="absolute left-0 bottom-0 w-[20vw]"
+    //     />
+    //     <motion.img
+    //       initial={{ x: -600 }}
+    //       animate={controls.bus}
+    //       src="/home/bus.png"
+    //       alt="Bus"
+    //       className="absolute left-1/2 bottom-0 w-[40vw]"
+    //     />
+    //     <motion.img
+    //       initial={{ x: -500 }}
+    //       animate={controls.carRight1}
+    //       src="/home/carright-1.png"
+    //       alt="Car right 1"
+    //       className="absolute right-[15%] bottom-0 w-[20vw] hidden md:block"
+    //     />
+    //     <motion.img
+    //       initial={{ x: -500 }}
+    //       animate={controls.carRight2}
+    //       src="/home/carright-2.png"
+    //       alt="Car right 2"
+    //       className="absolute right-0 bottom-0 w-[20vw]"
+    //     />
+    //   </div>
 
-      {/* Content Overlay */}
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={controls.logo}
-        className="absolute inset-0 flex flex-col items-center justify-center text-white"
-      >
-        <img
-          src="/home/logo.png"
-          alt="Tarunya Logo"
-          className="w-[30vw] mb-4"
-        />
-      </motion.div>
-    </section>
+    //   {/* Content Overlay */}
+    //   <motion.div
+    //     initial={{ scale: 0 }}
+    //     animate={controls.logo}
+    //     className="absolute inset-0 flex flex-col items-center justify-center text-white"
+    //   >
+    //     <img
+    //       src="/home/logo.png"
+    //       alt="Tarunya Logo"
+    //       className="w-[30vw] mb-4"
+    //     />
+    //   </motion.div>
+    // </section>
+    <div>Home Section</div>
   );
 }
 
