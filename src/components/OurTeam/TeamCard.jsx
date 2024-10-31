@@ -4,35 +4,41 @@ import { FaEnvelope, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const TeamMember = ({ member, index }) => (
   <motion.div
-    className="bg-primaryDark rounded-2xl shadow-lg p-6 flex flex-col items-center border border-secondary-yellow"
+    className="flex flex-col items-center justify-center w-full h-full gap-4 p-4"
     initial={{ opacity: 0, y: 50 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
   >
-    <motion.img
-      src={member.img}
-      alt={member.name}
-      className="w-full h-auto rounded-lg mb-4 object-cover" // Changed to h-auto to keep the aspect ratio
-      whileHover={{ scale: 1.1 }}
-      transition={{ type: "spring", stiffness: 300 }}
-    />
-    <motion.h2
-      className="text-2xl font-bold text-center my-2 text-secondary-yellow bg-primary px-1 rounded-sm"
-      whileHover={{ scale: 1.05, color: "#4A90E2" }} // Added hover effect for the name
-    >
-      {member.name}
-    </motion.h2>
-    <motion.h3
-      className="text-xl text-center text-secondary-yellow mb-4"
-      whileHover={{ scale: 1.05, color: "#4A90E2" }} // Added hover effect for the position
-    >
-      {member.position}
-    </motion.h3>
-    {/* <p className="text-[#decba7db] text-center mb-4">{member.description}</p> */}
-    <div className="flex justify-center space-x-4">
-      <FaLinkedin className="text-2xl text-blue-600 hover:text-blue-800 transition-colors" />
-      <FaTwitter className="text-2xl text-blue-400 hover:text-blue-600 transition-colors" />
-      <FaEnvelope className="text-2xl text-red-500 hover:text-red-700 transition-colors" />
+    {/* Image Container with Background */}
+    <div className="bg-primaryDark rounded-2xl shadow-lg p-4 w-full max-w-xs md:max-w-sm lg:max-w-md flex flex-col items-center justify-center">
+      <motion.img
+        src={member.img}
+        alt={member.name}
+        className="w-full h-[280px] md:h-[320px] lg:h-[340px] rounded-lg object-cover mb-4"
+        initial={{ scale: 0.9 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.5 }}
+      />
+    </div>
+
+    {/* Text Information */}
+    <div className="text-center">
+      <motion.h1
+        className="text-lg md:text-xl lg:text-2xl font-semibold text-amber-500 tracking-wide"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        {member.name}
+      </motion.h1>
+      <motion.p
+        className="text-base md:text-lg lg:text-xl text-white tracking-wide pt-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        {member.position}
+      </motion.p>
     </div>
   </motion.div>
 );

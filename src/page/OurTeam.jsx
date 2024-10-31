@@ -52,10 +52,10 @@ const OurTeam = () => {
         {/* Tabs */}
         <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 lg:mb-12">
           <button
-            className={`px-3 py-2 sm:px-4 sm:py-2 rounded-md font-semibold flex items-center gap-2 ${
+            className={`px-3 py-2 sm:px-4 sm:py-2 text-xl font-medium flex items-center gap-2 ${
               activeTab === "faculty"
-                ? "bg-secondary-yellow text-black"
-                : "bg-primaryDark text-white"
+                ? "bg-pink-950 text-amber-500 border border-amber-500 "
+                : "bg-pink-800 text-amber-300"
             }`}
             onClick={() => setActiveTab("faculty")}
           >
@@ -65,10 +65,10 @@ const OurTeam = () => {
             Faculty
           </button>
           <button
-            className={`px-3 py-2 sm:px-4 sm:py-2 rounded-md font-semibold flex items-center gap-2 ${
+            className={`px-3 py-2 sm:px-4 sm:py-2 text-xl  font-medium flex items-center gap-2 ${
               activeTab === "committee"
-                ? "bg-secondary-yellow text-black"
-                : "bg-primaryDark text-white"
+                ? "bg-pink-950 text-amber-500 border border-amber-500"
+                : "bg-pink-800 text-amber-300"
             }`}
             onClick={() => setActiveTab("committee")}
           >
@@ -78,10 +78,10 @@ const OurTeam = () => {
             Committee
           </button>
           <button
-            className={`px-3 py-2 sm:px-4 sm:py-2 rounded-md font-semibold flex items-center gap-2 ${
+            className={`px-3 py-2 sm:px-4 sm:py-2 text-xl  font-medium flex items-center gap-2 ${
               activeTab === "department"
-                ? "bg-secondary-yellow text-black"
-                : "bg-primaryDark text-white"
+                ? "bg-pink-950 text-amber-500 border border-amber-500"
+                : "bg-pink-800 text-amber-300"
             }`}
             onClick={() => setActiveTab("department")}
           >

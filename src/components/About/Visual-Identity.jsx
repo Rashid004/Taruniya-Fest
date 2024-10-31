@@ -8,6 +8,7 @@ import {
   SunMoon,
 } from "lucide-react";
 import { PiPlanetBold } from "react-icons/pi";
+import { motion } from "framer-motion";
 
 const visualIdentity1 = [
   {
@@ -53,16 +54,21 @@ const visualIdentity2 = [
 
 function VisualIdentity() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="grid grid-cols-1 lg:grid-cols-2 gap-8  pt-4"
+    >
       <div className="space-y-6">
         {visualIdentity1.map((item, index) => (
           <div key={index} className="flex items-start gap-4">
             <div className="text-secondary-yellow">{item.icon}</div>
             <div>
-              <h3 className="text-xl sm:text-2xl font-medium tracking-widest text-amber-500">
+              <h3 className="text-xl md:text-2xl font-medium tracking-widest text-amber-500">
                 {item.title}:
               </h3>
-              <p className="text-gray-500 text-sm sm:text-base">
+              <p className="text-gray-500 text-sm md:text-lg">
                 {item.description}
               </p>
             </div>
@@ -74,17 +80,17 @@ function VisualIdentity() {
           <div key={index} className="flex items-start gap-4">
             <div className="text-secondary-yellow">{item.icon}</div>
             <div>
-              <h3 className="text-xl sm:text-2xl font-medium tracking-widest text-amber-500">
+              <h3 className="text-xl md:text-2xl font-medium tracking-widest text-amber-500">
                 {item.title}:
               </h3>
-              <p className="text-gray-500 text-sm sm:text-base">
+              <p className="text-gray-500 text-sm md:text-lg">
                 {item.description}
               </p>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
