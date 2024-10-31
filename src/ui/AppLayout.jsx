@@ -3,22 +3,35 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
+import Sidebar from "../Admin/Sidebar";
 
-function AppLayout() {
+export default function AppLayout() {
   const location = useLocation();
-
-  const isAdminPanel = location.pathname === "/admin-panel";
+  const isAdminPanel = location.pathname.startsWith("/admin-panel");
 
   return (
     <>
+      {/* Show Navigation only for non-admin routes */}
       {!isAdminPanel && <Navigation />}
-      <main>
-        <Outlet />
+
+      {/* Main content area */}
+      <main className={`main-content ${isAdminPanel ? "admin" : ""}`}>
+        {isAdminPanel ? (
+          // Admin layout: Sidebar and Outlet
+          <div className="flex">
+            <Sidebar />
+            <div className="flex-grow p-4 bg-white">
+              <Outlet />
+            </div>
+          </div>
+        ) : (
+          // Non-admin layout: Direct Outlet
+          <Outlet />
+        )}
       </main>
-      {/* Show Footer on all pages except the Home page */}
-      {location.pathname === "/" ? null : <Footer />}
+
+      {/* Show Footer only on specific pages */}
+      {location.pathname !== "/" && !isAdminPanel && <Footer />}
     </>
   );
 }
-
-export default AppLayout;

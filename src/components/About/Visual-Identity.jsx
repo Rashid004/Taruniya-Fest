@@ -1,7 +1,91 @@
 /** @format */
 
+import {
+  LockKeyholeOpen,
+  Rainbow,
+  Rocket,
+  SunMedium,
+  SunMoon,
+} from "lucide-react";
+import { PiPlanetBold } from "react-icons/pi";
+
+const visualIdentity1 = [
+  {
+    title: "Rocket",
+    description:
+      "The rocket embodies aspirations and the relentless pursuit of success, symbolizing the launch of new ideas, energy, and innovation driven by youthful ambition.",
+    icon: <Rocket size={60} color="#DECBA7" />,
+  },
+  {
+    title: "Sun and Moon Convergence",
+    description:
+      "The meeting of the sun and moon represents the harmony between day and night, symbolizing balance and the continuous cycle of dreams (moon) and action (sun). It illustrates the merging of passion and introspection, where dreams meet the energy to bring them to life.",
+    icon: <SunMoon size={60} color="#DECBA7" />,
+  },
+  {
+    title: "Keyhole Shape",
+    description:
+      "The keyhole formed at the intersection of the rocket and celestial bodies signifies opportunity, unlocking potential, and discovery. It is a gateway to new experiences and knowledge, suggesting that “Tarunya” is the key to unlocking the youth’s potential and unleashing their passion.",
+    icon: <LockKeyholeOpen size={60} color="#DECBA7" />,
+  },
+];
+
+const visualIdentity2 = [
+  {
+    title: "Vibrant Colors",
+    description:
+      "The warm hues of orange, 'yellow', and red in the sun signify boundless energy, enthusiasm, and creativity, while the cooler blue tones bring a sense of calm, inspiration, and imagination, blending to represent the holistic growth of individuals at the fest.",
+    icon: <Rainbow size={60} color="#DECBA7" />,
+  },
+  {
+    title: "Fiery Sun",
+    description:
+      "The flames surrounding the sun symbolize the powerful and ever-expanding nature of ideas and passion, fusing together in a burst of creative energy.",
+    icon: <SunMedium size={60} color="#DECBA7" />,
+  },
+  {
+    title: "Space Theme",
+    description:
+      "The cosmic setting highlights exploration, innovation, and the endless possibilities available to the youth as they aim for the stars.",
+    icon: <PiPlanetBold size={60} color="#DECBA7" />,
+  },
+];
+
 function VisualIdentity() {
-  return <div>Visiual identity</div>;
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="space-y-6">
+        {visualIdentity1.map((item, index) => (
+          <div key={index} className="flex items-start gap-4">
+            <div className="text-secondary-yellow">{item.icon}</div>
+            <div>
+              <h3 className="text-xl sm:text-2xl font-medium tracking-widest text-amber-500">
+                {item.title}:
+              </h3>
+              <p className="text-gray-500 text-sm sm:text-base">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="space-y-6">
+        {visualIdentity2.map((item, index) => (
+          <div key={index} className="flex items-start gap-4">
+            <div className="text-secondary-yellow">{item.icon}</div>
+            <div>
+              <h3 className="text-xl sm:text-2xl font-medium tracking-widest text-amber-500">
+                {item.title}:
+              </h3>
+              <p className="text-gray-500 text-sm sm:text-base">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default VisualIdentity;

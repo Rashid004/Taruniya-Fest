@@ -1,5 +1,7 @@
 /** @format */
 
+// src/App.jsx
+
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/Home";
@@ -18,6 +20,9 @@ import LeaderBoard from "./page/LeaderBoard";
 import OurTeam from "./page/OurTeam";
 import About from "./page/About";
 import AdminPanel from "./page/AdminPanel";
+import ManageAnnouncements from "./components/Admin/ManageAnnouncements";
+import ManageEvents from "./components/Admin/ManageEvents";
+import ManageLeaderboard from "./components/Admin/ManageLeaderboard";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,81 +30,48 @@ function App() {
       path: "/",
       element: <AppLayout />,
       children: [
+        { path: "/", element: <Home /> },
         {
-          path: "/",
-          element: <Home />,
+          path: "admin-panel",
+          element: <AdminPanel />,
+          children: [
+            {
+              path: "/admin-panel/announcement",
+              element: <ManageAnnouncements />,
+            },
+            { path: "events", element: <ManageEvents /> },
+            { path: "leaderboard", element: <ManageLeaderboard /> },
+          ],
         },
+        { path: "contact", element: <Contact /> },
+        { path: "about-us", element: <About /> },
+        { path: "announcement", element: <Announcement /> },
+        { path: "events", element: <Events /> },
+        { path: "leaderboard", element: <LeaderBoard /> },
         {
-          path: "contact",
-          element: <Contact />,
-        },
-        {
-          path: "about-us",
-          element: <About />,
-        },
-        {
-          path: "announcement",
-          element: <Announcement />,
-        },
-        {
-          path: "events",
-          element: <Events />,
-        },
-        {
-          path: "leaderboard",
-          element: <LeaderBoard />,
-        },
-        {
-          path: "events/:eventId", // Dynamic route for event details
+          path: "events/:eventId",
           element: (
             <Suspense fallback={<Loading />}>
               <EventsDetail />
             </Suspense>
-          ), // Render specific event content
+          ),
         },
-        {
-          path: "blog",
-          element: <Blog />,
-        },
-        {
-          path: "conclave",
-          element: <Conclave />,
-        },
-        {
-          path: "admin-panel",
-          element: <AdminPanel />,
-        },
-        {
-          path: "ourteam",
-          element: <OurTeam />,
-        },
-        {
-          path: "sponsors",
-          element: <SponsorsPage />,
-        },
+        { path: "blog", element: <Blog /> },
+        { path: "conclave", element: <Conclave /> },
+        { path: "ourteam", element: <OurTeam /> },
+        { path: "sponsors", element: <SponsorsPage /> },
       ],
     },
-    {
-      path: "*",
-      element: <NotFoundPage />,
-    },
+    { path: "*", element: <NotFoundPage /> },
   ]);
 
   return (
     <>
       <RouterProvider router={router} />
-
       <Toaster
         toastOptions={{
-          style: {
-            width: "300px",
-            height: "55px",
-          },
-          success: {
-            style: {
-              background: "white",
-            },
-          },
+          style: { width: "300px", height: "55px" },
+          success: { style: { background: "white" } },
         }}
       />
     </>

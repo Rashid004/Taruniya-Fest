@@ -14,14 +14,10 @@ function About() {
       case "stand-for":
         return <StandFor />;
       case "visual-identity":
-        return (
-          <div className="bg-yellow-200 w-full h-full p-4 rounded-lg">
-            <VisualIdentity />
-          </div>
-        );
+        return <VisualIdentity />;
       case "vision-mission":
         return (
-          <div className="bg-yellow-200 w-full h-full p-4 rounded-lg">
+          <div className="w-full h-full p-4 sm:p-6 md:p-8 rounded-lg">
             <VisionMission />
           </div>
         );
@@ -30,15 +26,19 @@ function About() {
     }
   };
 
-  // Button styles
-  const buttonStyles =
-    "text-secondary font-semibold tracking-[0.3em] text-2xl py-1 px-4";
-  const activeStyles =
-    "text-secondary-yellow border-b-2 border-secondary-yellow";
+  const buttonStyles = `
+    relative text-amber-500 font-semibold tracking-widest text-sm sm:text-base md:text-lg lg:text-xl py-2 px-4 
+    transition-all duration-300 ease-in-out 
+    after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] 
+    after:bg-amber-500 after:scale-x-0 hover:after:scale-x-100 after:origin-left
+  `;
+  const activeStyles = `
+    text-amber-600 after:scale-x-100 after:origin-left
+  `;
 
   return (
-    <section>
-      <div className="max-w-7xl mx-auto w-full">
+    <section className="min-h-screen py-4 sm:py-6 md:py-8">
+      <div className="max-w-7xl mx-auto w-full px-4 md:px-8">
         <motion.h1
           className="main-heading"
           initial={{ opacity: 0, y: -50 }}
@@ -47,34 +47,32 @@ function About() {
         >
           About Us
         </motion.h1>
-        <div className="bg-primaryDark h-full md:h-[600px] w-full rounded-2xl py-6 px-6 flex flex-col gap-8">
-          <div className="flex items-center justify-around space-x-4">
-            <button
-              onClick={() => setActiveTab("stand-for")}
-              className={`${buttonStyles} ${
-                activeTab === "stand-for" ? activeStyles : ""
-              }`}
-            >
-              What we stand for
-            </button>
-            <button
-              onClick={() => setActiveTab("visual-identity")}
-              className={`${buttonStyles} ${
-                activeTab === "visual-identity" ? activeStyles : ""
-              }`}
-            >
-              Visual Identity
-            </button>
-            <button
-              onClick={() => setActiveTab("vision-mission")}
-              className={`${buttonStyles} ${
-                activeTab === "vision-mission" ? activeStyles : ""
-              }`}
-            >
-              Vision & Mission
-            </button>
+        {/* Unified Container for Buttons and Content */}
+        <div className="bg-primaryDark relative  rounded-2xl py-6 px-4 md:px-6 lg:px-8 flex flex-col gap-6 md:gap-8 min-h-[600px]">
+          {/* Button Container */}
+          <div className="flex justify-center  md:justify-around items-center  ">
+            {["stand-for", "visual-identity", "vision-mission"].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`${buttonStyles} ${
+                  activeTab === tab ? activeStyles : ""
+                }`}
+              >
+                {tab === "stand-for"
+                  ? "What We Stand For"
+                  : tab === "visual-identity"
+                  ? "Visual Identity"
+                  : "Vision & Mission"}
+              </button>
+            ))}
           </div>
-          <div className="flex-grow">{renderContent()}</div>
+          {/* Content Section */}
+          <div className="flex-grow ">{renderContent()}</div>
+          <img
+            src="/images/about/bg-1.png"
+            className="absolute bottom-0 left-1/4 hidden md:block   w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/2 h-auto object-contain z-[0] opacity-50 md:opacity-70"
+          />
         </div>
       </div>
     </section>
