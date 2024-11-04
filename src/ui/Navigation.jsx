@@ -4,7 +4,6 @@ import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import Logo from "./Logo";
 
 const navLinks = [
@@ -90,21 +89,6 @@ function Navigation() {
               </Link>
             ))}
           </div>
-
-          {/* <div className="flex justify-center space-x-6 p-4">
-            <FaInstagram
-              size="1.5em"
-              className="text-gray-600 hover:text-secondary-yellow transition-colors duration-300"
-            />
-            <FaLinkedin
-              size="1.5em"
-              className="text-gray-600 hover:text-secondary-yellow transition-colors duration-300"
-            />
-            <FaXTwitter
-              size="1.5em"
-              className="text-gray-600 hover:text-secondary-yellow transition-colors duration-300"
-            />
-          </div> */}
         </nav>
       </div>
     </header>
