@@ -16,7 +16,7 @@ const OurTeam = () => {
     switch (activeTab) {
       case "faculty":
         return (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {facultyMembers.map((member, index) => (
               <TeamMember key={member.name} member={member} index={index} />
             ))}
@@ -24,7 +24,7 @@ const OurTeam = () => {
         );
       case "committee":
         return (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {committeeMembers.map((member, index) => (
               <TeamMember key={member.name} member={member} index={index} />
             ))}
@@ -65,7 +65,7 @@ const OurTeam = () => {
             Faculty
           </button>
           <button
-            className={`px-3 py-2 sm:px-4 sm:py-2 text-xl  font-medium flex items-center gap-2 ${
+            className={`px-3 py-2 sm:px-4 sm:py-2 text-xl font-medium flex items-center gap-2 ${
               activeTab === "committee"
                 ? "bg-pink-800 text-amber-500 border border-amber-500"
                 : "bg-pink-950 text-amber-300"
@@ -78,7 +78,7 @@ const OurTeam = () => {
             Committee
           </button>
           <button
-            className={`px-3 py-2 sm:px-4 sm:py-2 text-xl  font-medium flex items-center gap-2 ${
+            className={`px-3 py-2 sm:px-4 sm:py-2 text-xl font-medium flex items-center gap-2 ${
               activeTab === "department"
                 ? "bg-pink-800 text-amber-500 border border-amber-500"
                 : "bg-pink-950 text-amber-300"
