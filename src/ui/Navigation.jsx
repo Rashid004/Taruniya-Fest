@@ -1,6 +1,6 @@
 /** @format */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
@@ -22,15 +22,35 @@ const navLinks = [
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   function toggleMenu() {
     setIsOpen(!isOpen);
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > window.innerHeight * 0.7) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="relative border-b-[1px] border-secondary">
+    <header
+      className={`relative  ${
+        isScrolled
+          ? "bg-black bg-opacity-60 backdrop-blur-md sticky top-0 z-[999]"
+          : ""
+      }`}
+    >
       {/* Desktop Navigation */}
-      <nav className="bg-transparent hidden xl:flex justify-center items-center px-4 xl:px-6 py-8">
+      <nav className="bg-transparent hidden xl:flex justify-center items-center px-4 xl:px-6 py-8 transition-colors duration-300">
         <ul className="flex items-center lg:gap-[9px] xl:gap-6 2xl:gap-14">
           {navLinks.map((link, index) => (
             <li
@@ -57,15 +77,15 @@ function Navigation() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-[9999] xl:hidden transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 z-[9999] xl:hidden transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div
-          className="absolute inset-0 z-[9999] bg-black bg-opacity-50 backdrop-blur-md"
+          className="fixed inset-0 z-[9998] bg-black bg-opacity-60 backdrop-blur-md"
           onClick={toggleMenu}
         ></div>
-        <nav className="absolute top-0 right-0 bottom-0 w-full shadow-xl transform transition-transform duration-300 ease-in-out flex flex-col z-[9999]">
+        <nav className="fixed top-0 right-0 bottom-0 w-full h-full shadow-xl bg-primary-dark transform transition-transform duration-300 ease-in-out flex flex-col z-[9999]">
           <div className="flex justify-between py-4 px-4">
             <Logo />
             <button onClick={toggleMenu} className="focus:outline-none">
