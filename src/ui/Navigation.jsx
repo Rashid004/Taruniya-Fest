@@ -58,12 +58,12 @@ function Navigation() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-[999] xl:hidden transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 z-[9999] xl:hidden transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div
-          className="absolute inset-0 z-[999] bg-black bg-opacity-50 backdrop-blur-sm"
+          className="absolute inset-0 z-[9999] bg-black bg-opacity-50 backdrop-blur-md"
           onClick={toggleMenu}
         ></div>
         <nav className="absolute top-0 right-0 bottom-0 w-full shadow-xl transform transition-transform duration-300 ease-in-out flex flex-col z-[9999]">
@@ -91,7 +91,7 @@ function Navigation() {
             ))}
           </div>
 
-          <div className="flex justify-center space-x-6 p-4">
+          {/* <div className="flex justify-center space-x-6 p-4">
             <FaInstagram
               size="1.5em"
               className="text-gray-600 hover:text-secondary-yellow transition-colors duration-300"
@@ -104,7 +104,7 @@ function Navigation() {
               size="1.5em"
               className="text-gray-600 hover:text-secondary-yellow transition-colors duration-300"
             />
-          </div>
+          </div> */}
         </nav>
       </div>
     </header>

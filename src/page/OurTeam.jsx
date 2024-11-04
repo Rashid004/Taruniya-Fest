@@ -54,8 +54,8 @@ const OurTeam = () => {
           <button
             className={`px-3 py-2 sm:px-4 sm:py-2 text-xl font-medium flex items-center gap-2 ${
               activeTab === "faculty"
-                ? "bg-pink-950 text-amber-500 border border-amber-500 "
-                : "bg-pink-800 text-amber-300"
+                ? "bg-pink-800 text-amber-500 border border-amber-500 "
+                : "bg-pink-950 text-amber-300"
             }`}
             onClick={() => setActiveTab("faculty")}
           >
@@ -67,8 +67,8 @@ const OurTeam = () => {
           <button
             className={`px-3 py-2 sm:px-4 sm:py-2 text-xl  font-medium flex items-center gap-2 ${
               activeTab === "committee"
-                ? "bg-pink-950 text-amber-500 border border-amber-500"
-                : "bg-pink-800 text-amber-300"
+                ? "bg-pink-800 text-amber-500 border border-amber-500"
+                : "bg-pink-950 text-amber-300"
             }`}
             onClick={() => setActiveTab("committee")}
           >
@@ -80,8 +80,8 @@ const OurTeam = () => {
           <button
             className={`px-3 py-2 sm:px-4 sm:py-2 text-xl  font-medium flex items-center gap-2 ${
               activeTab === "department"
-                ? "bg-pink-950 text-amber-500 border border-amber-500"
-                : "bg-pink-800 text-amber-300"
+                ? "bg-pink-800 text-amber-500 border border-amber-500"
+                : "bg-pink-950 text-amber-300"
             }`}
             onClick={() => setActiveTab("department")}
           >
