@@ -22,12 +22,12 @@
 
 /* Apply the global font */
 body {
-  /* background-color: #6d0b29; */
+  background-color: #6d0b29;
   @apply font-gotham;
-  background-image: url("/home/home-bg.webp");
+  /* background-image: url("/home/home-bg.webp");
   background-size: cover;
   background-clip: border-box;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 @layer base {
