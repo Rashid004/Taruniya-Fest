@@ -23,6 +23,9 @@ import AdminPanel from "./page/AdminPanel";
 import ManageAnnouncements from "./components/Admin/ManageAnnouncements";
 import ManageEvents from "./components/Admin/ManageEvents";
 import ManageLeaderboard from "./components/Admin/ManageLeaderboard";
+import ManageBlog from "./components/Admin/ManageBlog";
+import ManageEventDetails from "./components/Admin/ManageEventDetails";
+import ManageUser from "./components/Admin/ManageUser";
 
 function App() {
   const router = createBrowserRouter([
@@ -41,6 +44,9 @@ function App() {
             },
             { path: "events", element: <ManageEvents /> },
             { path: "leaderboard", element: <ManageLeaderboard /> },
+            { path: "blog", element: <ManageBlog /> },
+            { path: "event-details", element: <ManageEventDetails /> },
+            { path: "user", element: <ManageUser /> },
           ],
         },
         { path: "contact", element: <Contact /> },

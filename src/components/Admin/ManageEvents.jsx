@@ -1,7 +1,7 @@
 /** @format */
 
 function ManageEvents() {
-  return <div>Events</div>;
+  return <div>Mange Events Events</div>;
 }
 
 export default ManageEvents;
