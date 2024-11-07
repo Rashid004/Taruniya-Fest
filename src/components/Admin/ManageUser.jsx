@@ -1,10 +1,12 @@
 /** @format */
 
-import UserTable from "../../Admin/components/UserTable";
+import AddUserModal from "../../Admin/components/Users/AddUserModal";
+import UserTable from "../../Admin/components/Users/UserTable";
 
 function ManageUser() {
   return (
     <div>
+      <AddUserModal />
       <UserTable />
     </div>
   );

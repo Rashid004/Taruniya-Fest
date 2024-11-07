@@ -7,7 +7,7 @@ import { Trash, PlusCircle, Edit } from "lucide-react";
 function UserTable() {
   return (
     <Flex direction="column" gap="md">
-      <Flex align="center" justify="space-between" className="py-2">
+      {/* <Flex align="center" justify="space-between" className="py-2">
         <Title order={1} size="h2">
           Portal User
         </Title>
@@ -36,7 +36,7 @@ function UserTable() {
         </Flex>
       </Flex>
 
-      <Divider my="sm" />
+      <Divider my="sm" /> */}
 
       <Table highlightOnHover>
         <Table.Thead>
