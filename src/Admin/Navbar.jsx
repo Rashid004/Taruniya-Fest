@@ -6,7 +6,7 @@ function Navbar() {
   const userName = "Current User"; // Replace this with a dynamic user name as needed
 
   return (
-    <div className=" py-5 h-20 flex items-center justify-between px-6 border-b-2 border-gray-200">
+    <div className="  h-20 flex items-center justify-between px-6 ">
       <button className="border border-blue-500 px-4 py-2 rounded text-base">
         Logout
       </button>

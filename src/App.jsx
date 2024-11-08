@@ -20,12 +20,13 @@ import LeaderBoard from "./page/LeaderBoard";
 import OurTeam from "./page/OurTeam";
 import About from "./page/About";
 import AdminPanel from "./page/AdminPanel";
-import ManageAnnouncements from "./components/Admin/ManageAnnouncements";
-import ManageEvents from "./components/Admin/ManageEvents";
-import ManageLeaderboard from "./components/Admin/ManageLeaderboard";
-import ManageBlog from "./components/Admin/ManageBlog";
-import ManageEventDetails from "./components/Admin/ManageEventDetails";
-import ManageUser from "./components/Admin/ManageUser";
+import ManageAnnouncements from "./AdminPages/ManageAnnouncements";
+import ManageEvents from "./AdminPages/ManageEvents";
+import ManageLeaderboard from "./AdminPages/ManageLeaderboard";
+import ManageBlog from "./AdminPages/ManageBlog";
+import ManageEventDetails from "./AdminPages/ManageEventDetails";
+import ManageUser from "./AdminPages/ManageUser";
+import EditUser from "./Admin/components/Users/EditUser";
 
 function App() {
   const router = createBrowserRouter([
@@ -47,6 +48,7 @@ function App() {
             { path: "blog", element: <ManageBlog /> },
             { path: "event-details", element: <ManageEventDetails /> },
             { path: "user", element: <ManageUser /> },
+            { path: "user/:id", element: <EditUser /> },
           ],
         },
         { path: "contact", element: <Contact /> },

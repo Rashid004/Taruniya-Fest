@@ -18,6 +18,7 @@ function AddUserModal() {
   // Create A user
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent form default behavior
+    setIsSubmiting(true);
     try {
       const userCredentials = await createUserWithEmailAndPassword(
         auth,
@@ -39,6 +40,8 @@ function AddUserModal() {
       setShowModal(false);
     } catch (error) {
       console.log("Error creating user:", error);
+    } finally {
+      setIsSubmiting(false); // Reset submitting state
     }
   };
 
@@ -50,7 +53,6 @@ function AddUserModal() {
 
   return (
     <Flex mb={16} justify="space-between" align="center" className="py-4 px-4">
-      <h2 className="text-xl font-semibold">Portal User</h2>
       <Button
         leftSection={<SquarePlus size="1em" />}
         variant="outline"
@@ -58,7 +60,6 @@ function AddUserModal() {
       >
         Add User
       </Button>
-
       <Modal
         opened={showModal}
         onClose={() => setShowModal(false)}
@@ -99,10 +100,10 @@ function AddUserModal() {
             </Button>
             <Button
               type="submit"
-              variant="outline"
-              disabled={!name || !email || !password}
+              variant="filled"
+              disabled={!name || !email || !password || isSubmiting}
             >
-              Add User
+              {isSubmiting ? "Submitting..." : "Add User"}
             </Button>
           </Flex>
         </form>
