@@ -78,7 +78,7 @@ function EditUser() {
     <Box className="w-full relative h-full">
       <ToastContainer position="top-right" autoClose={3000} />
       <div className="border-b border-t border-gray-300 px-4 py-4">
-        <Breadcrumb />
+        <Breadcrumb title="Portal User" path="user" />
       </div>
       <Flex direction="column" align="flex-start" gap="md" mt="lg" px="md">
         <TextInput

@@ -7,9 +7,10 @@ function Breadcrumb({ title, path }) {
   const location = useLocation();
 
   const renderBreadcrumb = () => {
+    // Check if the location path is exactly or starts with `/admin-panel/${path}`
     if (location.pathname === `/admin-panel/${path}`) {
       return <h1 className="text-2xl font-semibold">{title}</h1>;
-    } else if (location.pathname.startsWith(`/admin-panel/${path}`)) {
+    } else if (location.pathname.startsWith(`/admin-panel/${path}/`)) {
       return (
         <Flex align="center" gap="xs">
           <Link to={`/admin-panel/${path}`}>

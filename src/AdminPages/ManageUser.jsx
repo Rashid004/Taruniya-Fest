@@ -53,7 +53,6 @@ function ManageUser() {
         className="border-b border-t border-gray-300 px-4"
       >
         <Breadcrumb title="Portal User" path="user" />
-
         <AddUserModal />
       </Flex>
       <div className="py-4 w-[20%] px-4">

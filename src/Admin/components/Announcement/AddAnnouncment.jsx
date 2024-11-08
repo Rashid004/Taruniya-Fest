@@ -1,18 +1,20 @@
 /** @format */
 
 import { Button, Flex, Modal, TextInput, Title } from "@mantine/core";
-import { DateInput, TimeInput } from "@mantine/dates"; // Ensure these are imported correctly
-import { SquarePlus } from "lucide-react";
+import { DateInput, TimeInput } from "@mantine/dates";
+import { SquarePlus, Trash } from "lucide-react";
+import { nanoid } from "nanoid";
 import { useState } from "react";
+import toast from "react-hot-toast";
+import { createAnnouncement } from "../../../service/Announcement";
 
-function AddAnnouncment() {
+function AddAnnouncment({ selectedAnnouncements, handleDeleteSelected }) {
   const [showModal, setShowModal] = useState(false);
-
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState(null); // Store as Date object for `DateInput`
+  const [date, setDate] = useState(null);
   const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
-  const [time, setTime] = useState(null); // Store as Date object for `TimeInput`
+  const [time, setTime] = useState(null);
   const [location, setLocation] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -29,21 +31,32 @@ function AddAnnouncment() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const id = nanoid();
     try {
-      // Your form submission logic here
-      console.log({
+      if (!title || !date || !time || !location || !description) {
+        toast.error("Please fill in all required fields");
+        setIsSubmitting(false);
+        return;
+      }
+
+      const announcementData = {
+        id,
         title,
         date,
         time,
         location,
         description,
         link,
-      });
+      };
+      await createAnnouncement(announcementData);
+      console.log("Announcement added:", announcementData);
 
       reset();
       setShowModal(false);
+      toast.success("Announcement added successfully");
     } catch (error) {
       console.error("Error adding announcement:", error);
+      toast.error("Failed to add announcement");
     } finally {
       setIsSubmitting(false);
     }
@@ -51,13 +64,25 @@ function AddAnnouncment() {
 
   return (
     <Flex mb={16} justify="space-between" align="center" className="py-4 px-4">
-      <Button
-        leftSection={<SquarePlus size="1em" />}
-        variant="outline"
-        onClick={() => setShowModal(true)}
-      >
-        Add Announcement
-      </Button>
+      <Flex gap={12}>
+        <Button
+          leftSection={<Trash size="1em" />}
+          onClick={handleDeleteSelected}
+          disabled={selectedAnnouncements.length === 0}
+          variant="outline"
+          color="red"
+          ml={12}
+        >
+          Delete Announcement
+        </Button>
+        <Button
+          leftSection={<SquarePlus size="1em" />}
+          variant="outline"
+          onClick={() => setShowModal(true)}
+        >
+          Add Announcement
+        </Button>
+      </Flex>
       <Modal
         opened={showModal}
         onClose={() => setShowModal(false)}
@@ -77,18 +102,34 @@ function AddAnnouncment() {
             onChange={(e) => setTitle(e.target.value)}
             required
           />
-          <DateInput
-            value={date}
-            onChange={setDate} // Set date directly
-            label="Date"
-            placeholder="Select date"
+          <TextInput
+            label="Description"
+            placeholder="Enter description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             required
           />
+          <TextInput
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            label="Date"
+            valueFormat="YYYY MMM DD"
+            placeholder="Select date"
+            required
+            // size="sm"
+            radius="md" // Control input border radius
+            styles={{
+              input: { fontSize: "1rem" },
+              dropdown: { backgroundColor: "#f8f9fa" },
+            }}
+          />
+
           <TimeInput
             label="Time"
             placeholder="Select time"
             value={time}
-            onChange={setTime} // Set time directly
+            onChange={(e) => setTime(e.target.value)}
             required
           />
           <TextInput
@@ -98,13 +139,7 @@ function AddAnnouncment() {
             onChange={(e) => setLocation(e.target.value)}
             required
           />
-          <TextInput
-            label="Description"
-            placeholder="Enter description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
+
           <TextInput
             label="Link"
             placeholder="Enter link"
