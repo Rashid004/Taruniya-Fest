@@ -13,6 +13,7 @@ function AnnouncementRow({
   link,
   isSelected,
   onSelectionChange,
+  searchQuery,
 }) {
   const navigate = useNavigate();
 
@@ -36,8 +37,8 @@ function AnnouncementRow({
       </Table.Td>
       <Table.Td size="sm">
         <Text align="left" color="dimmed">
-          {description.length > 50
-            ? `${description.slice(0, 50)}...`
+          {description.length > 100
+            ? `${description.slice(0, 100)}...`
             : description}
         </Text>
       </Table.Td>

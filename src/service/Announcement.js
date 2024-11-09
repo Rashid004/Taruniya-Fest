@@ -7,6 +7,7 @@ import {
   getDoc,
   getDocs,
   setDoc,
+  updateDoc,
 } from "firebase/firestore";
 import { db } from "../config/firebase";
 
@@ -42,6 +43,27 @@ export const deleteAnnouncement = async (id) => {
   try {
     const announcementRef = doc(db, "announcement", id);
     await deleteDoc(announcementRef);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// Update Announcement
+export const updateAnnouncement = async (id, body) => {
+  try {
+    const announcementRef = doc(db, "announcement", id);
+    await updateDoc(announcementRef, body);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// Get a single Announcement
+export const getAnnouncementsById = async (id) => {
+  try {
+    const announcementRef = doc(db, "announcement", id);
+    const announcementSnapshot = await getDoc(announcementRef);
+    return announcementSnapshot.data();
   } catch (error) {
     console.log(error);
   }

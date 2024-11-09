@@ -20,7 +20,7 @@ export default function AppLayout() {
           // Admin layout: Sidebar and Outlet
           <div className="flex">
             <Sidebar />
-            <div className="flex-grow  bg-white">
+            <div className="flex-grow bg-white">
               <Outlet />
             </div>
           </div>

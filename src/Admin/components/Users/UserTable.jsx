@@ -14,12 +14,12 @@ function UserTable({ users, searchQuery }) {
 
   useEffect(() => {
     handlePageChange(1);
-  }, [handlePageChange, searchQuery]);
+  }, [searchQuery]);
 
-  const totalPage = Math.ceil(users.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(users.length / ITEMS_PER_PAGE);
 
   return (
-    <>
+    <div>
       <Flex direction="column" gap="md">
         <Table highlightOnHover>
           <Table.Thead>
@@ -45,15 +45,15 @@ function UserTable({ users, searchQuery }) {
         </Table>
       </Flex>
       {users.length > ITEMS_PER_PAGE && (
-        <Flex justify="center" className="mt-4">
+        <Flex justify="center" className="mt-6">
           <Pagination
-            total={totalPage}
-            page={currentPage}
+            total={totalPages}
+            value={currentPage}
             onChange={handlePageChange}
           />
         </Flex>
       )}
-    </>
+    </div>
   );
 }
 

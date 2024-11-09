@@ -3,88 +3,110 @@
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 const eventDetails = {
-  crossover: {
-    heading: "Crossover",
+  literaryOratoryArts: {
+    heading: "Literary/Oratory Arts",
     events: [
       {
-        title: "Fusion Fiesta",
+        title: "Clash of Words (Debate)",
         description:
-          "A spectacular showcase of interdepartmental collaboration, blending various art forms into a cohesive performance.",
+          "Engage in a debate, defending viewpoints on diverse topics.",
       },
       {
-        title: "Talent Mash-up",
+        title: "Quiztopia (Quiz)",
         description:
-          "Participants from different departments team up to create unique performances that transcend traditional boundaries.",
+          "A challenging quiz to test general knowledge and awareness.",
       },
       {
-        title: "Collaborative Canvas",
+        title: "Inkspire (Creative Writing)",
         description:
-          "A large-scale art installation created by artists from multiple disciplines working together.",
+          "Creative writing competition to unleash imaginative stories.",
+      },
+      {
+        title: "Mumbai Monologues (Elocution & Speech)",
+        description:
+          "Elocution event focusing on engaging speech and delivery.",
+      },
+      {
+        title: "Shipwreck",
+        description:
+          "Use your wits to survive as you embody a famous personality.",
       },
     ],
   },
-  malharSpaces: {
-    heading: "Malhar Spaces",
+  eGames: {
+    heading: "E-Games",
     events: [
       {
-        title: "Improv Alley",
+        title: "Bombay Battle Royale (Bgmi)",
         description:
-          "A spontaneous performance space where participants can showcase their improvisational skills in various art forms.",
-      },
-      {
-        title: "Virtual Reality Experience",
-        description:
-          "An immersive VR installation that allows visitors to explore and interact with digital art in a virtual Malhar space.",
-      },
-      {
-        title: "Flash Mob Central",
-        description:
-          "A designated area for surprise flash mobs, encouraging spontaneous dance and music performances throughout the event.",
+          "Battle it out in BGMI, with survival and strategy as key.",
       },
     ],
   },
-  literaryArts: {
-    heading: "Literary Arts",
+  sports: {
+    heading: "Sports",
     events: [
       {
-        title: "Slam Poetry Showdown",
+        title: "Checkmate Challenge (Chess)",
         description:
-          "A high-energy poetry competition where participants perform their original works with passion and conviction.",
+          "Compete in a chess tournament to showcase strategy and patience.",
       },
       {
-        title: "Flash Fiction Challenge",
-        description:
-          "Participants craft compelling short stories within a strict word limit and time constraint.",
+        title: "Carrom Carnival (Carrom)",
+        description: "Showcase your carrom skills in this classic board game.",
       },
       {
-        title: "Literary Cosplay",
-        description:
-          "A costume contest where participants dress up as their favorite literary characters and perform a short monologue.",
+        title: "Pitch Perfect (Cricket)",
+        description: "A cricket match combining agility, skill, and teamwork.",
       },
       {
-        title: "Storytellers' Circle",
+        title: "Goal Rush (Football)",
         description:
-          "An intimate gathering where participants share personal stories and anecdotes in a supportive environment.",
+          "Participate in a football game showcasing skill and endurance.",
+      },
+      {
+        title: "Tug Titans (Tug of war)",
+        description: "Test strength and teamwork in this Tug of War challenge.",
       },
     ],
   },
-  entertainmentTheatricalsContests: {
-    heading: "Entertainment, Theatricals and Contests",
+  performingArts: {
+    heading: "Performing Arts",
     events: [
       {
-        title: "Battle of the Bands",
-        description:
-          "A high-octane music competition showcasing the best upcoming bands across various genres.",
+        title: "Dance It Out (Solo Dance)",
+        description: "Show off your solo dance skills in any style.",
       },
       {
-        title: "Improv Theatre League",
-        description:
-          "Teams compete in a series of improvisational theatre challenges, creating hilarious scenes on the spot.",
+        title: "Groove Crew (Group Dance)",
+        description: "Group dance showcasing choreography and unity.",
       },
       {
-        title: "Malhar's Got Talent",
+        title: "Soulful Symphonies",
+        description: "Sing your heart out in this solo singing competition.",
+      },
+      {
+        title: "Tarunya Got Latent (Open Mic)",
         description:
-          "A grand talent show featuring a diverse range of performances from singing and dancing to magic and acrobatics.",
+          "Perform poetry, stand-up, or any talent in open-mic style.",
+      },
+      {
+        title: "Fashion Frenzy (Fashion Show)",
+        description: "Showcase fashion sense in this group fashion show.",
+      },
+    ],
+  },
+  psychologicalEvents: {
+    heading: "Psychological Events",
+    events: [
+      {
+        title: "Reality vs. Myth",
+        description:
+          "Determine fact from fiction in this mind-bending challenge.",
+      },
+      {
+        title: "Guess the Disorder",
+        description: "Identify psychological disorders based on given clues.",
       },
     ],
   },
@@ -92,59 +114,59 @@ const eventDetails = {
     heading: "Fine Arts",
     events: [
       {
-        title: "Live Mural Painting",
+        title: "Canvas Crusaders (Poster Making)",
         description:
-          "Artists collaborate to create a massive mural over the course of the festival, with visitors watching the process unfold.",
+          "Design a poster based on the given theme, using visual elements.",
       },
       {
-        title: "Sculpture Garden",
-        description:
-          "An outdoor exhibition of student-created sculptures, showcasing various materials and techniques.",
+        title: "Face Canvas (Face Painting)",
+        description: "Express creativity through unique face painting designs.",
       },
       {
-        title: "Digital Art Showcase",
-        description:
-          "A gallery of cutting-edge digital artworks, including animated pieces and interactive installations.",
+        title: "Story Strokes (Draw a Story)",
+        description: "Tell a story through an illustrated art piece.",
       },
     ],
   },
-  indianPerformingArts: {
-    heading: "Indian Performing Arts",
+  mediaEvents: {
+    heading: "Media Events",
     events: [
       {
-        title: "Classical Fusion Extravaganza",
+        title: "Shutter Island (Street photography)",
         description:
-          "A grand performance blending various Indian classical dance forms with contemporary music and choreography.",
+          "Capture the essence of the streets in this photography contest.",
       },
       {
-        title: "Folk Tale Dramatization",
-        description:
-          "Theatrical performances bringing to life traditional Indian folk tales through music, dance, and drama.",
+        title: "Reel Talk (Reel Making)",
+        description: "Create an impactful short reel on assigned topics.",
       },
       {
-        title: "Bollywood Bonanza",
+        title: "Brand the Reel (Branding)",
         description:
-          "A high-energy dance competition featuring iconic Bollywood songs and choreography from different eras.",
+          "Showcase your creativity by branding a reel with a theme.",
+      },
+      {
+        title: "Frame by Frame (Cinematography/Short film)",
+        description:
+          "Craft a short film or cinematic piece capturing a narrative.",
       },
     ],
   },
-  worldPerformingArts: {
-    heading: "World Performing Arts",
+  preEvents: {
+    heading: "Pre-Events",
     events: [
       {
-        title: "Global Rhythms",
-        description:
-          "A music festival showcasing diverse genres from around the world, from K-pop to Latin jazz.",
+        title: "Dream Run (Marathon)",
+        description: "Participate in a marathon to test endurance and speed.",
       },
       {
-        title: "International Dance-Off",
-        description:
-          "Dancers compete in various styles including hip-hop, salsa, ballet, and contemporary from different cultures.",
+        title: "Path Finders (Treasure Hunt)",
+        description: "Treasure Hunt with clues hidden across the campus.",
       },
       {
-        title: "A Cappella World Tour",
+        title: "Street Spirit (Street play)",
         description:
-          "Vocal groups perform songs from different countries and cultures, showcasing the power of the human voice.",
+          "Perform a vibrant and impactful street play, addressing social issues and engaging the audience with powerful storytelling.",
       },
     ],
   },
@@ -155,6 +177,10 @@ function EventsDetail() {
   const event = eventDetails[eventId];
 
   if (!event) return <div>Event not found</div>;
+
+  const handleGoBack = () => {
+    window.history.back();
+  };
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 min-h-screen">

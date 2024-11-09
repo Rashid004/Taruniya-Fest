@@ -5,46 +5,52 @@ import EventCard from "../components/EventCard/EventCard";
 /** @format */
 const events = [
   {
-    id: "crossover",
-    title: "Crossover",
+    id: "preEvents",
+    title: "Pre-Events",
     description:
-      "Malhar is about many aspects, like cooperation, collaboration, and a collected set of efforts striving towards a common goal. Crossover events fit into all the above-mentioned adjectives and are best defined as a fusion of talents. The Crossover events carry forward the legacy of Malhar by proving that despite having different departments, there is nothing better than when they come together to create a spectacle.",
+      "These preliminary activities set the tone for the fest, building excitement and encouraging early participation. They provide a sneak peek into the main events, engaging participants and audiences with fun, energetic challenges that prepare everyone for the fest's main attractions.",
   },
   {
-    id: "malharSpaces",
-    title: "Malhar Spaces",
+    id: "literaryOratoryArts",
+    title: "Literary/Oratory Arts",
     description:
-      "Malhar Spaces speaks of collaboration, embodying the spirit of unity as we celebrate life. Sometimes, a twist is just what we need. Moving beyond our flagship and classic events, Malhar Spaces introduces novelty, nudging your creative thinking caps towards spontaneity. Embrace the unexpected and showcase your talent in new and exciting ways!",
+      "This department celebrates the power of words, intellect, and public speaking. Events include debates, quizzes, elocution, and creative writing, where participants engage in intellectually stimulating activities that challenge their knowledge, creativity, and ability to communicate ideas clearly and persuasively.",
   },
   {
-    id: "literaryArts",
-    title: "Literary Arts",
+    id: "performingArts",
+    title: "Performing Arts",
     description:
-      "Stories give meaning to experience. One need not use big words or discuss heavy emotions to tell a tale that is impactful. Stories are meant to be entertaining, witty, and dramatic to be truly memorable. LA hopes to make the act of storytelling accessible, engaging, and enjoyable for everyone.",
-  },
-  {
-    id: "entertainmentTheatricalsContests",
-    title: "Entertainment, Theatricals and Contests",
-    description:
-      "Entertainment, Theatricals & Contests is guided by the principles of enjoyment and competition. Each event within the department ensures an exhilarating experience not only for the audience, but also the participants and the organizers. ETC hosts a wide range of events- from sporty field domination to unique forms of theatre. However, each event promises fun and unique experiences for all!",
+      "Celebrating artistic expression, this department offers events in dance, music, theatre, and more. It’s a platform for performers to bring their talents to the stage, blending creativity, technical skills, and audience engagement to create memorable experiences.",
   },
   {
     id: "fineArts",
     title: "Fine Arts",
     description:
-      "Fine Arts is a department that celebrates the talent and passion of young artists, incorporating a holistic approach that fosters creativity and collaboration, offering a rich tapestry of human expression through several mediums.",
+      "A space for visual artists to showcase their imagination and craftsmanship. Participants express themselves through mediums like painting, drawing, and traditional arts, focusing on creativity, aesthetic skill, and originality.",
   },
   {
-    id: "indianPerformingArts",
-    title: "Indian Performing Arts",
+    id: "psychologicalEvents",
+    title: "Psychological Events",
     description:
-      "IPA celebrates the rich and diverse cultural heritage of India through various forms of artistic expression, including classical and folk dances, music, and drama. It showcases the vibrant traditions and stories from different regions, reflecting India's historical and cultural depth. This year, the event features not only classical and folk performances but also a delightful 'tadka' of Bollywood music, ensuring continuous entertainment for the audience.",
+      "Designed to challenge participants’ mental acuity, these events encourage analytical thinking, knowledge of psychological concepts, and creative problem-solving. Activities explore the mind's depths, testing logical reasoning and understanding of human behavior.",
   },
   {
-    id: "worldPerformingArts",
-    title: "World Performing Arts",
+    id: "sports",
+    title: "Sports",
     description:
-      "Welcome to WPA (wuh-pah), a place for music and dance enthusiasts to experience their moment of glory! Our vision this year is to blend simplicity with creativity, crafting unforgettable experiences that inspire and entertain. Join us in a world where every performance tells a story and every artist finds their voice. Come alive with passion at WPA - the heart of Malhar - Livin' la vida loca.",
+      "A showcase of physical prowess, teamwork, and strategy. From traditional sports like cricket and football to strength-based games like tug-of-war, this department brings together athletes to compete in a variety of events that celebrate skill, endurance, and sportsmanship.",
+  },
+  {
+    id: "mediaEvents",
+    title: "Media Events",
+    description:
+      "A creative arena for capturing moments and crafting stories, Media Events include photography, videography, and social media challenges. Participants can showcase their skills in framing, editing, and content creation, highlighting their ability to narrate impactful stories visually.",
+  },
+  {
+    id: "eGames",
+    title: "E-Games",
+    description:
+      "A fast-paced, competitive category for gaming enthusiasts, focusing on strategic, real-time challenges like battle royale and sports simulations. This department tests players' reflexes, decision-making, and teamwork in immersive digital environments.",
   },
 ];
 
