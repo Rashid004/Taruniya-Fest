@@ -28,6 +28,7 @@ import ManageEventDetails from "./AdminPages/ManageEventDetails";
 import ManageUser from "./AdminPages/ManageUser";
 import EditUser from "./Admin/components/Users/EditUser";
 import EditAnnouncement from "./Admin/components/Announcement/EditAnnouncement";
+import EditEvent from "./Admin/components/Events/EditEvent";
 
 function App() {
   const router = createBrowserRouter([
@@ -50,6 +51,7 @@ function App() {
             { path: "event-details", element: <ManageEventDetails /> },
             { path: "user", element: <ManageUser /> },
             { path: "user/:id", element: <EditUser /> },
+            { path: "event/:id", element: <EditEvent /> },
             { path: "announcement/:id", element: <EditAnnouncement /> },
           ],
         },

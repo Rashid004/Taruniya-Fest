@@ -6,10 +6,13 @@ import AddAnnouncment from "../Admin/components/Announcement/AddAnnouncment";
 import Breadcrumb from "../Admin/components/BreadCrumb";
 import AnnouncementTable from "../Admin/components/Announcement/AnnouncementTable";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteAnnouncement, getAnnouncements } from "../service/Announcement";
+import {
+  deleteAnnouncement,
+  deleteCheckAnnouncement,
+  getAnnouncements,
+} from "../service/Announcement";
 import { setAnnouncementData } from "../Redux/reducer/announcementReducer";
 import toast from "react-hot-toast";
-import { Filter } from "lucide-react";
 import FilterAnnouncement from "../Admin/components/Announcement/FilterAnnouncement";
 
 export default function ManageAnnouncements() {
@@ -40,9 +43,12 @@ export default function ManageAnnouncements() {
   // Delete selected announcements
   const handleDeleteSelected = async () => {
     console.log("Deleting selected announcements:", selectedAnnouncements);
+    if (selectedAnnouncements.length === 0) return;
     try {
-      await deleteAnnouncement(selectedAnnouncements);
+      await deleteCheckAnnouncement(selectedAnnouncements);
       toast.success("Announcements deleted successfully");
+      setSelectedAnnouncements([]); // Clear selected announcements
+      fetchAnnouncements(); // Refresh announcement list to reflect changes
     } catch (error) {
       toast.error("Failed to delete announcements");
       console.log(error);

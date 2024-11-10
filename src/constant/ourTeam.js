@@ -32,7 +32,7 @@ export const committeeMembers = [
   },
   {
     name: "Hyder Ali",
-    designation: "Deputy Chairperson",
+    designation: "Chairperson",
     img: "/images/committee/photo2.webp",
   },
   {
@@ -64,6 +64,11 @@ export const committeeMembers = [
     name: "Alok Gupta",
     designation: "Advisory",
     img: "/images/committee/photo8.webp",
+  },
+  {
+    name: "Ansari Rashid",
+    designation: "Software Developer/Web Dev",
+    img: null,
   },
   {
     name: "Gauri Sawant",
