@@ -14,27 +14,28 @@ import FilterEvents from "../Admin/components/Events/FilterEvent";
 function ManageEvents() {
   const dispatch = useDispatch();
   const events = useSelector((state) => state.event.events);
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Slected Events
   const [selectedEvents, setSelectedEvents] = useState([]);
 
-  const [searchQuery, setSearchQuery] = useState("");
-
+  // Select Event
   const handleSelectionChange = (id) => {
     setSelectedEvents((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
     );
   };
 
+  // Select All Events
   const handleSelectAll = (e) => {
     if (e.target.checked) {
-      setSelectedEvents(events.map((item) => item.id));
+      setSelectedEvents(events.map((event) => event.id)); // Select all event IDs
     } else {
-      setSelectedEvents([]);
+      setSelectedEvents([]); // Deselect all
     }
   };
-  // Filter Events
 
+  // Filter Events
   const filteredEvents = useMemo(() => {
     return events.filter((events) => {
       if (searchQuery.length > 3) {
@@ -48,13 +49,13 @@ function ManageEvents() {
       }
     });
   });
-  // Delete selected Events
+
   // Delete selected events
   const handleDeleteSelected = async () => {
     if (selectedEvents.length === 0) return;
     try {
-      await deleteCheckEvent(selectedEvents); // Pass the array of IDs
-      toast.success("Events deleted successfully");
+      await deleteCheckEvent(selectedEvents);
+      toast.success("Events deleted successfully ");
       setSelectedEvents([]); // Clear selected events
       fetchEvents(); // Refresh event list to reflect changes
     } catch (error) {
@@ -99,8 +100,7 @@ function ManageEvents() {
         events={filteredEvents}
         selectedEvents={selectedEvents}
         handleSelectionChange={handleSelectionChange}
-        handleSelectAll={handleSelectionChange}
-        handSelectAll={handleSelectAll}
+        handleSelectAll={handleSelectAll}
         searchQuery={searchQuery}
       />
     </div>

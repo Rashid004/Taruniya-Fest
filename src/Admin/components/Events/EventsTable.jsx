@@ -26,7 +26,7 @@ function EventTable({
 
   return (
     <div>
-      <Table>
+      <Table className="z-40">
         <Table.Thead>
           <Table.Tr>
             <Table.Th>
