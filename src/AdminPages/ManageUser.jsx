@@ -5,7 +5,7 @@ import UserTable from "../Admin/components/Users/UserTable";
 import { getUsers } from "../service/User";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo, useState } from "react";
-import { setLoading, setUserData } from "../Redux/reducer/portalUser";
+import { setUserData } from "../Redux/reducer/portalUser";
 import Breadcrumb from "../Admin/components/BreadCrumb";
 import { Flex } from "@mantine/core";
 import FilterUser from "../Admin/components/Users/FilterUser";
@@ -24,26 +24,18 @@ function ManageUser() {
           user.name.toLowerCase().trim().includes(lowerCaseQuery) ||
           user.email.toLowerCase().trim().includes(lowerCaseQuery)
         );
-      } else {
-        return true;
       }
+      return true;
     });
-  });
-
-  // Fetch users data from Firebase
-  const fetchUsers = async () => {
-    try {
-      const data = await getUsers();
-      dispatch(setUserData(data));
-    } catch (error) {
-      console.log(error);
-      dispatch(setLoading(false));
-    }
-  };
+  }, [users, searchQuery]);
 
   useEffect(() => {
-    fetchUsers();
-  }, []);
+    const unsubscribe = getUsers((users) => {
+      dispatch(setUserData(users));
+    });
+
+    return () => unsubscribe && unsubscribe();
+  }, [dispatch]);
 
   return (
     <div>

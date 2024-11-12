@@ -6,6 +6,7 @@ import {
   doc,
   getDoc,
   getDocs,
+  onSnapshot,
   setDoc,
   updateDoc,
 } from "firebase/firestore";
@@ -21,20 +22,33 @@ export const createEvent = async (body) => {
   }
 };
 
-// Get all Events
-export const getEvents = async () => {
+export const getEvents = (setEventsCallback) => {
   try {
     const eventsRef = collection(db, "events");
-    const eventSnapshot = await getDocs(eventsRef);
 
-    const events = eventSnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-    console.log(events);
-    return events;
+    // Set up a real-time listener for the 'events' collection
+    onSnapshot(eventsRef, (snapshot) => {
+      const events = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      // Update the events using the provided callback function
+      setEventsCallback(events);
+
+      // Log changes for added, modified, or removed documents
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === "added") {
+          console.log("New event added:", change.doc.data());
+        } else if (change.type === "modified") {
+          console.log("Event updated:", change.doc.data());
+        } else if (change.type === "removed") {
+          console.log("Event removed:", change.doc.data());
+        }
+      });
+    });
   } catch (error) {
-    console.log(error);
+    console.error("Error setting up events listener:", error);
   }
 };
 

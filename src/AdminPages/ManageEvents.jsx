@@ -16,7 +16,7 @@ function ManageEvents() {
   const events = useSelector((state) => state.event.events);
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Slected Events
+  // Selected Events
   const [selectedEvents, setSelectedEvents] = useState([]);
 
   // Select Event
@@ -37,45 +37,41 @@ function ManageEvents() {
 
   // Filter Events
   const filteredEvents = useMemo(() => {
-    return events.filter((events) => {
+    return events.filter((event) => {
       if (searchQuery.length > 3) {
         const searchText = searchQuery.toLowerCase();
         return (
-          events.title.toLowerCase().trim().includes(searchText) ||
-          events.description.toLowerCase().trim().includes(searchText)
+          event.title.toLowerCase().trim().includes(searchText) ||
+          event.description.toLowerCase().trim().includes(searchText)
         );
       } else {
         return true;
       }
     });
-  });
+  }, [events, searchQuery]);
 
   // Delete selected events
   const handleDeleteSelected = async () => {
     if (selectedEvents.length === 0) return;
     try {
       await deleteCheckEvent(selectedEvents);
-      toast.success("Events deleted successfully ");
+      toast.success("Events deleted successfully");
       setSelectedEvents([]); // Clear selected events
-      fetchEvents(); // Refresh event list to reflect changes
     } catch (error) {
       toast.error("Failed to delete events");
       console.log(error);
     }
   };
 
-  // Fetch Events
-  const fetchEvents = async () => {
-    try {
-      const data = await getEvents();
-      dispatch(setEvents(data));
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // Fetch and listen to Events in real-time
   useEffect(() => {
-    fetchEvents();
-  }, []);
+    const unsubscribe = getEvents((data) => {
+      dispatch(setEvents(data));
+    });
+
+    // Cleanup on unmount
+    return () => unsubscribe && unsubscribe();
+  }, [dispatch]);
 
   return (
     <div>

@@ -6,6 +6,7 @@ import {
   doc,
   getDoc,
   getDocs,
+  onSnapshot,
   setDoc,
   updateDoc,
 } from "firebase/firestore";
@@ -22,22 +23,32 @@ export const createAnnouncement = async (body) => {
 };
 
 // Get all Announcements
-export const getAnnouncements = async () => {
+export const getAnnouncements = (setAnnouncementCallback) => {
   try {
     const announcementsRef = collection(db, "announcement");
-    const announcementsSnapshot = await getDocs(announcementsRef);
 
-    const announcements = announcementsSnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-    console.log(announcements);
-    return announcements;
+    onSnapshot(announcementsRef, (snapshot) => {
+      const announcements = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      setAnnouncementCallback(announcements);
+
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === "added") {
+          console.log("New announcement added:", change.doc.data());
+        } else if (change.type === "modified") {
+          console.log("Announcement updated:", change.doc.data());
+        } else if (change.type === "removed") {
+          console.log("Announcement removed:", change.doc.data());
+        }
+      });
+    });
   } catch (error) {
-    console.log(error);
+    console.error("Error setting up announcements listener:", error);
   }
 };
-
 // Delete Announcemente
 export const deleteAnnouncement = async (id) => {
   try {

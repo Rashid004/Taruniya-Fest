@@ -7,7 +7,6 @@ import Breadcrumb from "../Admin/components/BreadCrumb";
 import AnnouncementTable from "../Admin/components/Announcement/AnnouncementTable";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  deleteAnnouncement,
   deleteCheckAnnouncement,
   getAnnouncements,
 } from "../service/Announcement";
@@ -22,8 +21,6 @@ export default function ManageAnnouncements() {
   );
 
   const [searchQuery, setSearchQuery] = useState("");
-
-  // Make Slected Announcements state to handle selected announcements
   const [selectedAnnouncements, setSelectedAnnouncements] = useState([]);
 
   const handleSelectionChange = (id) => {
@@ -40,50 +37,40 @@ export default function ManageAnnouncements() {
     }
   };
 
-  // Delete selected announcements
   const handleDeleteSelected = async () => {
-    console.log("Deleting selected announcements:", selectedAnnouncements);
     if (selectedAnnouncements.length === 0) return;
     try {
       await deleteCheckAnnouncement(selectedAnnouncements);
       toast.success("Announcements deleted successfully");
-      setSelectedAnnouncements([]); // Clear selected announcements
-      fetchAnnouncements(); // Refresh announcement list to reflect changes
+      setSelectedAnnouncements([]);
     } catch (error) {
       toast.error("Failed to delete announcements");
       console.log(error);
     }
   };
 
-  const fetchAnnouncements = async () => {
-    try {
-      const data = await getAnnouncements();
-      dispatch(setAnnouncementData(data));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    fetchAnnouncements();
-  }, []);
+    const unsubscribe = getAnnouncements((data) => {
+      dispatch(setAnnouncementData(data));
+    });
 
-  // Filter Announcements
+    return () => unsubscribe && unsubscribe();
+  }, [dispatch]);
+
   const filteredAnnouncements = useMemo(() => {
-    return announcements.filter((announcements) => {
+    return announcements.filter((announcement) => {
       if (searchQuery.length > 3) {
         const searchText = searchQuery.toLowerCase();
         return (
-          announcements.title.toLowerCase().trim().includes(searchText) ||
-          announcements.description.toLowerCase().trim().includes(searchText) ||
-          announcements.location.toLowerCase().trim().includes(searchText) ||
-          announcements.link.toLowerCase().trim().includes(searchText)
+          announcement.title.toLowerCase().includes(searchText) ||
+          announcement.description.toLowerCase().includes(searchText) ||
+          announcement.location.toLowerCase().includes(searchText) ||
+          announcement.link.toLowerCase().includes(searchText)
         );
-      } else {
-        return true;
       }
+      return true;
     });
-  });
+  }, [announcements, searchQuery]);
 
   return (
     <div>

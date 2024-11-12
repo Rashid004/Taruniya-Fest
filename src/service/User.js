@@ -5,25 +5,43 @@ import {
   doc,
   getDoc,
   getDocs,
+  onSnapshot,
   setDoc,
   updateDoc,
 } from "firebase/firestore";
 import { db } from "../config/firebase";
 
 // Get  all users
-export const getUsers = async () => {
+export const getUsers = (setUsersCallback) => {
   try {
     const usersRef = collection(db, "users");
-    const usersSnapshot = await getDocs(usersRef);
 
-    const users = usersSnapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
+    // Set up a real-time listener for the 'users' collection
+    const unsubscribe = onSnapshot(usersRef, (snapshot) => {
+      const users = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
 
-    return users;
+      // Update the users using the provided callback function
+      setUsersCallback(users);
+
+      // Log changes for added, modified, or removed documents
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === "added") {
+          console.log("New user added:", change.doc.data());
+        } else if (change.type === "modified") {
+          console.log("User updated:", change.doc.data());
+        } else if (change.type === "removed") {
+          console.log("User removed:", change.doc.data());
+        }
+      });
+    });
+
+    // Return the unsubscribe function to allow cleanup
+    return unsubscribe;
   } catch (error) {
-    console.log(error);
+    console.error("Error setting up users listener:", error);
   }
 };
 
