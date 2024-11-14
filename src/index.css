@@ -21,8 +21,12 @@
 @tailwind utilities;
 
 body {
-  background-color: #6d0b29;
   @apply font-gotham;
+  background-image: url("/home/bg-home3.png");
+  background-size: cover;
+
+  position: relative;
+  z-index: 0;
 }
 
 @layer base {

@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../config/firebase";
 
+// create Event
 export const createEvent = async (body) => {
   try {
     const eventRef = doc(db, "events", body.id);

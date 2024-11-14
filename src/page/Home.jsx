@@ -7,7 +7,7 @@ function Home() {
     <section className="min-h-[90vh] relative overflow-hidden">
       {/* First Image */}
       <motion.div
-        className="absolute bottom-0 flex items-center justify-center z-[10] w-full"
+        className="absolute bottom-0 flex items-center justify-center z-[20] w-full"
         initial={{ y: 500, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
@@ -27,7 +27,7 @@ function Home() {
 
       {/* Second Image */}
       <motion.div
-        className="absolute bottom-0 w-full h-full flex items-center justify-center z-[10]"
+        className="absolute bottom-0 w-full h-full flex items-center justify-center z-[20]"
         initial={{ y: 500, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
@@ -58,7 +58,7 @@ function Home() {
           duration: 1.4,
           delay: 1.5,
         }}
-        className="absolute top-0 left-1/3 flex items-center justify-center z-10"
+        className="absolute top-0 left-1/3 flex items-center justify-center z-30"
       >
         <img
           src="/home/logo.webp"
@@ -79,12 +79,12 @@ function Home() {
           duration: 1.4,
           delay: 2,
         }}
-        className="absolute bottom-[10%] right-0 flex items-center justify-center z-20"
+        className="absolute bottom-[10%] right-0 flex items-center justify-center z-50"
       >
         <img
           src="/home/right.webp"
           alt="Right Image"
-          className="w-full h-full"
+          className="w-[620px] h-full"
         />
       </motion.div>
 
@@ -100,9 +100,13 @@ function Home() {
           duration: 1.4,
           delay: 2.5,
         }}
-        className="absolute bottom-0 left-[14%] flex items-center justify-center z-20"
+        className="absolute bottom-0 left-[12%] flex items-center justify-center z-50"
       >
-        <img src="/home/left.webp" alt="Left Image" className="w-full h-full" />
+        <img
+          src="/home/left.webp"
+          alt="Left Image"
+          className="w-[320px] h-full"
+        />
       </motion.div>
     </section>
   );

@@ -24,11 +24,13 @@ import ManageAnnouncements from "./AdminPages/ManageAnnouncements";
 import ManageEvents from "./AdminPages/ManageEvents";
 import ManageLeaderboard from "./AdminPages/ManageLeaderboard";
 import ManageBlog from "./AdminPages/ManageBlog";
-import ManageEventDetails from "./AdminPages/ManageEventDetails";
 import ManageUser from "./AdminPages/ManageUser";
 import EditUser from "./Admin/components/Users/EditUser";
 import EditAnnouncement from "./Admin/components/Announcement/EditAnnouncement";
 import EditEvent from "./Admin/components/Events/EditEvent";
+import LoginPage from "./AdminPages/LoginPage";
+import EditBlog from "./Admin/components/Blog/EditBlog";
+import EditLeaderBoard from "./Admin/components/LeaderBoard/EditLeaderBoard";
 
 function App() {
   const router = createBrowserRouter([
@@ -47,12 +49,14 @@ function App() {
             },
             { path: "events", element: <ManageEvents /> },
             { path: "leaderboard", element: <ManageLeaderboard /> },
+            { path: "leaderboard/:id", element: <EditLeaderBoard /> },
             { path: "blog", element: <ManageBlog /> },
-            { path: "event-details", element: <ManageEventDetails /> },
+            { path: "blog/:id", element: <EditBlog /> },
             { path: "user", element: <ManageUser /> },
             { path: "user/:id", element: <EditUser /> },
             { path: "event/:id", element: <EditEvent /> },
             { path: "announcement/:id", element: <EditAnnouncement /> },
+            { path: "login", element: <LoginPage /> },
           ],
         },
         { path: "contact", element: <Contact /> },

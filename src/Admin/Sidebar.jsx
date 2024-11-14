@@ -2,14 +2,7 @@
 
 // src/admin/Sidebar.jsx
 
-import {
-  Blocks,
-  CalendarDays,
-  Podcast,
-  SquarePlus,
-  Users,
-  Trophy,
-} from "lucide-react";
+import { CalendarDays, Podcast, SquarePlus, Users, Trophy } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 const links = [
@@ -21,11 +14,7 @@ const links = [
   },
   { icon: <CalendarDays />, name: "Events", href: "/admin-panel/events" },
   { icon: <SquarePlus />, name: "Blog", href: "/admin-panel/blog" },
-  {
-    icon: <Blocks />,
-    name: "EventsDetails",
-    href: "/admin-panel/event-details",
-  },
+
   { icon: <Trophy />, name: "Leaderboard", href: "/admin-panel/leaderboard" },
 ];
 

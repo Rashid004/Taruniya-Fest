@@ -6,11 +6,13 @@ import { nanoid } from "nanoid";
 import { useState } from "react";
 import { createBlog } from "../../../service/Blog";
 import toast from "react-hot-toast";
+import { createLeaderBoard } from "../../../service/Leaderboard";
 
-function AddBlog() {
+export default function AddLeaderBoard() {
   const [showModal, setShowModal] = useState(false);
-  const [title, setTitle] = useState("");
+  const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [rank, setRank] = useState("");
   const [date, setDate] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -21,29 +23,31 @@ function AddBlog() {
     try {
       const id = nanoid();
       //  const imageUrl = await uploadImage(selectImage, `blogs/${id}.png`);
-      const blogData = {
+      const leaderBoardData = {
         id,
-        title,
+        name,
         description,
+        rank,
         date,
         // image: imageUrl, // Commented out as per the request
       };
-      await createBlog(blogData);
+      await createLeaderBoard(leaderBoardData);
       setShowModal(false);
-      toast.success("Blog created successfully");
+      toast.success("LeaderBoard created successfully");
       reset();
     } catch (error) {
       console.log("Submission error:", error);
-      toast.error("Failed to create blog");
+      toast.error("Failed to create LeaderBoard");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const reset = () => {
-    setTitle("");
+    setName("");
     setDescription("");
     setDate("");
+    setRank("");
     // setSelectImage(null); // Commented out as per the request
   };
 
@@ -56,14 +60,14 @@ function AddBlog() {
           color="red"
           ml={12}
         >
-          Delete Blog
+          Delete LeaderBoard
         </Button>
         <Button
           leftSection={<SquarePlus size="1em" />}
           variant="outline"
           onClick={() => setShowModal(true)}
         >
-          Add Blog
+          Add LeaderBoard
         </Button>
       </Flex>
       <Modal
@@ -71,7 +75,7 @@ function AddBlog() {
         onClose={() => setShowModal(false)}
         title={
           <Title order={2} fw={600}>
-            Add Blog
+            Add LeaderBoard
           </Title>
         }
       >
@@ -86,12 +90,22 @@ function AddBlog() {
             mb={12}
           /> */}
           <TextInput
-            value={title}
-            label="Title"
-            placeholder="Enter title"
+            label="Rank"
+            type="number"
+            value={rank}
+            placeholder="Enter Rank"
             radius="sm"
             mb={12}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => setRank(e.target.value)}
+            required
+          />
+          <TextInput
+            value={name}
+            label="Name"
+            placeholder="Enter Name"
+            radius="sm"
+            mb={12}
+            onChange={(e) => setName(e.target.value)}
             required
           />
           <TextInput
@@ -127,5 +141,3 @@ function AddBlog() {
     </Flex>
   );
 }
-
-export default AddBlog;

@@ -1,37 +1,45 @@
 /** @format */
 
 import { Checkbox, Table, Text } from "@mantine/core";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function AnnouncementRow({
+function LeaderBoardRow({
   id,
-  title,
+  rank,
+  name,
   description,
   date,
-  time,
-  location,
-  link,
   isSelected,
   onSelectionChange,
 }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/admin-panel/announcement/${id}`);
+    navigate(`/admin-panel/leaderboard/${id}`);
   };
 
   return (
     <Table.Tr onClick={handleClick} style={{ cursor: "pointer" }}>
       <Table.Td size="sm" onClick={(e) => e.stopPropagation()}>
         <Checkbox
-          aria-label="Select announcement"
+          aria-label="Select leaderboard"
           checked={isSelected}
           onChange={() => onSelectionChange(id)}
         />
       </Table.Td>
       <Table.Td size="sm">
         <Text align="left" weight={500}>
-          {title}
+          {rank}
+        </Text>
+      </Table.Td>
+      <Table.Td size="sm">
+        <Text align="left" weight={500}>
+          Image**
+        </Text>
+      </Table.Td>
+      <Table.Td size="sm">
+        <Text align="left" weight={500}>
+          {name}
         </Text>
       </Table.Td>
       <Table.Td size="sm">
@@ -44,26 +52,8 @@ function AnnouncementRow({
       <Table.Td size="sm">
         <Text align="left">{date}</Text>
       </Table.Td>
-      <Table.Td size="sm">
-        <Text align="left">{time}</Text>
-      </Table.Td>
-      <Table.Td size="sm">
-        <Text align="left">{location}</Text>
-      </Table.Td>
-      <Table.Td size="sm">
-        <Text align="left">
-          <Link
-            to={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#1e90ff", textDecoration: "underline" }}
-          >
-            View Link
-          </Link>
-        </Text>
-      </Table.Td>
     </Table.Tr>
   );
 }
 
-export default AnnouncementRow;
+export default LeaderBoardRow;

@@ -1,27 +1,27 @@
 /** @format */
 
 import { Checkbox, Flex, Pagination, Table } from "@mantine/core";
-import BlogRow from "./BlogRow";
 import usePagination from "../../../hook/usePagination";
 import { ITEMS_PER_PAGE } from "../../../utils/const";
 import { useEffect } from "react";
+import LeaderBoardRow from "./LeaderBoardRow";
 
-function BlogTable({
-  blogs,
-  selectedBlogs,
+function LeaderBoardTable({
+  leaderBoards,
+  selectedLeaderBoards,
   handleSelectionChange,
   handleSelectAll,
   searchQuery,
 }) {
   const { handlePageChange, paginatedItems, currentPage } = usePagination(
-    blogs,
+    leaderBoards,
     ITEMS_PER_PAGE
   );
 
   useEffect(() => {
     handlePageChange(1);
   }, [handlePageChange, searchQuery]);
-  const totalPage = Math.ceil(blogs.length / ITEMS_PER_PAGE);
+  const totalPage = Math.ceil(leaderBoards.length / ITEMS_PER_PAGE);
   return (
     <div>
       <Table>
@@ -29,33 +29,34 @@ function BlogTable({
           <Table.Tr>
             <Table.Th>
               <Checkbox
-                aria-label="Select all blogs"
-                checked={selectedBlogs.length === blogs.length}
+                aria-label="Select all LeaderBoard"
+                checked={selectedLeaderBoards.length === leaderBoards.length}
                 indeterminate={
-                  selectedBlogs.length > 0 &&
-                  selectedBlogs.length < blogs.length
+                  selectedLeaderBoards.length > 0 &&
+                  selectedLeaderBoards.length < leaderBoards.length
                 }
                 onChange={handleSelectAll}
               />
             </Table.Th>
+            <Table.Th>Rank</Table.Th>
             <Table.Th>Image</Table.Th>
-            <Table.Th>Title</Table.Th>
+            <Table.Th>Name</Table.Th>
             <Table.Th>Description</Table.Th>
             <Table.Th>Date</Table.Th>
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>
-          {paginatedItems.map((blog) => (
-            <BlogRow
-              key={blog.id}
-              {...blog}
-              isSelected={selectedBlogs.includes(blog.id)}
+          {paginatedItems.map((leaderboard) => (
+            <LeaderBoardRow
+              key={leaderboard.id}
+              {...leaderboard}
+              isSelected={selectedLeaderBoards.includes(leaderboard.id)}
               onSelectionChange={handleSelectionChange}
             />
           ))}
         </Table.Tbody>
       </Table>
-      {blogs.length > ITEMS_PER_PAGE && (
+      {leaderBoards.length > ITEMS_PER_PAGE && (
         <Flex justify="center" className="mt-4">
           <Pagination
             total={totalPage}
@@ -68,4 +69,4 @@ function BlogTable({
   );
 }
 
-export default BlogTable;
+export default LeaderBoardTable;
