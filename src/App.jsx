@@ -1,20 +1,17 @@
 /** @format */
 
-// src/App.jsx
-
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/Home";
 import Conclave from "./page/Conclave";
+import Contact from "./page/Contact";
 import Events from "./page/Events";
 import Announcement from "./page/Announcement";
-import Contact from "./page/Contact";
 import AppLayout from "./ui/AppLayout";
 import { Toaster } from "react-hot-toast";
 import SponsorsPage from "./page/SponsorsPage";
 import Loading from "./ui/Loading";
 import Blog from "./page/Blog";
-const EventsDetail = lazy(() => import("./page/EventsDetail"));
 import NotFoundPage from "./ui/NotFoundPage";
 import LeaderBoard from "./page/LeaderBoard";
 import OurTeam from "./page/OurTeam";
@@ -31,6 +28,9 @@ import EditEvent from "./Admin/components/Events/EditEvent";
 import LoginPage from "./AdminPages/LoginPage";
 import EditBlog from "./Admin/components/Blog/EditBlog";
 import EditLeaderBoard from "./Admin/components/LeaderBoard/EditLeaderBoard";
+import ProtectedRoute from "./ProtectedRoute";
+
+const EventsDetail = lazy(() => import("./page/EventsDetail"));
 
 function App() {
   const router = createBrowserRouter([
@@ -41,12 +41,13 @@ function App() {
         { path: "/", element: <Home /> },
         {
           path: "admin-panel",
-          element: <AdminPanel />,
+          element: (
+            <ProtectedRoute>
+              <AdminPanel />
+            </ProtectedRoute>
+          ),
           children: [
-            {
-              path: "/admin-panel/announcement",
-              element: <ManageAnnouncements />,
-            },
+            { path: "announcement", element: <ManageAnnouncements /> },
             { path: "events", element: <ManageEvents /> },
             { path: "leaderboard", element: <ManageLeaderboard /> },
             { path: "leaderboard/:id", element: <EditLeaderBoard /> },
@@ -56,9 +57,9 @@ function App() {
             { path: "user/:id", element: <EditUser /> },
             { path: "event/:id", element: <EditEvent /> },
             { path: "announcement/:id", element: <EditAnnouncement /> },
-            { path: "login", element: <LoginPage /> },
           ],
         },
+        { path: "admin-panel/login", element: <LoginPage /> },
         { path: "contact", element: <Contact /> },
         { path: "about-us", element: <About /> },
         { path: "announcement", element: <Announcement /> },

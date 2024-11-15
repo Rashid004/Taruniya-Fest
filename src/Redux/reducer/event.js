@@ -6,21 +6,15 @@ const eventSlice = createSlice({
   name: "event",
   initialState: {
     events: [],
-    isLoading: false,
+    isLoading: true,
   },
   reducers: {
     setEvents: (state, action) => {
-      state.events = action.payload;
-    },
-    updateEvents: (state, action) => {
-      state.events = action.payload;
-    },
-    setIsLoading: (state, action) => {
-      state.isLoading = action.payload;
+      return { ...state, events: action.payload, isLoading: false };
     },
   },
 });
 
-export const { setEvents, updateEvents, setIsLoading } = eventSlice.actions;
+export const { setEvents } = eventSlice.actions;
 
 export default eventSlice.reducer;

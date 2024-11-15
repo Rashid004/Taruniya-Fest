@@ -3,7 +3,7 @@
 import { Checkbox, Table, Text } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 
-function LeaderBoardRow({
+export default function LeaderBoardRow({
   id,
   rank,
   name,
@@ -29,12 +29,12 @@ function LeaderBoardRow({
       </Table.Td>
       <Table.Td size="sm">
         <Text align="left" weight={500}>
-          {rank}
+          Image**
         </Text>
       </Table.Td>
       <Table.Td size="sm">
         <Text align="left" weight={500}>
-          Image**
+          {rank}
         </Text>
       </Table.Td>
       <Table.Td size="sm">
@@ -44,9 +44,7 @@ function LeaderBoardRow({
       </Table.Td>
       <Table.Td size="sm">
         <Text align="left" color="dimmed">
-          {description.length > 100
-            ? `${description.slice(0, 100)}...`
-            : description}
+          {description}
         </Text>
       </Table.Td>
       <Table.Td size="sm">
@@ -55,5 +53,3 @@ function LeaderBoardRow({
     </Table.Tr>
   );
 }
-
-export default LeaderBoardRow;

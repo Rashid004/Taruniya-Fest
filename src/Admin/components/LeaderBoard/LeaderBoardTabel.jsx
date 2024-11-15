@@ -1,27 +1,27 @@
 /** @format */
 
 import { Checkbox, Flex, Pagination, Table } from "@mantine/core";
+import LeaderBoardRow from "./LeaderBoardRow";
 import usePagination from "../../../hook/usePagination";
 import { ITEMS_PER_PAGE } from "../../../utils/const";
 import { useEffect } from "react";
-import LeaderBoardRow from "./LeaderBoardRow";
 
 function LeaderBoardTable({
-  leaderBoards,
+  leaderBoard,
   selectedLeaderBoards,
   handleSelectionChange,
   handleSelectAll,
   searchQuery,
 }) {
   const { handlePageChange, paginatedItems, currentPage } = usePagination(
-    leaderBoards,
+    leaderBoard,
     ITEMS_PER_PAGE
   );
 
   useEffect(() => {
     handlePageChange(1);
   }, [handlePageChange, searchQuery]);
-  const totalPage = Math.ceil(leaderBoards.length / ITEMS_PER_PAGE);
+  const totalPage = Math.ceil(leaderBoard.length / ITEMS_PER_PAGE);
   return (
     <div>
       <Table>
@@ -29,17 +29,13 @@ function LeaderBoardTable({
           <Table.Tr>
             <Table.Th>
               <Checkbox
-                aria-label="Select all LeaderBoard"
-                checked={selectedLeaderBoards.length === leaderBoards.length}
-                indeterminate={
-                  selectedLeaderBoards.length > 0 &&
-                  selectedLeaderBoards.length < leaderBoards.length
-                }
+                aria-label="Select all leaderBoard"
+                checked={selectedLeaderBoards.length === leaderBoard.length}
                 onChange={handleSelectAll}
               />
             </Table.Th>
-            <Table.Th>Rank</Table.Th>
             <Table.Th>Image</Table.Th>
+            <Table.Th>Rank</Table.Th>
             <Table.Th>Name</Table.Th>
             <Table.Th>Description</Table.Th>
             <Table.Th>Date</Table.Th>
@@ -56,7 +52,7 @@ function LeaderBoardTable({
           ))}
         </Table.Tbody>
       </Table>
-      {leaderBoards.length > ITEMS_PER_PAGE && (
+      {leaderBoard.length > ITEMS_PER_PAGE && (
         <Flex justify="center" className="mt-4">
           <Pagination
             total={totalPage}

@@ -36,9 +36,7 @@ function Navbar() {
           Logout
         </button>
         <div className="flex items-center gap-2">
-          <span className="text-lg font-medium">
-            {user?.displayName || "User"}
-          </span>
+          <span className="text-lg font-medium">{"User"}</span>
           <UserCircle className="w-12 h-12 font-normal text-gray-600" />
         </div>
       </div>

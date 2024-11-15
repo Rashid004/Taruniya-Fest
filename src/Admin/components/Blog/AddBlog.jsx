@@ -7,7 +7,7 @@ import { useState } from "react";
 import { createBlog } from "../../../service/Blog";
 import toast from "react-hot-toast";
 
-function AddBlog() {
+function AddBlog({ selectedBlogs, handleDeleteSelected }) {
   const [showModal, setShowModal] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -55,6 +55,8 @@ function AddBlog() {
           variant="outline"
           color="red"
           ml={12}
+          onClick={handleDeleteSelected}
+          disabled={selectedBlogs.length === 0}
         >
           Delete Blog
         </Button>

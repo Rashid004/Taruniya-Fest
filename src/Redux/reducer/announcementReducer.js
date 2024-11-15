@@ -6,23 +6,15 @@ const announcementSlice = createSlice({
   name: "announcement",
   initialState: {
     announcements: [],
-    loading: false,
+    loading: true,
   },
   reducers: {
     setAnnouncementData: (state, action) => {
-      state.announcements = action.payload;
-      state.loading = false;
-    },
-    updateAnnouncementData: (state, action) => {
-      state.announcements = action.payload;
-    },
-    setLoading: (state, action) => {
-      state.loading = action.payload;
+      return { ...state, announcements: action.payload, loading: false };
     },
   },
 });
 
-export const { setAnnouncementData, updateAnnouncementData, setLoading } =
-  announcementSlice.actions;
+export const { setAnnouncementData } = announcementSlice.actions;
 
 export default announcementSlice.reducer;

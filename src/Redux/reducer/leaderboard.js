@@ -3,21 +3,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const leaderBoardSlice = createSlice({
-  name: "leaderboards",
+  name: "leaderboard",
   initialState: {
-    leaderboards: [], // Updated to use 'leaderboards' consistently
+    leaderboards: [], // Properly initialized
     isLoading: true,
   },
+
   reducers: {
     setLeaderboardData: (state, action) => {
-      state.leaderboards = action.payload;
-    },
-    setIsLoading: (state, action) => {
-      state.isLoading = action.payload;
+      return { ...state, leaderboards: action.payload, isLoading: false };
     },
   },
 });
 
-export const { setLeaderboardData, setIsLoading } = leaderBoardSlice.actions;
-
+export const { setLeaderboardData } = leaderBoardSlice.actions;
 export default leaderBoardSlice.reducer;

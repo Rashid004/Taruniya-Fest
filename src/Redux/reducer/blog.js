@@ -6,20 +6,14 @@ const blogSlice = createSlice({
   name: "blog",
   initialState: {
     blogs: [],
-    loading: false,
+    loading: true,
   },
   reducers: {
     setBlogData: (state, action) => {
-      state.blogs = action.payload;
-    },
-    updateBlog: (state, action) => {
-      state.blogs = action.payload;
-    },
-    setLoading: (state, action) => {
-      state.loading = action.payload;
+      return { ...state, blogs: action.payload, loading: false };
     },
   },
 });
 
-export const { setBlogData, updateBlog, setLoading } = blogSlice.actions;
+export const { setBlogData } = blogSlice.actions;
 export default blogSlice.reducer;

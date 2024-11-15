@@ -31,10 +31,6 @@ function BlogTable({
               <Checkbox
                 aria-label="Select all blogs"
                 checked={selectedBlogs.length === blogs.length}
-                indeterminate={
-                  selectedBlogs.length > 0 &&
-                  selectedBlogs.length < blogs.length
-                }
                 onChange={handleSelectAll}
               />
             </Table.Th>

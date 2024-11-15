@@ -2,26 +2,16 @@
 
 import { TextInput } from "@mantine/core";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { auth } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
-import { use } from "framer-motion/client";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const storeUser = localStorage.getItem("user");
-    if (storeUser) {
-      navigate("/admin-panel");
-    } else {
-      navigate("/admin-panel/login");
-    }
-  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,10 +23,9 @@ function LoginPage() {
         password
       );
       const user = userCredentials.user;
-      // user.displayName = user.displayName.split(" ")[0];
       localStorage.setItem("user", JSON.stringify(user));
-      navigate("/admin-panel");
       toast.success("Login Successful");
+      navigate("/admin-panel");
     } catch (error) {
       setError("Invalid email or password");
       toast.error(error.message);

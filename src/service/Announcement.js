@@ -27,7 +27,7 @@ export const getAnnouncements = (setAnnouncementCallback) => {
   try {
     const announcementsRef = collection(db, "announcement");
 
-    onSnapshot(announcementsRef, (snapshot) => {
+    return onSnapshot(announcementsRef, (snapshot) => {
       const announcements = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),

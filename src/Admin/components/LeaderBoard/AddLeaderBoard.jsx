@@ -8,7 +8,10 @@ import { createBlog } from "../../../service/Blog";
 import toast from "react-hot-toast";
 import { createLeaderBoard } from "../../../service/Leaderboard";
 
-export default function AddLeaderBoard() {
+export default function AddLeaderBoard({
+  selectedLeaderBoards,
+  handleDeleteSelected,
+}) {
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -21,7 +24,13 @@ export default function AddLeaderBoard() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
+      if (!name || !rank || !date) {
+        toast.error("Please fill in all required fields");
+        setIsSubmitting(false);
+        return;
+      }
       const id = nanoid();
+
       //  const imageUrl = await uploadImage(selectImage, `blogs/${id}.png`);
       const leaderBoardData = {
         id,
@@ -56,6 +65,8 @@ export default function AddLeaderBoard() {
       <Flex gap={12}>
         <Button
           leftSection={<Trash size="1em" />}
+          onClick={handleDeleteSelected}
+          disabled={selectedLeaderBoards.length === 0}
           variant="outline"
           color="red"
           ml={12}
@@ -131,7 +142,7 @@ export default function AddLeaderBoard() {
             <Button
               type="submit"
               variant="filled"
-              disabled={!title || !description || isSubmitting}
+              disabled={!rank || !name || !description || !date || isSubmitting}
             >
               {isSubmitting ? "Submitting..." : "Add Blog"}
             </Button>

@@ -23,18 +23,33 @@ export const createLeaderBoard = async (body) => {
 };
 
 // Get All
-export const getLeaderBoards = async (setleaderBoardCallback) => {
+export const getLeaderBoards = (setLeaderBoardCallback) => {
   try {
-    const leaderBoardsRef = collection(db, "leaderBoards");
-    onSnapshot(leaderBoardsRef, (snapshot) => {
-      const leaderBoards = snapshot.docs.map((doc) => ({
+    const LeaderBoardsRef = collection(db, "leaderBoards");
+
+    // Set up a real-time listener for the 'events' collection
+    return onSnapshot(LeaderBoardsRef, (snapshot) => {
+      const leaderboardRef = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-      setleaderBoardCallback(leaderBoards);
+
+      // Update the events using the provided callback function
+      setLeaderBoardCallback(leaderboardRef);
+
+      // Log changes for added, modified, or removed documents
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === "added") {
+          console.log("New Leaderboards added:", change.doc.data());
+        } else if (change.type === "modified") {
+          console.log("Leaderboards updated:", change.doc.data());
+        } else if (change.type === "removed") {
+          console.log("Leaderboards removed:", change.doc.data());
+        }
+      });
     });
   } catch (error) {
-    console.log(error);
+    console.error("Error setting up events listener:", error);
   }
 };
 

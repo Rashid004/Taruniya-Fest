@@ -93,7 +93,7 @@ function EditLeaderBoard() {
     <div className="w-full relative h-full">
       <ToastContainer position="top-right" autoClose={3000} />
       <div className="border-b border-t border-gray-300 px-4 py-4">
-        <Breadcrumb title="LeaderBoard" path="LeaderBoard" />
+        <Breadcrumb title="LeaderBoard" path="leaderboard" />
       </div>
       <Flex
         direction="column"

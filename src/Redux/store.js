@@ -13,6 +13,6 @@ export default configureStore({
     announcement: announcementReducer,
     event: eventReducer,
     blog: blogReducer,
-    leaderBoards: leaderBoardReducer,
+    leaderboard: leaderBoardReducer,
   },
 });

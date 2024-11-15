@@ -28,7 +28,7 @@ export const getEvents = (setEventsCallback) => {
     const eventsRef = collection(db, "events");
 
     // Set up a real-time listener for the 'events' collection
-    onSnapshot(eventsRef, (snapshot) => {
+    return onSnapshot(eventsRef, (snapshot) => {
       const events = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
