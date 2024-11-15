@@ -1,7 +1,10 @@
 /** @format */
 
 import { TextInput } from "@mantine/core";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { auth } from "../config/firebase";
@@ -28,6 +31,15 @@ function LoginPage() {
       navigate("/admin-panel");
     } catch (error) {
       setError("Invalid email or password");
+      toast.error(error.message);
+    }
+  };
+
+  const handleResetPassword = async (e) => {
+    e.preventDefault();
+    try {
+      await sendPasswordResetEmail(auth, email);
+    } catch (error) {
       toast.error(error.message);
     }
   };
@@ -68,6 +80,7 @@ function LoginPage() {
           <button
             type="button"
             className="text-red-500 font-semibold hover:underline mb-4"
+            onClick={handleResetPassword}
           >
             Forget Password?
           </button>

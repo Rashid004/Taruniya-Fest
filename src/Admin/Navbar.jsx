@@ -1,18 +1,18 @@
 /** @format */
 
-import { UserCircle } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
-import { auth } from "../config/firebase";
+import { UserCircle } from "lucide-react";
 import toast from "react-hot-toast";
+import { auth } from "../config/firebase";
+import { useLocation, useNavigate } from "react-router-dom";
 
-function Navbar() {
+export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Retrieve user data from localStorage
   const user = JSON.parse(localStorage.getItem("user"));
 
-  // Check if on the login page
   const hideNav = location.pathname === "/admin-panel/login";
 
   const logout = async () => {
@@ -36,12 +36,13 @@ function Navbar() {
           Logout
         </button>
         <div className="flex items-center gap-2">
-          <span className="text-lg font-medium">{"User"}</span>
+          {/* Display the user's name if available, otherwise default text */}
+          <span className="text-lg font-medium">
+            {user ? user.displayName || user.name : "Guest"}
+          </span>
           <UserCircle className="w-12 h-12 font-normal text-gray-600" />
         </div>
       </div>
     )
   );
 }
-
-export default Navbar;

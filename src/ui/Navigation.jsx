@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "./Logo";
 
 const navLinks = [
@@ -23,6 +23,7 @@ function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   function toggleMenu() {
     setIsOpen(!isOpen);
@@ -55,7 +56,11 @@ function Navigation() {
           {navLinks.map((link, index) => (
             <li
               key={index}
-              className="text-secondary text-nowrap tracking-wider hover:text-secondary-yellow transition-colors duration-300 text-lg 2xl:text-xl font-medium uppercase"
+              className={` text-nowrap tracking-wider hover:text-secondary-yellow transition-colors duration-300 text-lg 2xl:text-xl font-medium uppercase ${
+                location.pathname === link.href
+                  ? "text-secondary-yellow"
+                  : "text-secondary"
+              }`}
             >
               <Link to={link.href}>{link.label}</Link>
             </li>
@@ -97,8 +102,10 @@ function Navigation() {
               <Link
                 key={index}
                 to={item.href}
-                className={`tracking-wider block py-3 text-lg text-secondary font-medium hover:text-secondary-yellow transition-colors ${
-                  activeLink === item.href ? "text-secondary-yellow" : ""
+                className={`tracking-wider block py-3 text-lg  font-medium hover:text-secondary-yellow transition-colors ${
+                  location.pathname === item.href
+                    ? "text-secondary-yellow"
+                    : "text-secondary"
                 }`}
                 onClick={() => {
                   toggleMenu();

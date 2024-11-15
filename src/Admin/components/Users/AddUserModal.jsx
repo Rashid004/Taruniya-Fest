@@ -5,7 +5,9 @@ import { Loader, SquarePlus } from "lucide-react";
 import { useState } from "react";
 import { CreateUser } from "../../../service/User";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
 import { auth } from "../../../config/firebase";
+import toast from "react-hot-toast";
 
 function AddUserModal() {
   const [showModal, setShowModal] = useState(false); // Initially set to false to keep modal hidden
@@ -17,9 +19,10 @@ function AddUserModal() {
 
   // Create A user
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent form default behavior
+    e.preventDefault();
     setIsSubmiting(true);
     try {
+      // Create a new user in Firebase Authentication
       const userCredentials = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -27,19 +30,32 @@ function AddUserModal() {
       );
       const user = userCredentials.user;
 
+      // Update the user's profile with the display name
+      await updateProfile(user, {
+        displayName: name,
+      });
+
+      // Prepare user data to store in Firestore
       const userData = {
         id: user.uid,
         name: name,
         email: email,
         password: password,
+        displayName: user.displayName, // This will now reflect the updated display name
       };
 
-      // Call to save the user in your database
+      // Add the user data to Firestore
       await CreateUser(userData);
+
+      // Store user information in localStorage
+      localStorage.setItem("user", JSON.stringify(userData));
+      toast.success("User created successfully");
+      // Reset form fields and close the modal
       reset();
       setShowModal(false);
     } catch (error) {
-      console.log("Error creating user:", error);
+      console.error("Error creating user:", error);
+      toast.error("Error creating user");
     } finally {
       setIsSubmiting(false); // Reset submitting state
     }
@@ -103,7 +119,7 @@ function AddUserModal() {
               variant="filled"
               disabled={!name || !email || !password || isSubmiting}
             >
-              {isSubmiting ? "Submitting..." : "Add User"}
+              {isSubmiting ? <Loader size="1em" /> : "Submit"}
             </Button>
           </Flex>
         </form>

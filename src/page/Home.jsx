@@ -19,7 +19,7 @@ function Home() {
         }}
       >
         <img
-          src="/home/bg-1.webp"
+          src="/home/bgCopy-1.webp"
           alt="Home Background"
           className="object-cover w-full h-full"
         />
