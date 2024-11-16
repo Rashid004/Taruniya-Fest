@@ -10,7 +10,8 @@ const eventSlice = createSlice({
   },
   reducers: {
     setEvents: (state, action) => {
-      return { ...state, events: action.payload, isLoading: false };
+      state.events = action.payload;
+      state.isLoading = false;
     },
   },
 });

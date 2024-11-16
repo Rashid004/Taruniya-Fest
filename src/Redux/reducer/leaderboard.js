@@ -11,7 +11,8 @@ const leaderBoardSlice = createSlice({
 
   reducers: {
     setLeaderboardData: (state, action) => {
-      return { ...state, leaderboards: action.payload, isLoading: false };
+      state.leaderboards = action.payload;
+      state.isLoading = false;
     },
   },
 });

@@ -1,6 +1,6 @@
 /** @format */
 
-import { TextInput } from "@mantine/core";
+import { Loader, TextInput } from "@mantine/core";
 import {
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
@@ -14,10 +14,12 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     setError("");
     try {
       const userCredentials = await signInWithEmailAndPassword(
@@ -32,6 +34,8 @@ function LoginPage() {
     } catch (error) {
       setError("Invalid email or password");
       toast.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -85,10 +89,11 @@ function LoginPage() {
             Forget Password?
           </button>
           <button
+            disabled={loading}
             type="submit"
             className="w-full text-xl bg-blue-600 text-white py-3 rounded-sm font-medium hover:bg-blue-700 transition mt-8"
           >
-            Login
+            {loading ? <Loader /> : "Login"}
           </button>
         </form>
       </div>

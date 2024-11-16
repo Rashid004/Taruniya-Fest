@@ -18,7 +18,7 @@ import {
 export default function ManageLeaderboard() {
   const dispatch = useDispatch();
   const leaderBoard = useSelector((state) => state.leaderboard.leaderboards);
-
+  console.log(leaderBoard);
   const [searchQuery, setSearchQuery] = useState("");
 
   // Selected LeaderBoards

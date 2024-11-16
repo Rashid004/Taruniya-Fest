@@ -1,6 +1,6 @@
 /** @format */
 
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./page/Home";
 import Conclave from "./page/Conclave";
@@ -29,10 +29,14 @@ import LoginPage from "./AdminPages/LoginPage";
 import EditBlog from "./Admin/components/Blog/EditBlog";
 import EditLeaderBoard from "./Admin/components/LeaderBoard/EditLeaderBoard";
 import ProtectedRoute from "./ProtectedRoute";
+import Dashboard from "./AdminPages/Dashboard";
+import { useSelector } from "react-redux";
 
 const EventsDetail = lazy(() => import("./page/EventsDetail"));
 
 function App() {
+  const users = useSelector((state) => state.users.users || []);
+  console.log(users);
   const router = createBrowserRouter([
     {
       path: "/",
@@ -47,6 +51,7 @@ function App() {
             </ProtectedRoute>
           ),
           children: [
+            { path: "dashboard", element: <Dashboard /> },
             { path: "announcement", element: <ManageAnnouncements /> },
             { path: "events", element: <ManageEvents /> },
             { path: "leaderboard", element: <ManageLeaderboard /> },

@@ -10,7 +10,8 @@ const announcementSlice = createSlice({
   },
   reducers: {
     setAnnouncementData: (state, action) => {
-      return { ...state, announcements: action.payload, loading: false };
+      state.announcements = action.payload;
+      state.loading = false;
     },
   },
 });

@@ -10,7 +10,8 @@ const userSlice = createSlice({
   },
   reducers: {
     setUserData: (state, action) => {
-      return { ...state, users: action.payload, loading: false };
+      state.users = action.payload;
+      state.loading = false;
     },
   },
 });

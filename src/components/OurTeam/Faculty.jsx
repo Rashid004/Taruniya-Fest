@@ -10,7 +10,7 @@ const Faculty = ({ member, index }) => (
     transition={{ duration: 0.5, delay: index * 0.1 }}
   >
     {/* Image Container with Background */}
-    <div className="bg-primaryDark rounded-2xl shadow-lg p-4 w-full max-w-xs md:max-w-sm lg:max-w-md flex flex-col items-center justify-center">
+    <div className="bg-primaryDark hover:shadow-[0_20px_50px_rgba(255,191,0,0.15)] rounded-2xl shadow-lg p-4 w-full max-w-xs md:max-w-sm lg:max-w-md flex flex-col items-center justify-center">
       <motion.img
         src={member.img}
         alt={member.name}

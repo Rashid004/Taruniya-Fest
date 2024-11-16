@@ -10,7 +10,8 @@ const blogSlice = createSlice({
   },
   reducers: {
     setBlogData: (state, action) => {
-      return { ...state, blogs: action.payload, loading: false };
+      state.blogs = action.payload;
+      state.loading = false;
     },
   },
 });

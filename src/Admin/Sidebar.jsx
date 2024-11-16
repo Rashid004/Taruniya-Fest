@@ -2,10 +2,22 @@
 
 // src/admin/Sidebar.jsx
 
-import { CalendarDays, Podcast, SquarePlus, Users, Trophy } from "lucide-react";
+import {
+  CalendarDays,
+  Podcast,
+  SquarePlus,
+  Users,
+  Trophy,
+  LayoutDashboard,
+} from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 const links = [
+  {
+    icon: <LayoutDashboard />,
+    name: "Dashboard",
+    href: "/admin-panel/dashboard",
+  },
   { icon: <Users />, name: "Portal Users", href: "/admin-panel/user" },
   {
     icon: <Podcast />,
