@@ -1,101 +1,258 @@
 /** @format */
 
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./page/Home";
-import Conclave from "./page/Conclave";
-import Contact from "./page/Contact";
-import Events from "./page/Events";
-import Announcement from "./page/Announcement";
-import AppLayout from "./ui/AppLayout";
 import { Toaster } from "react-hot-toast";
-import SponsorsPage from "./page/SponsorsPage";
 import Loading from "./ui/Loading";
-import Blog from "./page/Blog";
-import NotFoundPage from "./ui/NotFoundPage";
-import LeaderBoard from "./page/LeaderBoard";
-import OurTeam from "./page/OurTeam";
-import About from "./page/About";
-import AdminPanel from "./page/AdminPanel";
-import ManageAnnouncements from "./AdminPages/ManageAnnouncements";
-import ManageEvents from "./AdminPages/ManageEvents";
-import ManageLeaderboard from "./AdminPages/ManageLeaderboard";
-import ManageBlog from "./AdminPages/ManageBlog";
-import ManageUser from "./AdminPages/ManageUser";
-import EditUser from "./Admin/components/Users/EditUser";
-import EditAnnouncement from "./Admin/components/Announcement/EditAnnouncement";
-import EditEvent from "./Admin/components/Events/EditEvent";
-import LoginPage from "./AdminPages/LoginPage";
-import EditBlog from "./Admin/components/Blog/EditBlog";
-import EditLeaderBoard from "./Admin/components/LeaderBoard/EditLeaderBoard";
+import AppLayout from "./ui/AppLayout";
 import ProtectedRoute from "./ProtectedRoute";
-import Dashboard from "./AdminPages/Dashboard";
-import { useSelector } from "react-redux";
 
-const EventsDetail = lazy(() => import("./page/EventsDetail"));
+// Lazy load pages for better performance
+const Home = lazy(() => import("./page/Home"));
+const Contact = lazy(() => import("./page/Contact"));
+const About = lazy(() => import("./page/About"));
+const Announcement = lazy(() => import("./page/Announcement"));
+const Events = lazy(() => import("./page/Events"));
+const LeaderBoard = lazy(() => import("./page/LeaderBoard"));
+const Blog = lazy(() => import("./page/Blog"));
+const ManageUser = lazy(() => import("./AdminPages/ManageUser"));
+const EditUser = lazy(() => import("./Admin/components/Users/EditUser"));
+const SponsorsPage = lazy(() => import("./page/SponsorsPage"));
+const Conclave = lazy(() => import("./page/Conclave"));
+const OurTeam = lazy(() => import("./page/OurTeam"));
+const NotFoundPage = lazy(() => import("./ui/NotFoundPage"));
+const AdminPanel = lazy(() => import("./page/AdminPanel"));
+const LoginPage = lazy(() => import("./AdminPages/LoginPage"));
+const Dashboard = lazy(() => import("./AdminPages/Dashboard"));
+const ManageBlog = lazy(() => import("./AdminPages/ManageBlog"));
+const EditBlog = lazy(() => import("./Admin/components/Blog/EditBlog"));
+const EditEvent = lazy(() => import("./Admin/components/Events/EditEvent"));
+const EditAnnouncement = lazy(() =>
+  import("./Admin/components/Announcement/EditAnnouncement")
+);
+const ManageAnnouncements = lazy(() =>
+  import("./AdminPages/ManageAnnouncements")
+);
+const ManageEvents = lazy(() => import("./AdminPages/ManageEvents"));
+const ManageLeaderboard = lazy(() => import("./AdminPages/ManageLeaderboard"));
+const EditLeaderBoard = lazy(() =>
+  import("./Admin/components/LeaderBoard/EditLeaderBoard")
+);
 
 function App() {
-  const users = useSelector((state) => state.users.users || []);
-  console.log(users);
   const router = createBrowserRouter([
     {
       path: "/",
       element: <AppLayout />,
       children: [
-        { path: "/", element: <Home /> },
+        // Public Pages
+        {
+          path: "/",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Home />
+            </Suspense>
+          ),
+        },
+        {
+          path: "contact",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Contact />
+            </Suspense>
+          ),
+        },
+        {
+          path: "about-us",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <About />
+            </Suspense>
+          ),
+        },
+        {
+          path: "announcement",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Announcement />
+            </Suspense>
+          ),
+        },
+
+        {
+          path: "events",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Events />
+            </Suspense>
+          ),
+        },
+        {
+          path: "leaderboard",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <LeaderBoard />
+            </Suspense>
+          ),
+        },
+        {
+          path: "blog",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Blog />
+            </Suspense>
+          ),
+        },
+        {
+          path: "sponsors",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <SponsorsPage />
+            </Suspense>
+          ),
+        },
+        {
+          path: "conclave",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <Conclave />
+            </Suspense>
+          ),
+        },
+        {
+          path: "ourteam",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <OurTeam />
+            </Suspense>
+          ),
+        },
+
+        // Admin Panel
         {
           path: "admin-panel",
           element: (
             <ProtectedRoute>
-              <AdminPanel />
+              <Suspense fallback={<Loading />}>
+                <AdminPanel />
+              </Suspense>
             </ProtectedRoute>
           ),
           children: [
-            { path: "dashboard", element: <Dashboard /> },
-            { path: "announcement", element: <ManageAnnouncements /> },
-            { path: "events", element: <ManageEvents /> },
-            { path: "leaderboard", element: <ManageLeaderboard /> },
-            { path: "leaderboard/:id", element: <EditLeaderBoard /> },
-            { path: "blog", element: <ManageBlog /> },
-            { path: "blog/:id", element: <EditBlog /> },
-            { path: "user", element: <ManageUser /> },
-            { path: "user/:id", element: <EditUser /> },
-            { path: "event/:id", element: <EditEvent /> },
-            { path: "announcement/:id", element: <EditAnnouncement /> },
+            {
+              path: "dashboard",
+              element: (
+                <Suspense fallback={<Loading />}>
+                  <Dashboard />
+                </Suspense>
+              ),
+            },
+            {
+              path: "announcement",
+              element: (
+                <Suspense fallback={<Loading />}>
+                  <ManageAnnouncements />
+                </Suspense>
+              ),
+            },
+            {
+              path: "announcement/:id",
+              element: (
+                <Suspense fallback={<Loading />}>
+                  <EditAnnouncement />
+                </Suspense>
+              ),
+            },
+            {
+              path: "events",
+              element: (
+                <Suspense fallback={<Loading />}>
+                  <ManageEvents />
+                </Suspense>
+              ),
+            },
+            {
+              path: "events/:id",
+              element: (
+                <Suspense fallback={<Loading />}>
+                  <EditEvent />
+                </Suspense>
+              ),
+            },
+            {
+              path: "leaderboard",
+              element: (
+                <Suspense fallback={<Loading />}>
+                  <ManageLeaderboard />
+                </Suspense>
+              ),
+            },
+            {
+              path: "leaderboard/:id",
+              element: (
+                <Suspense fallback={<Loading />}>
+                  <EditLeaderBoard />
+                </Suspense>
+              ),
+            },
+            {
+              path: "blog",
+              element: (
+                <Suspense fallback={<Loading />}>
+                  <ManageBlog />
+                </Suspense>
+              ),
+            },
+            {
+              path: "blog/:id",
+              element: (
+                <Suspense fallback={<Loading />}>
+                  <EditBlog />
+                </Suspense>
+              ),
+            },
+            {
+              path: "user",
+              element: (
+                <Suspense fallback={<Loading />}>
+                  <ManageUser />
+                </Suspense>
+              ),
+            },
+            {
+              path: "user/:id",
+              element: (
+                <Suspense fallback={<Loading />}>
+                  <EditUser />
+                </Suspense>
+              ),
+            },
           ],
         },
-        { path: "admin-panel/login", element: <LoginPage /> },
-        { path: "contact", element: <Contact /> },
-        { path: "about-us", element: <About /> },
-        { path: "announcement", element: <Announcement /> },
-        { path: "events", element: <Events /> },
-        { path: "leaderboard", element: <LeaderBoard /> },
         {
-          path: "events/:eventId",
+          path: "admin-panel/login",
           element: (
             <Suspense fallback={<Loading />}>
-              <EventsDetail />
+              <LoginPage />
             </Suspense>
           ),
         },
-        { path: "blog", element: <Blog /> },
-        { path: "conclave", element: <Conclave /> },
-        { path: "ourteam", element: <OurTeam /> },
-        { path: "sponsors", element: <SponsorsPage /> },
       ],
     },
-    { path: "*", element: <NotFoundPage /> },
+    {
+      path: "*",
+      element: (
+        <Suspense fallback={<Loading />}>
+          <NotFoundPage />
+        </Suspense>
+      ),
+    },
   ]);
 
   return (
     <>
       <RouterProvider router={router} />
-      <Toaster
-        toastOptions={{
-          style: { width: "300px", height: "55px" },
-          success: { style: { background: "white" } },
-        }}
-      />
+      <Toaster toastOptions={{ style: { width: "300px", height: "55px" } }} />
     </>
   );
 }

@@ -20,7 +20,7 @@ function LeaderBoardTable({
 
   useEffect(() => {
     handlePageChange(1);
-  }, [handlePageChange, searchQuery]);
+  }, [searchQuery]);
   const totalPage = Math.ceil(leaderBoard.length / ITEMS_PER_PAGE);
   return (
     <div>

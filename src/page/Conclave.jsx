@@ -1,115 +1,151 @@
 /** @format */
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Swiper as SwiperInstance } from "swiper";
-
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import "swiper/css/effect-fade";
+import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import ConclaveGrid from "../components/conclave/ConclaveGrid";
 
 const slideData = [
   {
-    id: 1,
-    name: "Dr. Ryan Fernando",
+    title: "Dr. Ryan Fernando",
+    role: "Olympic Committee Anti-Doping Council Member",
     description:
-      "Awarded the Best Nutritionist of the Year by an International Jury from ATP International Fitness and Sports Convention, Member, Olympic Committee Anti-Doping Council of India",
+      "Awarded the Best Nutritionist of the Year by an International Jury from ATP International Fitness and Sports Convention.",
     image:
-      "https://imgs.search.brave.com/gHbnZ4kPd5nW5eKm1QAbWq9RPyPkJt2NOGK2LUF9SGU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tdWxn/cmF2ZXByaXZhdGUu/Y29tLmF1L2ltYWdl/ci91cGxvYWRzL211/bGdyYXZlcHJpdmF0/ZS5jb20uYXUvNDU1/Ni9kcklhbk1hdHRo/ZXdzXzFlODU5ZDc5/OWYzMGVhY2E3ZDRm/MThhYWVlYzY1NWQ0/LmpwZw",
+      "https://images.unsplash.com/photo-1730990224970-a0b6d6276d51?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIzfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",
   },
   {
-    id: 2,
-    name: "Dr. Random",
-
+    title: "Dr. Sarah Mitchell",
+    role: "Tech Innovation Leader",
     description:
-      "Join us for inspiring talks by industry leaders and alumni, sharing insights on the future of technology and career opportunities in the digital age.",
-    image: "/images/conclave.webp",
+      "Join us for inspiring talks by industry leaders and alumni, sharing insights on the future of technology.",
+    image:
+      "https://images.unsplash.com/photo-1731484636246-ba9365148d60?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDF8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",
   },
-  {
-    id: 3,
-    name: "Dr. Random dummy",
-
-    description:
-      "Participate in exciting hackathons and coding competitions, putting your skills to the test and collaborating with peers to solve real-world challenges.",
-    image: "/images/conclaveslider3.webp",
-  },
+  // {
+  //   title: "Prof. Mary Anderson",
+  //   role: "AI Research Director",
+  //   description:
+  //     "Participate in exciting hackathons and coding competitions, collaborating with peers to solve challenges.",
+  //   image:
+  //     "https://images.unsplash.com/photo-1730973915515-e79273d90b7c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDMxfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",
+  // },
 ];
 
 function Conclave() {
   const [activeIndex, setActiveIndex] = useState(0);
-
   const slideCount = slideData.length;
 
-  const onSlideChange = (SwiperInstance) => {
-    setActiveIndex(SwiperInstance.realIndex); // Update activeIndex when slide changes
+  const onSlideChange = (swiper) => {
+    setActiveIndex(swiper.realIndex);
   };
+
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center">
-      <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="main-heading">Conclave</h1>
-        <div className="z-[99]  border border-secondary-yellow relative bg-primaryDark  opacity-100 shadow-2xl shadow-red-500/60 overflow-hidden mb-16 rounded-2xl">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="min-h-screen py-16 px-4 sm:px-6 lg:px-8"
+    >
+      <div className="max-w-7xl mx-auto">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-[#DECBA7] to-[#BCA476] bg-clip-text text-transparent"
+        >
+          Conclave
+        </motion.h1>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="relative bg-[#371221] rounded-2xl overflow-hidden border border-[#DECBA7] shadow-lg flex pb-8 md:pb-0"
+        >
           <Swiper
-            spaceBetween={50}
+            modules={[Navigation, EffectFade, Autoplay]}
+            effect="fade"
+            spaceBetween={0}
             slidesPerView={1}
-            modules={[Navigation]}
-            rewind={true}
-            onSlideChange={onSlideChange} // Call this function when the slide changes
+            loop={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            onSlideChange={onSlideChange}
             navigation={{
               nextEl: ".custom-next",
               prevEl: ".custom-prev",
             }}
+            className="h-[600px] md:h-[500px]"
           >
-            {slideData.map((slide) => (
-              <SwiperSlide
-                key={slide.id}
-                className="flex items-center justify-center"
-              >
-                <div className="flex items-center justify-center w-full h-[300px] md:h-[400px] lg:h-[500px]">
-                  <div className="w-full md:w-1/2 h-full">
-                    <img
+            {slideData.map((slide, index) => (
+              <SwiperSlide key={index}>
+                <div className="flex flex-col md:flex-row h-full">
+                  {/* Slide Image */}
+                  <div className="w-full md:w-1/2 h-1/3 relative overflow-hidden md:h-full">
+                    <motion.img
+                      initial={{ scale: 1.2 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.7 }}
                       src={slide.image}
-                      alt={slide.name}
-                      className="w-full h-full object-contain"
+                      alt={slide.title}
+                      className="w-full h-1/3 md:h-full object-contain"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   </div>
-                  <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center p-4 md:p-8">
-                    <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#DECBA7] mb-4">
-                      {slide.name}
+
+                  {/* Slide Content */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center gap-4"
+                  >
+                    <h2 className="text-2xl md:text-4xl font-bold text-[#DECBA7]">
+                      {slideData[activeIndex].title}
                     </h2>
-                    <p className="text-xs md:text-base text-[#DECBA7]">
-                      {slide.description}
+                    <h3 className="text-lg md:text-xl text-[#BCA476] line-clamp-1 md:line-clamp-none">
+                      {slideData[activeIndex].role}
+                    </h3>
+                    <p className="text-sm md:text-base text-white leading-relaxed line-clamp-3 md:line-clamp-none">
+                      {slideData[activeIndex].description}
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="flex items-center justify-between">
-            <button className="custom-prev z-[999] absolute left-2 bottom-0 transform -translate-y-1/2 bg-[#000000] bg-opacity-50 p-2 rounded-full md:left-4  md:w-8 md:h-8 lg:left-6 lg:w-10 lg:h-10 flex justify-center items-center border-2 border-[#DECBA7] ">
-              <FiChevronLeft size={24} color="white" />
+
+          {/* Corrected Navigation Buttons */}
+          <div className="absolute bottom-2  left-1/2 -translate-x-1/2 flex items-center gap-4 z-50 ">
+            <button className="custom-prev group flex items-center justify-center w-10 h-10 rounded-full bg-[#371221] border border-[#DECBA7] hover:bg-[#DECBA7]/20 transition-all">
+              <ChevronLeft className="w-6 h-6 text-[#DECBA7]" />
             </button>
-            <button className="custom-next z-[999] absolute right-2 bottom-0 transform -translate-y-1/2 bg-[#000000] bg-opacity-50  p-2 rounded-full md:right-4   md:w-6 md:h-6 lg:right-6 lg:w-10 lg:h-10 flex justify-center items-center border-2 border-[#DECBA7]">
-              <FiChevronRight size={24} color="white" />
+            <div className="flex gap-2">
+              {Array.from({ length: slideCount }).map((_, index) => (
+                <motion.span
+                  key={index}
+                  animate={{
+                    scale: activeIndex === index ? 1.2 : 1,
+                    backgroundColor:
+                      activeIndex === index ? "#DECBA7" : "#BCA476",
+                  }}
+                  className="w-2 h-2 rounded-full"
+                />
+              ))}
+            </div>
+            <button className="custom-next group flex items-center justify-center w-10 h-10 rounded-full bg-[#371221] border border-[#DECBA7] hover:bg-[#DECBA7]/20 transition-all">
+              <ChevronRight className="w-6 h-6 text-[#DECBA7]" />
             </button>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 flex justify-center items-center z-[999] gap-2">
-            {Array.from({ length: slideCount }).map((_, index) => (
-              <span
-                key={index}
-                className={` mb-4 w-3 h-3 rounded-full ${
-                  activeIndex === index
-                    ? "bg-[#DECBA7] transition-colors duration-300 ease-in-out"
-                    : "bg-[#D1D5DB]"
-                }`}
-              ></span>
-            ))}
-          </div>
-        </div>
+        </motion.div>
       </div>
       <ConclaveGrid />
-    </section>
+    </motion.section>
   );
 }
 

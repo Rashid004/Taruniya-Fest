@@ -7,7 +7,7 @@ function EventRow({ id, title, description, isSelected, onSelectionChange }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/admin-panel/event/${id}`);
+    navigate(`/admin-panel/events/${id}`);
   };
 
   return (

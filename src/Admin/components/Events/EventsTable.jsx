@@ -20,7 +20,7 @@ function EventTable({
 
   useEffect(() => {
     handlePageChange(1);
-  }, [handlePageChange, searchQuery]);
+  }, [searchQuery]);
 
   const totalPage = Math.ceil(events.length / ITEMS_PER_PAGE);
 
