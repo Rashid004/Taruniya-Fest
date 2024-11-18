@@ -63,7 +63,7 @@ function Home() {
         <img
           src="/home/logo.webp"
           alt="Logo"
-          className="w-full h-full max-w-[500px]"
+          className="w-full h-full max-w-[500px] min-w-[300px]"
         />
       </motion.div>
 
