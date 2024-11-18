@@ -58,7 +58,7 @@ function Home() {
           duration: 1.4,
           delay: 1.5,
         }}
-        className="absolute top-0 left-1/3 flex items-center justify-center z-30"
+        className="absolute top-0 left-1/3 flex items-center justify-center z-[999]"
       >
         <img
           src="/home/logo.webp"
