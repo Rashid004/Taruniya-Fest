@@ -63,7 +63,7 @@ function Home() {
         <img
           src="/home/logo.webp"
           alt="Logo"
-          className="w-1/2 h-full object-contain"
+          className="w-auto object-contain"
         />
       </motion.div>
 
