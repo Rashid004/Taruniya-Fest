@@ -28,6 +28,11 @@ body {
   position: relative;
   z-index: 0;
 }
+@layer utilities {
+  .hover:bg-custom {
+    background-color: rgba(255, 191, 0, 0.15);
+  }
+}
 
 @layer base {
   .main-heading {

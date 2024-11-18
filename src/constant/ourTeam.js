@@ -26,6 +26,16 @@ export const facultyMembers = [
 
 export const committeeMembers = [
   {
+    name: "Altamash Ansari",
+    designation: "Advisory",
+    img: "/images/committee/photo7.webp",
+  },
+  {
+    name: "Alok Gupta",
+    designation: "Advisory",
+    img: "/images/committee/photo8.webp",
+  },
+  {
     name: "Rohan Pawar",
     designation: "Chairperson",
     img: "/images/committee/photo1.webp",
@@ -55,19 +65,10 @@ export const committeeMembers = [
     designation: "General Secretary",
     img: "/images/committee/photo6.webp",
   },
-  {
-    name: "Altamash Ansari",
-    designation: "Advisory",
-    img: "/images/committee/photo7.webp",
-  },
-  {
-    name: "Alok Gupta",
-    designation: "Advisory",
-    img: "/images/committee/photo8.webp",
-  },
+
   {
     name: "Ansari Rashid",
-    designation: "Software Developer/Web Dev",
+    designation: "Tech Lead",
     img: null,
   },
   {

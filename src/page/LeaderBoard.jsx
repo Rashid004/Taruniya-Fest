@@ -97,16 +97,10 @@ const Leaderboard = () => {
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="text-5xl font-extrabold text-secondary-yellow mb-4"
+            className="main-heading"
           >
             College Rankings
           </motion.h2>
-          {/* <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: "100%" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="h-1 bg-accent mx-auto max-w-[200px]"
-          /> */}
         </div>
 
         <AnimatePresence>
@@ -145,7 +139,7 @@ const Leaderboard = () => {
 
                     <div className="flex-grow">
                       <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-2xl font-bold text-secondary-yellow">
+                        <h3 className="text-2xl font-bold text-amber-200">
                           {college.name}
                         </h3>
                         <div className="flex items-center gap-2">

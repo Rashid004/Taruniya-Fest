@@ -53,7 +53,7 @@ const AnnouncementCard = ({ announcement }) => {
   return (
     <motion.div
       layout
-      className="bg-primaryDark rounded-2xl shadow-md overflow-hidden mb-4 border border-secondary-yellow"
+      className="bg-primaryDark rounded-2xl shadow-md overflow-hidden mb-4"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -62,16 +62,16 @@ const AnnouncementCard = ({ announcement }) => {
         className="p-6 cursor-pointer flex justify-between items-center"
         onClick={() => setIsExpanded(!isExpanded)}
       >
-        <h3 className="text-xl font-medium text-[#DECBA7] flex items-center gap-2 tracking-widest">
+        <h3 className="text-xl font-medium text-amber-200 flex items-center gap-2 tracking-widest">
           <span>
             <GiBugleCall size="1.2em" color="#dc901e" />
           </span>
           {announcement.title}
         </h3>
         {isExpanded ? (
-          <FiChevronUp color="#DECBA7" />
+          <FiChevronUp color="#dc901e" />
         ) : (
-          <FiChevronDown color="#DECBA7" />
+          <FiChevronDown color="#dc901e" />
         )}
       </div>
       <AnimatePresence>
@@ -97,10 +97,10 @@ const AnnouncementCard = ({ announcement }) => {
                 <span>{announcement.location}</span>
               </div>
             </div>
-            <p className="text-[#9c814e]">{announcement.description}</p>
+            <p className="text-gray-300">{announcement.description}</p>
             <Link
               to={announcement.link}
-              className="text-[#DECBA7] text-sm underline hover:text-[#dc901e] py-2"
+              className="text-amber-500 text-sm underline hover:text-amber-400 py-2"
             >
               ✅ Check out the event
             </Link>

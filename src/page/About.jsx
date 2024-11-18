@@ -66,7 +66,7 @@ function About() {
             ))}
           </div>
           {/* Content Section */}
-          <div className="flex-grow ">{renderContent()}</div>
+          <div className="flex-grow relative">{renderContent()}</div>
           {activeTab === "stand-for" && (
             <img
               src="/images/about/bg-1.png"

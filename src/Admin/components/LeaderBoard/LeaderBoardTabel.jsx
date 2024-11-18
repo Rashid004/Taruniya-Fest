@@ -30,7 +30,10 @@ function LeaderBoardTable({
             <Table.Th>
               <Checkbox
                 aria-label="Select all leaderBoard"
-                checked={selectedLeaderBoards.length === leaderBoard.length}
+                checked={
+                  leaderBoard.length > 0 &&
+                  selectedLeaderBoards.length === leaderBoard.length
+                }
                 onChange={handleSelectAll}
               />
             </Table.Th>

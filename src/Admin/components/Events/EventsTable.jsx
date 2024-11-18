@@ -32,7 +32,9 @@ function EventTable({
             <Table.Th>
               <Checkbox
                 aria-label="Select all announcements"
-                checked={selectedEvents.length === events.length}
+                checked={
+                  events.length > 0 && selectedEvents.length === events.length
+                }
                 onChange={handleSelectAll}
               />
             </Table.Th>

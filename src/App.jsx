@@ -13,6 +13,7 @@ const Contact = lazy(() => import("./page/Contact"));
 const About = lazy(() => import("./page/About"));
 const Announcement = lazy(() => import("./page/Announcement"));
 const Events = lazy(() => import("./page/Events"));
+const EventsDetail = lazy(() => import("./page/EventsDetail"));
 const LeaderBoard = lazy(() => import("./page/LeaderBoard"));
 const Blog = lazy(() => import("./page/Blog"));
 const ManageUser = lazy(() => import("./AdminPages/ManageUser"));
@@ -84,6 +85,14 @@ function App() {
           element: (
             <Suspense fallback={<Loading />}>
               <Events />
+            </Suspense>
+          ),
+        },
+        {
+          path: "events/:eventId",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <EventsDetail />
             </Suspense>
           ),
         },

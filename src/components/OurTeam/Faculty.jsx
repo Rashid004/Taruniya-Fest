@@ -32,7 +32,7 @@ const Faculty = ({ member, index }) => (
         {member.name}
       </motion.h1>
       <motion.p
-        className="text-base md:text-lg lg:text-xl text-white tracking-wide pt-2"
+        className="text-base md:text-lg lg:text-xl text-gray-300 tracking-wide pt-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}

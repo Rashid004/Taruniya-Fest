@@ -17,7 +17,7 @@ const slideData = [
     description:
       "Awarded the Best Nutritionist of the Year by an International Jury from ATP International Fitness and Sports Convention.",
     image:
-      "https://images.unsplash.com/photo-1730990224970-a0b6d6276d51?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDIzfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",
+      "https://images.unsplash.com/photo-1719937050679-c3a2c9c67b0f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8",
   },
   {
     title: "Dr. Sarah Mitchell",
@@ -27,14 +27,6 @@ const slideData = [
     image:
       "https://images.unsplash.com/photo-1731484636246-ba9365148d60?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDF8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",
   },
-  // {
-  //   title: "Prof. Mary Anderson",
-  //   role: "AI Research Director",
-  //   description:
-  //     "Participate in exciting hackathons and coding competitions, collaborating with peers to solve challenges.",
-  //   image:
-  //     "https://images.unsplash.com/photo-1730973915515-e79273d90b7c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDMxfHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D",
-  // },
 ];
 
 function Conclave() {
@@ -55,7 +47,7 @@ function Conclave() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-[#DECBA7] to-[#BCA476] bg-clip-text text-transparent"
+          className="main-heading"
         >
           Conclave
         </motion.h1>
@@ -63,7 +55,7 @@ function Conclave() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative bg-[#371221] rounded-2xl overflow-hidden border border-[#DECBA7] shadow-lg flex pb-8 md:pb-0"
+          className="relative bg-[#371221] rounded-2xl overflow-hidden border-2 border-primaryDark shadow-lg flex pb-8 md:pb-0"
         >
           <Swiper
             modules={[Navigation, EffectFade, Autoplay]}
@@ -86,14 +78,14 @@ function Conclave() {
               <SwiperSlide key={index}>
                 <div className="flex flex-col md:flex-row h-full">
                   {/* Slide Image */}
-                  <div className="w-full md:w-1/2 h-1/3 relative overflow-hidden md:h-full">
+                  <div className="w-full md:w-1/2 h-full relative overflow-hidden md:h-full">
                     <motion.img
                       initial={{ scale: 1.2 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.7 }}
                       src={slide.image}
                       alt={slide.title}
-                      className="w-full h-1/3 md:h-full object-contain"
+                      className="w-full h-1/3 md:h-full object-cover aspect-square"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   </div>
@@ -105,13 +97,13 @@ function Conclave() {
                     transition={{ delay: 0.3 }}
                     className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center gap-4"
                   >
-                    <h2 className="text-2xl md:text-4xl font-bold text-[#DECBA7]">
+                    <h2 className="text-2xl md:text-4xl font-semibold text-amber-300">
                       {slideData[activeIndex].title}
                     </h2>
-                    <h3 className="text-lg md:text-xl text-[#BCA476] line-clamp-1 md:line-clamp-none">
+                    <h3 className="text-lg md:text-xl text-amber-200 line-clamp-1 md:line-clamp-none">
                       {slideData[activeIndex].role}
                     </h3>
-                    <p className="text-sm md:text-base text-white leading-relaxed line-clamp-3 md:line-clamp-none">
+                    <p className="text-sm md:text-base  leading-relaxed line-clamp-3 md:line-clamp-none text-gray-300">
                       {slideData[activeIndex].description}
                     </p>
                   </motion.div>

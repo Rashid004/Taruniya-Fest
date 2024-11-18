@@ -60,39 +60,6 @@ const sponsors = [
 
 const SponsorsPage = () => {
   const [hoveredSponsor, setHoveredSponsor] = useState(null);
-  const [showEasterEgg, setShowEasterEgg] = useState(false);
-
-  useEffect(() => {
-    const konami = [
-      "ArrowUp",
-      "ArrowUp",
-      "ArrowDown",
-      "ArrowDown",
-      "ArrowLeft",
-      "ArrowRight",
-      "ArrowLeft",
-      "ArrowRight",
-      "b",
-      "a",
-    ];
-    let konamiIndex = 0;
-
-    const handleKeyDown = (e) => {
-      if (e.key === konami[konamiIndex]) {
-        konamiIndex++;
-        if (konamiIndex === konami.length) {
-          setShowEasterEgg(true);
-          setTimeout(() => setShowEasterEgg(false), 5000);
-          konamiIndex = 0;
-        }
-      } else {
-        konamiIndex = 0;
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
 
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
@@ -122,30 +89,6 @@ const SponsorsPage = () => {
             />
           ))}
         </div>
-        {showEasterEgg && (
-          <motion.div
-            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              className="bg-white p-8 rounded-lg text-center"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            >
-              <h2 className="text-2xl font-bold mb-4">
-                🎉 You found the secret! 🎉
-              </h2>
-              <p>Here&apos;s a virtual high-five and a dad joke:</p>
-              <p className="text-xl font-bold mt-4">
-                Why don&apos;t scientists trust atoms?
-              </p>
-              <p className="text-lg mt-2">Because they make up everything!</p>
-            </motion.div>
-          </motion.div>
-        )}
       </div>
     </div>
   );

@@ -40,7 +40,7 @@ function Home() {
         }}
       >
         <img
-          src="/home/bg-2.webp"
+          src="/home/bg-Copy-2.webp"
           alt="Overlay Background"
           className="object-cover w-full h-full"
         />
@@ -82,7 +82,7 @@ function Home() {
         className="absolute bottom-[10%] right-0 flex items-center justify-center z-50"
       >
         <img
-          src="/home/right.webp"
+          src="/home/right.png"
           alt="Right Image"
           className="w-[620px] h-full"
         />
@@ -103,7 +103,7 @@ function Home() {
         className="absolute bottom-0 left-[12%] flex items-center justify-center z-50"
       >
         <img
-          src="/home/left.webp"
+          src="/home/left.png"
           alt="Left Image"
           className="w-[320px] h-full"
         />

@@ -5,6 +5,7 @@ import AnnouncementRow from "./AnnouncementRow";
 import usePagination from "../../../hook/usePagination";
 import { ITEMS_PER_PAGE } from "../../../utils/const";
 import { useEffect } from "react";
+import { s } from "framer-motion/client";
 
 function AnnouncementTable({
   announcements,
@@ -32,7 +33,10 @@ function AnnouncementTable({
             <Table.Th>
               <Checkbox
                 aria-label="Select all announcements"
-                checked={selectedAnnouncements.length === announcements.length}
+                checked={
+                  announcements.length > 0 &&
+                  selectedAnnouncements.length === announcements.length
+                }
                 onChange={handleSelectAll}
               />
             </Table.Th>

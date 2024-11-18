@@ -1,5 +1,5 @@
 /** @format */
-
+import { PasswordInput } from "@mantine/core";
 import { Loader, TextInput } from "@mantine/core";
 import {
   sendPasswordResetEmail,
@@ -73,7 +73,7 @@ function LoginPage() {
             onChange={(e) => setEmail(e.target.value)}
             className="mb-6 focus:border-blue-500"
           />
-          <TextInput
+          <PasswordInput
             label="Password"
             value={password}
             placeholder="Enter your password"
@@ -93,7 +93,7 @@ function LoginPage() {
             type="submit"
             className="w-full text-xl bg-blue-600 text-white py-3 rounded-sm font-medium hover:bg-blue-700 transition mt-8"
           >
-            {loading ? <Loader /> : "Login"}
+            {loading ? <Loader size="sm" /> : "Login"}
           </button>
         </form>
       </div>
