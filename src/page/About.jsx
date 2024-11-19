@@ -56,11 +56,11 @@ function About() {
                 }`}
               >
                 {tab === "stand-for"
-                  ? "WHAT WE STAND FOR"
+                  ? "VALUES"
                   : tab === "visual-identity"
-                  ? "VISUAL IDENTITY"
+                  ? "IDENTITY"
                   : tab === "vision-mission"
-                  ? "VISION & MISSION"
+                  ? "PURPOSE"
                   : null}
               </button>
             ))}

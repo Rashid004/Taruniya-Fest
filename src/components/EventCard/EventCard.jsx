@@ -7,7 +7,7 @@ const EventCard = ({ title, description, link }) => (
     <h2 className="text-amber-200 text-2xl sm:text-3xl md:text-4xl font-medium tracking-widest text-center">
       {title}
     </h2>
-    <p className="text-gray-300 text-lg sm:text-xl font-medium text-center w-[90%] leading-[28px] sm:leading-[30px]">
+    <p className="text-gray-300 text-base sm:text-xl font-medium text-center w-full leading-[28px] sm:leading-[30px]">
       {description}
     </p>
     {link && (

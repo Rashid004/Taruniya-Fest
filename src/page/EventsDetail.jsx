@@ -183,7 +183,7 @@ function EventsDetail() {
   };
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 min-h-screen">
+    <div className="px-6 sm:px-6 lg:px-8 min-h-screen">
       <div className="max-w-6xl mx-auto w-full">
         {eventId ? (
           <>
@@ -197,11 +197,11 @@ function EventsDetail() {
                   transition={{ duration: 0.5, delay: index * 0.4 }}
                   className="bg-primaryDark bg-opacity-40 rounded-3xl  px-4 py-8 flex flex-col items-center gap-8 border-secondary-yellow hover:shadow-[0_20px_50px_rgba(255,191,0,0.15)] shadow-lg w-full h-auto overflow-hidden mt-8 ease-linear duration-300 group relative p-6  transform hover:scale-105 transition-all"
                 >
-                  <h2 className="text-amber-200 text-4xl font-medium text-wrap text-center tracking-wide">
+                  <h2 className="text-amber-200 text-2xl md:text-4xl font-medium text-wrap text-center tracking-wide">
                     {item.title}
                   </h2>
                   <hr className="border-amber-500 w-full" />
-                  <p className="text-gray-300 text-xl font-medium text-center w-full md:w-[95%] leading-[30px] ">
+                  <p className="text-gray-300 text-base md:text-xl font-medium text-center w-full md:w-[95%] leading-[30px] ">
                     {item.description}
                   </p>
                 </motion.div>

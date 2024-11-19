@@ -1,5 +1,5 @@
 /** @format */
-
+import { motion } from "framer-motion";
 import EventCard from "../components/EventCard/EventCard";
 
 /** @format */
@@ -57,8 +57,15 @@ const events = [
 function Events() {
   return (
     <section>
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 ">
-        <h1 className="main-heading">Events</h1>
+      <div className="w-full max-w-6xl mx-auto px-6 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
+        <motion.h1
+          className="main-heading"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Events
+        </motion.h1>
         {events.map((event) => (
           <EventCard
             key={event.id}

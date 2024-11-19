@@ -39,7 +39,7 @@ const OurTeam = () => {
   };
 
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.h1
           className="main-heading"
@@ -98,7 +98,7 @@ const OurTeam = () => {
         {/* Content based on activeTab */}
         {renderContent()}
       </div>
-    </div>
+    </section>
   );
 };
 

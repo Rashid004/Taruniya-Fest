@@ -5,9 +5,9 @@ import { FaEnvelope, FaLinkedin, FaTwitter } from "react-icons/fa";
 const Committee = ({ member, index }) => (
   <motion.div
     className="flex flex-col items-center justify-center w-full h-full gap-4 p-4"
-    initial={{ opacity: 0, y: 50, scale: 0.95 }}
-    animate={{ opacity: 1, y: 0, scale: 1 }}
-    transition={{ duration: 0.5, ease: "easeOut" }}
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
   >
     {/* Image Container with Background */}
     <motion.div className="bg-primaryDark rounded-2xl hover:shadow-[0_20px_50px_rgba(255,191,0,0.15)] shadow-lg p-4 w-full max-w-xs md:max-w-sm lg:max-w-md flex flex-col items-center justify-center">

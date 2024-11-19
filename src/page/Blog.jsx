@@ -27,21 +27,19 @@ const blogPosts = [
 
 function Blog() {
   return (
-    <section className="min-h-screen px-4 py-12">
+    <section className="min-h-screen px-4 py-4 sm:py-6 md:py-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <motion.h1
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="main-heading"
-          >
-            Tarunya Fest Blog
-          </motion.h1>
-          {/* <p className="text-base sm:text-lg lg:text-xl text-gray-400 mt-2">
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="main-heading"
+        >
+          Tarunya Fest Blog
+        </motion.h1>
+        {/* <p className="text-base sm:text-lg lg:text-xl text-gray-400 mt-2">
             Stay updated with all the latest happenings!
           </p> */}
-        </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts.map((post) => (
@@ -66,7 +64,7 @@ function Blog() {
                 >
                   {post.title}
                 </motion.h2>
-                <p className="text-sm sm:text-base text-gray-300 mt-2">
+                <p className="text-base sm:text-lg text-gray-300 mt-2">
                   {post.description}
                 </p>
                 <button className="mt-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black px-4 sm:px-6 py-2 rounded-lg shadow-lg hover:shadow-amber-500/20 transition duration-300 font-medium">

@@ -86,22 +86,20 @@ const progressVariants = {
 
 const Leaderboard = () => {
   return (
-    <div className="min-h-screen  p-8">
+    <section className="min-h-screen  p-8 py-4 sm:py-6 md:py-8">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         className="max-w-4xl mx-auto"
       >
-        <div className="text-center mb-12">
-          <motion.h2
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="main-heading"
-          >
-            College Rankings
-          </motion.h2>
-        </div>
+        <motion.h2
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="main-heading"
+        >
+          College Rankings
+        </motion.h2>
 
         <AnimatePresence>
           <div className="space-y-6">
@@ -139,7 +137,7 @@ const Leaderboard = () => {
 
                     <div className="flex-grow">
                       <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-2xl font-bold text-amber-200">
+                        <h3 className="text-lg md:text-2xl font-bold text-amber-200">
                           {college.name}
                         </h3>
                         <div className="flex items-center gap-2">
@@ -178,7 +176,7 @@ const Leaderboard = () => {
           </div>
         </AnimatePresence>
       </motion.div>
-    </div>
+    </section>
   );
 };
 

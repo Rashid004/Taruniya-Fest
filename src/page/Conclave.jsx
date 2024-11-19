@@ -41,12 +41,13 @@ function Conclave() {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen py-16 px-4 sm:px-6 lg:px-8"
+      className="min-h-screen py-4 sm:py-6 md:py-8 "
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
           className="main-heading"
         >
           Conclave
@@ -103,7 +104,7 @@ function Conclave() {
                     <h3 className="text-lg md:text-xl text-amber-200 line-clamp-1 md:line-clamp-none">
                       {slideData[activeIndex].role}
                     </h3>
-                    <p className="text-sm md:text-base  leading-relaxed line-clamp-3 md:line-clamp-none text-gray-300">
+                    <p className="text-sm md:text-base  leading-relaxed line-clamp-2 md:line-clamp-none text-gray-300">
                       {slideData[activeIndex].description}
                     </p>
                   </motion.div>

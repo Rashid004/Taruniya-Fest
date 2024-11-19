@@ -2,14 +2,14 @@
 import { motion } from "framer-motion";
 const SponsorCard = ({ sponsor, isHovered, onHover, isFeatured = false }) => (
   <motion.div
-    className={`bg-primaryDark border border-secondary-yellow rounded-lg shadow-lg p-6 transition-all duration-300 transform ${
+    className={`bg-primaryDark hover:shadow-[0_20px_50px_rgba(255,191,0,0.15)] shadow-lg rounded-lg  p-6 transition-all duration-300 transform ${
       isHovered ? "scale-105" : ""
     } ${isFeatured ? "col-span-full lg:col-span-2" : ""}`}
     onMouseEnter={() => onHover(sponsor.name)}
     onMouseLeave={() => onHover(null)}
     initial={{ opacity: 0, y: 50 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
+    whileHover={{ scale: 1.05 }}
   >
     <div
       className={`flex ${
@@ -47,7 +47,9 @@ const SponsorCard = ({ sponsor, isHovered, onHover, isFeatured = false }) => (
         >
           {sponsor.title}
         </motion.h3>
-        <p className="text-gray-300 mb-4">{sponsor.description}</p>
+        <p className="text-gray-300 mb-4 text-base md:text-lg">
+          {sponsor.description}
+        </p>
         <div className="flex justify-center lg:justify-start">
           <motion.div
             whileHover={{ scale: 1.2, rotate: 360 }}

@@ -113,9 +113,17 @@ const AnnouncementCard = ({ announcement }) => {
 
 const AnnouncementsPage = () => {
   return (
-    <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8 animate-morph">
+    <div className="min-h-screen  py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <h1 className="main-heading"> Announcements</h1>
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="main-heading"
+        >
+          {" "}
+          Announcements
+        </motion.h1>
         <div className="space-y-6">
           {announcements.map((announcement) => (
             <AnnouncementCard
