@@ -65,10 +65,10 @@ function VisualIdentity() {
           <div key={index} className="flex items-start gap-4">
             <div className="text-secondary-yellow">{item.icon}</div>
             <div>
-              <h3 className="text-xl md:text-2xl font-medium tracking-widest text-amber-500">
+              <h3 className="text-xl md:text-2xl font-medium tracking-widest text-amber-200">
                 {item.title}:
               </h3>
-              <p className="text-gray-500 text-sm md:text-lg">
+              <p className="text-amber-500 text-sm md:text-lg">
                 {item.description}
               </p>
             </div>
@@ -80,10 +80,10 @@ function VisualIdentity() {
           <div key={index} className="flex items-start gap-4">
             <div className="text-secondary-yellow">{item.icon}</div>
             <div>
-              <h3 className="text-xl md:text-2xl font-medium tracking-widest text-amber-500">
+              <h3 className="text-xl md:text-2xl font-medium tracking-widest text-amber-200">
                 {item.title}:
               </h3>
-              <p className="text-gray-500 text-sm md:text-lg">
+              <p className="text-amber-500  text-sm md:text-lg">
                 {item.description}
               </p>
             </div>

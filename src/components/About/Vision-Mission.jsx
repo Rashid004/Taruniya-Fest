@@ -10,10 +10,10 @@ function VisionMission() {
     >
       {/* Vision Section */}
       <div className="w-full md:w-1/2 flex flex-col gap-4 items-start">
-        <h1 className="uppercase text-lg sm:text-xl md:text-3xl lg:text-4xl font-medium tracking-widest text-amber-500 mb-4">
+        <h1 className="uppercase text-lg sm:text-xl md:text-3xl lg:text-4xl font-medium tracking-widest text-amber-200 mb-4">
           Vision
         </h1>
-        <ul className="list-disc pl-5 text-xs sm:text-sm md:text-base lg:text-lg tracking-wider text-gray-500 space-y-3">
+        <ul className="list-disc pl-5 text-xs sm:text-sm md:text-base lg:text-lg tracking-wider text-amber-500 space-y-3">
           <li>To create an engaging platform where young talents thrive.</li>
           <li>Celebrate culture and showcase creativity.</li>
           <li>
@@ -25,10 +25,10 @@ function VisionMission() {
 
       {/* Mission Section */}
       <div className="w-full md:w-1/2 flex flex-col gap-4 items-start">
-        <h1 className="uppercase text-lg sm:text-xl md:text-3xl lg:text-4xl font-medium tracking-widest text-amber-500 mb-4">
+        <h1 className="uppercase text-lg sm:text-xl md:text-3xl lg:text-4xl font-medium tracking-widest text-amber-200 mb-4">
           Mission
         </h1>
-        <ul className="list-disc pl-5 text-xs sm:text-sm md:text-base lg:text-lg tracking-wider text-gray-500 space-y-3">
+        <ul className="list-disc pl-5 text-xs sm:text-sm md:text-base lg:text-lg tracking-wider text-amber-500 space-y-3">
           <li>
             Unite students and communities through diverse cultural and artistic
             events.
