@@ -17,6 +17,7 @@ function EditEvent() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [nestedItems, setNestedItems] = useState([]); // State for nested items
+  const [link, setLink] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("");
@@ -36,6 +37,7 @@ function EditEvent() {
 
         setTitle(event.title || "");
         setDescription(event.description || "");
+        setLink(event.link || "");
         setNestedItems(event.eventDetails || []); // Load eventDetails properly
       } catch (error) {
         console.error("Error fetching event:", error);
@@ -50,7 +52,12 @@ function EditEvent() {
   const handleUpdate = async () => {
     setIsLoading(true);
     try {
-      await updateEvents(id, { title, description, eventDetails: nestedItems });
+      await updateEvents(id, {
+        title,
+        description,
+        link,
+        eventDetails: nestedItems,
+      });
       toast.success("Event updated successfully");
       handleGoBack();
     } catch (error) {
@@ -132,6 +139,15 @@ function EditEvent() {
           placeholder="Enter description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          required
+          className="w-1/4"
+        />
+
+        <TextInput
+          label="Link"
+          value={link}
+          onChange={(e) => setLink(e.target.value)}
+          placeholder="Enter link"
           required
           className="w-1/4"
         />

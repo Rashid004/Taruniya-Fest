@@ -11,6 +11,7 @@ function AddEvent({ selectedEvents, handleDeleteSelected }) {
   const [showModal, setShowModal] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [link, setLink] = useState("");
   const [nestedLayouts, setNestedLayouts] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -40,7 +41,7 @@ function AddEvent({ selectedEvents, handleDeleteSelected }) {
     const id = nanoid();
 
     try {
-      if (!title || !description) {
+      if (!title || !description || !link) {
         toast.error("Please fill in all required fields");
         setIsSubmitting(false);
         return;
@@ -51,10 +52,12 @@ function AddEvent({ selectedEvents, handleDeleteSelected }) {
         id,
         title,
         description,
+        link,
         eventDetails: nestedLayouts.map((layout) => ({
           id: layout.id || nanoid(), // Ensure each nested item has an id
           title: layout.title,
           description: layout.description,
+          link: layout.link,
         })),
       };
 
@@ -66,6 +69,7 @@ function AddEvent({ selectedEvents, handleDeleteSelected }) {
       setShowModal(false);
       setTitle("");
       setDescription("");
+      setLink("");
       setNestedLayouts([]);
     } catch (error) {
       console.error("Error adding event:", error);
@@ -119,6 +123,13 @@ function AddEvent({ selectedEvents, handleDeleteSelected }) {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Enter description"
+            required
+          />
+          <TextInput
+            label="Link"
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+            placeholder="Enter link"
             required
           />
 

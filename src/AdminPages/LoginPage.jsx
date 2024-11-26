@@ -80,6 +80,11 @@ function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             className="mb-2 focus:border-blue-500"
+            error={
+              password.length > 0 && password.length < 6
+                ? "Password must be at least 6 characters"
+                : null
+            }
           />
           <button
             type="button"

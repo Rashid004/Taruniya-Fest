@@ -6,7 +6,7 @@ export default function InputField({ label, name, type, placeholder }) {
   return (
     <div className="flex flex-col gap-2 items-start w-full">
       <label
-        className="text-base md:text-lg font-medium text-[#DECBA7]"
+        className="text-base md:text-lg font-medium text-amber-200"
         htmlFor={name}
       >
         {label}

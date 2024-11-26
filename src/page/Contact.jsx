@@ -39,7 +39,7 @@ function Contact() {
           {/* Contact Info Section */}
           <div className="bg-primary md:w-2/5 p-8 text-white flex flex-col justify-between">
             <div>
-              <h1 className="text-2xl md:text-3xl font-medium mb-8 font-gotham tracking-[0.2em] uppercase">
+              <h1 className=" text-2xl md:text-3xl font-medium mb-8 font-gotham tracking-[0.2em] uppercase">
                 Contact Us
               </h1>
               <ul className="space-y-4 mb-8">
@@ -112,7 +112,7 @@ function Contact() {
 
           {/* Contact Form Section */}
           <div className="md:w-3/5 p-8 bg-primaryDark">
-            <h2 className="text-xl md:text-3xl font-medium mb-6 text-secondary-yellow tracking-widest">
+            <h2 className="text-xl md:text-3xl font-medium mb-6 text-amber-400 tracking-widest">
               Send us a message
             </h2>
             <form
@@ -145,7 +145,8 @@ function Contact() {
                 placeholder="Enter your message"
               />
               <button
-                className="w-full py-3 px-4 text-base rounded-md bg-[#171717] text-white shadow-md transition-all duration-300 ease-in-out border-2 border-[#DECBA7] hover:bg-[#3E5151] hover:text-[#DECBA7] hover:border-[#3E5151]"
+                className="w-full py-3 px-4 text-base rounded-md bg-[#171717] shadow-md transition-all duration-300 ease-in-out border-2 border-amber-400 text-amber-400 hover:bg-primaryDark hover:text-amber-500 hover:border-amber-500"
+                s
                 type="submit"
                 disabled={state.submitting}
               >
