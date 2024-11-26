@@ -49,11 +49,13 @@ function EditBlog() {
         description,
       });
       toast.success("Blog updated successfully");
+      handleGoBack();
     } catch (error) {
       console.log(error);
       toast.error("Failed to update Blog");
     } finally {
       setIsLoading(false);
+      setIsModalOpen(false);
     }
   };
 
@@ -63,11 +65,13 @@ function EditBlog() {
     try {
       await deleteBlog(id);
       toast.success("Blog deleted successfully");
+      handleGoBack();
     } catch (error) {
       console.log(error);
       toast.error("Failed to delete Blog");
     } finally {
       setIsLoading(false);
+      setIsModalOpen(false);
     }
   };
 
@@ -143,6 +147,7 @@ function EditBlog() {
           <Button
             color={modalType === "delete" ? "red" : "blue"}
             onClick={modalType === "delete" ? handleDelete : handleUpdate}
+            disabled={isLoading}
           >
             {modalType === "delete" ? "Delete" : "Update"}
           </Button>

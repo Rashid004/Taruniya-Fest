@@ -12,40 +12,7 @@ import {
   FiMapPin,
 } from "react-icons/fi";
 import { Link } from "react-router-dom";
-
-const announcements = [
-  {
-    id: 1,
-    title: "Opening Ceremony",
-    date: "2024-03-15",
-    time: "10:00 AM",
-    location: "Main Auditorium",
-    description:
-      "Join us for the grand opening of Taruniya 2024! Featuring special guests and exciting performances.",
-    link: "",
-  },
-  {
-    id: 2,
-    title: "Dance Competition",
-    date: "2024-03-16",
-    time: "2:00 PM",
-    location: "Open Air Theatre",
-    description:
-      "Show off your moves at our annual dance competition. Solo and group categories available.",
-    link: "",
-  },
-  {
-    id: 3,
-    title: "Tech Talk: Future of AI",
-    date: "2024-03-17",
-    time: "11:00 AM",
-    location: "Seminar Hall",
-    description:
-      "Discover the latest trends in Artificial Intelligence with our expert panel of speakers.",
-    link: "",
-  },
-  // Add more announcements as needed
-];
+import { useSelector } from "react-redux";
 
 const AnnouncementCard = ({ announcement }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -112,6 +79,10 @@ const AnnouncementCard = ({ announcement }) => {
 };
 
 const AnnouncementsPage = () => {
+  const announcements = useSelector(
+    (state) => state.announcement.announcements
+  );
+  console.log(announcements.length, announcements);
   return (
     <div className="min-h-screen  py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
@@ -121,7 +92,6 @@ const AnnouncementsPage = () => {
           transition={{ duration: 0.5 }}
           className="main-heading"
         >
-          {" "}
           Announcements
         </motion.h1>
         <div className="space-y-6">

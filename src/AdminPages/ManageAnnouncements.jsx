@@ -20,6 +20,7 @@ export default function ManageAnnouncements() {
     (state) => state.announcement.announcements
   );
 
+  console.log(announcements);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedAnnouncements, setSelectedAnnouncements] = useState([]);
 
@@ -50,10 +51,12 @@ export default function ManageAnnouncements() {
   };
 
   useEffect(() => {
+    // Subscribe to announcements collection
     const unsubscribe = getAnnouncements((data) => {
-      dispatch(setAnnouncementData(data));
+      dispatch(setAnnouncementData(data)); // Update Redux state with announcements
     });
 
+    // Cleanup listener on component unmount
     return () => unsubscribe && unsubscribe();
   }, [dispatch]);
 

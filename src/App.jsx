@@ -1,11 +1,14 @@
 /** @format */
 
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Loading from "./ui/Loading";
 import AppLayout from "./ui/AppLayout";
 import ProtectedRoute from "./ProtectedRoute";
+import { useDispatch } from "react-redux";
+import { getAnnouncements } from "./service/Announcement";
+import { setAnnouncementData } from "./Redux/reducer/announcementReducer";
 
 // Lazy load pages for better performance
 const Home = lazy(() => import("./page/Home"));
@@ -41,6 +44,13 @@ const EditLeaderBoard = lazy(() =>
 );
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getAnnouncements((data) => {
+      dispatch(setAnnouncementData(data));
+    });
+  }, [dispatch]);
+
   const router = createBrowserRouter([
     {
       path: "/",

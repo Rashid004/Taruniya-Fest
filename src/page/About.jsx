@@ -33,8 +33,8 @@ function About() {
   `;
 
   return (
-    <section className="min-h-screen py-4 sm:py-6 md:py-8">
-      <div className="max-w-7xl mx-auto w-full px-4 md:px-8 relative">
+    <section className="min-h-screen py-4 sm:py-6 md:py-8 relative">
+      <div className="max-w-7xl mx-auto w-full px-4 md:px-8">
         <motion.h1
           className="main-heading"
           initial={{ opacity: 0, y: -50 }}
@@ -44,41 +44,59 @@ function About() {
           About Us
         </motion.h1>
         {/* Unified Container for Buttons and Content */}
-        <div className="bg-primaryDark   rounded-2xl py-6 px-4 md:px-6 lg:px-8 flex flex-col gap-6 md:gap-8 min-h-[600px]">
-          {/* Button Container */}
-          <div className="flex justify-center  md:justify-around items-center  ">
-            {["stand-for", "visual-identity", "vision-mission"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`${buttonStyles} ${
-                  activeTab === tab ? activeStyles : ""
-                }`}
-              >
-                {tab === "stand-for"
-                  ? "VALUES"
-                  : tab === "visual-identity"
-                  ? "IDENTITY"
-                  : tab === "vision-mission"
-                  ? "PURPOSE"
-                  : null}
-              </button>
-            ))}
-          </div>
-          {/* Content Section */}
-          <div className="flex-grow relative">{renderContent()}</div>
-          {activeTab === "stand-for" && (
+        <div className="relative">
+          {/* Background Images */}
+          {/* {activeTab === "stand-for" && (
             <img
               src="/images/about/bg-1.png"
-              className="absolute bottom-0 left-1/4 hidden md:block   w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/2 h-auto object-contain z-[0] opacity-50 md:opacity-70"
+              className="absolute bottom-0 left-1/4 hidden md:block w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/2 h-auto object-contain z-[-1] opacity-50 md:opacity-70 pointer-events-none"
             />
           )}
           {activeTab === "vision-mission" && (
             <img
               src="/images/about/rocket.png"
-              className="absolute top-0 right-0 hidden md:block object-contain z-[0] opacity-50 md:opacity-70"
+              className="absolute top-0 right-0 hidden md:block object-contain z-[-1] opacity-50 md:opacity-70 pointer-events-none"
             />
-          )}
+          )} */}
+          {/* Content Container */}
+          <div className="bg-primaryDark relative z-10 rounded-2xl py-6 px-4 md:px-6 lg:px-8 flex flex-col gap-6 md:gap-8 min-h-[600px]">
+            {/* Button Container */}
+            <div className="flex justify-center md:justify-around items-center">
+              {["stand-for", "visual-identity", "vision-mission"].map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`${buttonStyles} ${
+                    activeTab === tab ? activeStyles : ""
+                  }`}
+                >
+                  {tab === "stand-for"
+                    ? "VALUES"
+                    : tab === "visual-identity"
+                    ? "IDENTITY"
+                    : tab === "vision-mission"
+                    ? "PURPOSE"
+                    : null}
+                </button>
+              ))}
+            </div>
+            {/* Content Section */}
+            <div className="flex-grow relative">{renderContent()}</div>
+            {activeTab === "stand-for" && (
+              <img
+                src="/images/about/bg-1.png"
+                className="absolute bottom-0 z-[-1] left-1/4 hidden md:block w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/2 h-auto object-contain  opacity-50 md:opacity-70"
+              />
+            )}
+
+            {/* Image for Vision-Mission */}
+            {activeTab === "vision-mission" && (
+              <img
+                src="/images/about/rocket.png"
+                className="absolute top-0 right-0 hidden md:block object-contain z-[-1] opacity-50 md:opacity-70 h-[85%]"
+              />
+            )}
+          </div>
         </div>
       </div>
     </section>

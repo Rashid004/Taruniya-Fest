@@ -1,6 +1,6 @@
 /** @format */
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 const eventDetails = {
   literaryOratoryArts: {
@@ -204,6 +204,13 @@ function EventsDetail() {
                   <p className="text-gray-300 text-base md:text-xl font-medium text-center w-full md:w-[95%] leading-[30px] ">
                     {item.description}
                   </p>
+                  {/* {link && ( */}
+                  <Link to="#">
+                    <button className="bg-gradient-to-r from-amber-500 to-yellow-500 text-black px-4 sm:px-6 py-2 sm:py-3 font-medium text-sm sm:text-base md:text-lg   focus:outline-none rounded-lg shadow-lg hover:shadow-amber-500/20 transition duration-300">
+                      Submit
+                    </button>
+                  </Link>
+                  {/* )} */}
                 </motion.div>
               ))}
             </div>

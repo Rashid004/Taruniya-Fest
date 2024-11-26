@@ -62,11 +62,13 @@ function EditAnnouncement() {
         link,
       });
       toast.success("Announcement updated successfully");
+      handleGoBack();
     } catch (error) {
       console.log(error);
       toast.error("Failed to update announcement");
     } finally {
       setIsLoading(false);
+      setIsModalOpen(false);
     }
   };
 
@@ -76,11 +78,13 @@ function EditAnnouncement() {
     try {
       await deleteAnnouncement(id);
       toast.success("Announcement deleted successfully");
+      handleGoBack();
     } catch (error) {
       console.log(error);
       toast.error("Failed to delete announcement");
     } finally {
       setIsLoading(false);
+      setIsModalOpen(false);
     }
   };
 
@@ -180,6 +184,7 @@ function EditAnnouncement() {
           <Button
             color={modalType === "delete" ? "red" : "blue"}
             onClick={modalType === "delete" ? handleDelete : handleUpdate}
+            disabled={isLoading}
           >
             {modalType === "delete" ? "Delete" : "Update"}
           </Button>

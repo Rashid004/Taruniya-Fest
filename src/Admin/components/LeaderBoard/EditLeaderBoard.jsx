@@ -57,11 +57,13 @@ function EditLeaderBoard() {
         description,
       });
       toast.success("LeaderBoard updated successfully");
+      handleGoBack();
     } catch (error) {
       console.log(error);
       toast.error("Failed to update LeaderBoard");
     } finally {
       setIsLoading(false);
+      setIsModalOpen(false);
     }
   };
 
@@ -71,11 +73,13 @@ function EditLeaderBoard() {
     try {
       await deleteLeaderBoard(id);
       toast.success("LeaderBoard deleted successfully");
+      handleDelete();
     } catch (error) {
       console.log(error);
       toast.error("Failed to delete LeaderBoard");
     } finally {
       setIsLoading(false);
+      setIsModalOpen(false);
     }
   };
 
@@ -161,6 +165,7 @@ function EditLeaderBoard() {
           <Button
             color={modalType === "delete" ? "red" : "blue"}
             onClick={modalType === "delete" ? handleDelete : handleUpdate}
+            disabled={isLoading}
           >
             {modalType === "delete" ? "Delete" : "Update"}
           </Button>
