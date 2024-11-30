@@ -1,5 +1,29 @@
 /** @format */
 import { motion } from "framer-motion";
+
+const missionItems = [
+  {
+    title: "सृजन (Srijan - Creation):",
+    description:
+      "Provide a platform for students to showcase their talents and explore their artistic potential.",
+  },
+  {
+    title: "संवाद (Samvaad - Dialogue):",
+    description:
+      "Encourage cross-cultural exchange and meaningful interactions through diverse cultural activities.",
+  },
+  {
+    title: "संयोग (Sanyog - Togetherness):",
+    description:
+      "Encourage unity and teamwork among participants from various institutions, fostering a spirit of camaraderie.",
+  },
+  {
+    title: "संरक्षणम् (Sanrakshanam - Preservation):",
+    description:
+      "Honor and preserve the rich cultural heritage while embracing modern expressions of art and creativity.",
+  },
+];
+
 function VisionMission() {
   return (
     <motion.div
@@ -14,11 +38,11 @@ function VisionMission() {
           Vision
         </h1>
         <ul className="list-disc pl-5 text-xs sm:text-sm md:text-base lg:text-lg tracking-wider text-amber-500 space-y-3">
-          <li>To create an engaging platform where young talents thrive.</li>
-          <li>Celebrate culture and showcase creativity.</li>
           <li>
-            Establish <span className="italic">&apos;Tarunya&apos;</span> as the
-            epitome of youth empowerment and artistic expression.
+            To celebrate youth and passion through a vibrant festival that
+            fosters creativity, connection, and unforgettable experiences,
+            shifting the focus from competition to collaboration, so that life
+            itself becomes a celebration.
           </li>
         </ul>
       </div>
@@ -29,19 +53,15 @@ function VisionMission() {
           Mission
         </h1>
         <ul className="list-disc pl-5 text-xs sm:text-sm md:text-base lg:text-lg tracking-wider text-amber-500 space-y-3">
-          <li>
-            Unite students and communities through diverse cultural and artistic
-            events.
-          </li>
-          <li>
-            Provide opportunities for self-expression, collaboration, and
-            professional growth.
-          </li>
-          <li>Inspire passion and creativity among youth.</li>
-          <li>
-            Build partnerships with sponsors who value innovation and youth
-            development.
-          </li>
+          {missionItems.map((item, index) => (
+            <li key={index}>
+              <span className="text-amber-300 text-sm sm:text-base md:text-lg lg:text-xl font-semibold">
+                {item.title}
+              </span>
+              <br />
+              {item.description}
+            </li>
+          ))}
         </ul>
       </div>
     </motion.div>

@@ -93,7 +93,7 @@ function About() {
             {activeTab === "vision-mission" && (
               <img
                 src="/images/about/rocket.png"
-                className="absolute top-0 right-0 hidden md:block object-contain z-[-1] opacity-50 md:opacity-70 h-[85%]"
+                className="absolute -top-[10%] right-0 hidden md:block object-contain z-[-1] opacity-50 md:opacity-70 h-[90%]"
               />
             )}
           </div>
