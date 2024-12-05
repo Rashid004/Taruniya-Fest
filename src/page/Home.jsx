@@ -5,6 +5,39 @@ import { motion } from "framer-motion";
 function Home() {
   return (
     <section className="min-h-[90vh] relative overflow-hidden">
+      {/* Right Cloud */}
+      <motion.div
+        className="absolute top-0 right-0  z-[100]"
+        initial={{ x: 200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 40,
+          damping: 20,
+          mass: 1,
+          duration: 1.4,
+          delay: 2.5,
+        }}
+      >
+        <img src="/home/rightcloud.png" alt="Cloud 1" />
+      </motion.div>
+      {/* Left Cloud */}
+      <motion.div
+        className="absolute top-0 left-10  z-[100]"
+        initial={{ x: -200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 40,
+          damping: 20,
+          mass: 1,
+          duration: 1.4,
+          delay: 2.5,
+        }}
+      >
+        <img src="/home/leftcloud1.webp" alt="Cloud 1" />
+      </motion.div>
+
       {/* First Image */}
       <motion.div
         className="absolute bottom-0 flex items-center justify-center z-[20] w-full"
@@ -58,12 +91,12 @@ function Home() {
           duration: 1.4,
           delay: 1.5,
         }}
-        className="absolute top-0 left-1/3 flex items-center justify-center z-[999]"
+        className="absolute top-0 left-1/2 right-1/2 flex items-center justify-center z-[999]"
       >
         <img
           src="/home/logo.webp"
           alt="Logo"
-          className="w-auto max-w-[30%] lg:max-w-[65%] min-w-[100px] object-contain"
+          className="w-auto max-w-[30%] lg:max-w-[65%] min-w-[450px] object-contain"
         />
       </motion.div>
 

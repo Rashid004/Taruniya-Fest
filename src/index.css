@@ -22,12 +22,20 @@
 
 body {
   @apply font-gotham;
-  background-image: url("/home/bg-home3.png");
+  background-image: url("/home/bg-home2.jpg");
   background-size: cover;
-
+  height: full;
   position: relative;
   z-index: 0;
 }
+
+@media (max-width: 768px) {
+  body {
+    background-image: url("/home/bg-homeMobile.png");
+    display: block;
+  }
+}
+
 @layer utilities {
   .hover:bg-custom {
     background-color: rgba(255, 191, 0, 0.15);
@@ -36,7 +44,7 @@ body {
 
 @layer base {
   .main-heading {
-    @apply text-2xl uppercase sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 lg:mb-12  text-secondary-yellow tracking-[0.3em] my-12;
+    @apply text-2xl uppercase sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 lg:mb-12 text-white tracking-[0.1em] my-6;
   }
   .rounded-top {
     @apply rounded-t-md rounded-b-none;
