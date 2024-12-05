@@ -207,7 +207,7 @@ function EventsDetail() {
                   {/* {link && ( */}
                   <Link to="#">
                     <button className="bg-gradient-to-r from-amber-500 to-yellow-500 text-black px-4 sm:px-6 py-2 sm:py-3 font-medium text-sm sm:text-base md:text-lg   focus:outline-none rounded-lg shadow-lg hover:shadow-amber-500/20 transition duration-300">
-                      Submit
+                      Register Now
                     </button>
                   </Link>
                   {/* )} */}

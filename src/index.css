@@ -24,6 +24,7 @@ body {
   @apply font-gotham;
   background-image: url("/home/bg-home2.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   height: full;
   position: relative;
   z-index: 0;
