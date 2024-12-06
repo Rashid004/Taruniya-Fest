@@ -22,19 +22,6 @@
 
 body {
   @apply font-gotham;
-  background-image: url("/home/bg-home2.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: full;
-  position: relative;
-  z-index: 0;
-}
-
-@media (max-width: 768px) {
-  body {
-    background-image: url("/home/bg-homeMobile.png");
-    display: block;
-  }
 }
 
 @layer utilities {

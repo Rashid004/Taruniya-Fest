@@ -43,6 +43,8 @@ const EditLeaderBoard = lazy(() =>
   import("./Admin/components/LeaderBoard/EditLeaderBoard")
 );
 
+import "./index.css";
+
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -270,8 +272,10 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router} />
-      <Toaster toastOptions={{ style: { width: "300px", height: "55px" } }} />
+      <div className="min-h-screen lg:bg-home-desktop bg-cover bg-no-repeat bg-center md:bg-home-tablet bg-home-mobile bg-red-800">
+        <RouterProvider router={router} />
+        <Toaster toastOptions={{ style: { width: "300px", height: "55px" } }} />
+      </div>
     </>
   );
 }

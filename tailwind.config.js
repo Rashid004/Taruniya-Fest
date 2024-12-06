@@ -26,6 +26,11 @@ export default {
         "2md": "850px",
         xs: "400px",
       },
+      backgroundImage: {
+        "home-desktop": "url('/home/bg-home2.jpg')",
+        "home-tablet": "url('/home/bgTablet.jpg')",
+        "home-mobile": "url('/home/bg-homeMobile.png')",
+      },
     },
   },
   plugins: [],

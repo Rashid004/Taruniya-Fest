@@ -31,7 +31,7 @@ function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > window.innerHeight * 0.7) {
+      if (window.scrollY > window.innerHeight * 0.6) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 function Home() {
   return (
-    <section className="min-h-[90vh] relative overflow-hidden">
+    <section className="min-h-[90vh] md:min-h-[90vh] relative overflow-hidden ">
       {/* Right Cloud */}
       <motion.div
         className="absolute top-16 md:top-24 lg:top-0 right-0  z-[100]"
@@ -22,7 +22,7 @@ function Home() {
         <img
           src="/home/rightcloud.png"
           alt="Cloud 1"
-          className="hidden lg:block"
+          className="hidden lg:block w-[300px]"
         />
         <img
           src="/home/rightcloudMobile.png"
@@ -48,6 +48,11 @@ function Home() {
           src="/home/leftCloudMobile.png"
           alt="Cloud Mobile 1"
           className="block lg:hidden w-[200px]"
+        />
+        <img
+          src="/home/leftCloudMobile.png"
+          alt="Cloud 1"
+          className="hidden lg:block w-[300px]"
         />
       </motion.div>
       {/* Left Cloud */}
