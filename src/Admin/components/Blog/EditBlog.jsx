@@ -1,58 +1,59 @@
 /** @format */
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { deleteBlog, getBlogById, updateBlog } from "../../../service/Blog";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import Breadcrumb from "../BreadCrumb";
-import { ToastContainer } from "react-toastify";
-import { Button, Flex, Modal, Textarea, TextInput } from "@mantine/core";
+import { Button, Flex, Modal, TextInput, Title, Box } from "@mantine/core";
 import { ArrowLeft, Save, Trash } from "lucide-react";
+import { Editor } from "@tinymce/tinymce-react";
 
 function EditBlog() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
+  const editorRef = useRef(null);
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
+  const [content, setContent] = useState(""); // Editor content
 
   const [isLoading, setIsLoading] = useState(false);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("");
 
-  // Get Blog Id from URL
+  const apiKey = "d1r1648jmc44hafjk3xddnbyf24apfywyojcz3lbzvbgqj8x";
+
+  // Fetch Blog Data
   useEffect(() => {
-    const fetchBlogId = async () => {
+    const fetchBlog = async () => {
       setIsLoading(true);
       try {
-        const blogId = await getBlogById(id);
-        setTitle(blogId.title || "");
-        setDescription(blogId.description || "");
-        setDate(blogId.date || "");
+        const blogData = await getBlogById(id);
+        setTitle(blogData.title || "");
+        setDescription(blogData.description || "");
+        setDate(blogData.date || "");
+        setContent(blogData.content || "");
       } catch (error) {
-        console.log(error);
+        console.error(error);
+        toast.error("Failed to fetch blog data");
       } finally {
         setIsLoading(false);
       }
     };
-    fetchBlogId();
+    fetchBlog();
   }, [id]);
 
   // Handle Update Blog
   const handleUpdate = async () => {
     setIsLoading(true);
     try {
-      updateBlog(id, {
-        title,
-        date,
-        description,
-      });
-      toast.success("Blog updated successfully");
-      handleGoBack();
+      await updateBlog(id, { title, date, description, content });
+      toast.success("Blog updated successfully!");
+      navigate(-1); // Go back to the previous page
     } catch (error) {
-      console.log(error);
-      toast.error("Failed to update Blog");
+      console.error(error);
+      toast.error("Failed to update blog");
     } finally {
       setIsLoading(false);
       setIsModalOpen(false);
@@ -64,20 +65,15 @@ function EditBlog() {
     setIsLoading(true);
     try {
       await deleteBlog(id);
-      toast.success("Blog deleted successfully");
-      handleGoBack();
+      toast.success("Blog deleted successfully!");
+      navigate(-1); // Go back to the previous page
     } catch (error) {
-      console.log(error);
-      toast.error("Failed to delete Blog");
+      console.error(error);
+      toast.error("Failed to delete blog");
     } finally {
       setIsLoading(false);
       setIsModalOpen(false);
     }
-  };
-
-  // Handle Go Back
-  const handleGoBack = () => {
-    window.history.back();
   };
 
   // Open confirmation modal
@@ -85,62 +81,119 @@ function EditBlog() {
     setModalType(type);
     setIsModalOpen(true);
   };
+
   return (
-    <div className="w-full relative h-full">
-      <ToastContainer position="top-right" autoClose={3000} />
-      <div className="border-b border-t border-gray-300 px-4 py-4">
-        <Breadcrumb title="Blog" path="blog" />
+    <div className="w-full p-6">
+      {/* Page Header */}
+      <div className="border-b border-gray-300 pb-4 mb-6">
+        <Title order={2} color="gray">
+          Edit Blog
+        </Title>
       </div>
-      <Flex
-        direction="column"
-        align="flex-start"
-        gap="md"
-        mt="lg"
-        px="md"
-        className="w-full"
-      >
+
+      {/* Blog Form */}
+      <Flex direction="column" gap="md">
+        {/* Title */}
         <TextInput
           value={title}
           label="Title"
-          placeholder="Enter title"
-          radius="sm"
-          mb={12}
+          placeholder="Enter blog title"
           onChange={(e) => setTitle(e.target.value)}
           required
-          className="w-1/4"
         />
-        <Textarea
-          label="Description"
-          placeholder="Enter description"
+
+        {/* Description */}
+        <TextInput
           value={description}
+          label="Description"
+          placeholder="Enter blog description"
           onChange={(e) => setDescription(e.target.value)}
           required
-          className="w-1/4 "
         />
+
+        {/* Date */}
         <TextInput
           type="date"
           value={date}
-          onChange={(e) => setDate(e.target.value)}
           label="Date"
-          valueFormat="YYYY MMM DD"
           placeholder="Select date"
+          onChange={(e) => setDate(e.target.value)}
           required
-          className="w-1/4"
-          radius="md" // Control input border radius
-          styles={{
-            input: { fontSize: "1rem" },
-            dropdown: { backgroundColor: "#f8f9fa" },
-          }}
         />
+
+        {/* Content Editor */}
+        <Box>
+          <label className="block text-sm font-medium mb-2">Blog Content</label>
+          <Editor
+            apiKey={apiKey}
+            onInit={(evt, editor) => (editorRef.current = editor)}
+            value={content}
+            onEditorChange={(newContent) => setContent(newContent)}
+            init={{
+              height: 400,
+              menubar: true,
+              plugins: [
+                "advlist autolink link image lists charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table paste code help wordcount",
+              ],
+              toolbar:
+                "undo redo | formatselect | " +
+                "bold italic backcolor | alignleft aligncenter " +
+                "alignright alignjustify | bullist numlist outdent indent | " +
+                "removeformat | help | forecolor backcolor",
+              style_formats: [
+                { title: "Heading 1", block: "h1" },
+                { title: "Heading 2", block: "h2" },
+                { title: "Heading 3", block: "h3" },
+                { title: "Heading 4", block: "h4" },
+                { title: "Heading 5", block: "h5" },
+                { title: "Paragraph", block: "p" },
+              ],
+              content_style:
+                "body { font-family:Arial,sans-serif; font-size:14px }",
+            }}
+          />
+        </Box>
       </Flex>
 
+      {/* Action Buttons */}
+      <Flex justify="space-between" align="center" mt="xl">
+        <Button
+          leftIcon={<ArrowLeft size={16} />}
+          variant="outline"
+          onClick={() => navigate(-1)}
+        >
+          Go Back
+        </Button>
+        <Flex gap="md">
+          <Button
+            leftIcon={<Trash size={16} />}
+            color="red"
+            onClick={() => openConfirmationModal("delete")}
+            disabled={isLoading}
+          >
+            Delete
+          </Button>
+          <Button
+            leftIcon={<Save size={16} />}
+            onClick={() => openConfirmationModal("update")}
+            disabled={isLoading}
+          >
+            Update Blog
+          </Button>
+        </Flex>
+      </Flex>
+
+      {/* Confirmation Modal */}
       <Modal
         opened={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         title={`Confirm ${modalType === "delete" ? "Delete" : "Update"}`}
+        centered
       >
-        <p>Are you sure you want to {modalType} this Blog?</p>
-        <Flex justify="flex-end" mt="md" gap="md">
+        <p>Are you sure you want to {modalType} this blog?</p>
+        <Flex justify="flex-end" mt="lg" gap="md">
           <Button variant="outline" onClick={() => setIsModalOpen(false)}>
             Cancel
           </Button>
@@ -153,34 +206,6 @@ function EditBlog() {
           </Button>
         </Flex>
       </Modal>
-
-      <div className="relative flex justify-between items-center w-full py-4 px-4 border-t border-gray-300 mt-4">
-        <button
-          className="flex items-center gap-2 border border-blue-500 text-blue-500 px-6 py-3 rounded-[2px] hover:bg-blue-100 transition"
-          onClick={handleGoBack}
-        >
-          <ArrowLeft size={16} />
-          Go Back
-        </button>
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => openConfirmationModal("delete")}
-            className="flex items-center gap-2 bg-red-500 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-[2px] transition"
-            disabled={isLoading}
-          >
-            <Trash size={16} />
-            Delete
-          </button>
-          <button
-            onClick={() => openConfirmationModal("update")}
-            className="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-[2px] transition"
-            disabled={isLoading}
-          >
-            <Save size={16} />
-            Update Blog
-          </button>
-        </div>
-      </div>
     </div>
   );
 }

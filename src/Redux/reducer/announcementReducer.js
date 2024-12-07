@@ -10,7 +10,7 @@ const announcementSlice = createSlice({
   },
   reducers: {
     setAnnouncementData: (state, action) => {
-      state.announcements = action.payload;
+      state.announcements = action.payload; // Must only contain serializable data
       state.loading = false;
     },
   },

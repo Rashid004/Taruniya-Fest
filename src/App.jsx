@@ -44,12 +44,20 @@ const EditLeaderBoard = lazy(() =>
 );
 
 import "./index.css";
+import BlogDetails from "./page/BlogDetails";
+import { getBlogs } from "./service/Blog";
+import { setBlogData } from "./Redux/reducer/blog";
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     getAnnouncements((data) => {
       dispatch(setAnnouncementData(data));
+    });
+
+    getBlogs((data) => {
+      dispatch(setBlogData(data));
     });
   }, [dispatch]);
 
@@ -121,6 +129,14 @@ function App() {
           element: (
             <Suspense fallback={<Loading />}>
               <Blog />
+            </Suspense>
+          ),
+        },
+        {
+          path: "blog/:id",
+          element: (
+            <Suspense fallback={<Loading />}>
+              <BlogDetails />
             </Suspense>
           ),
         },
