@@ -288,7 +288,7 @@ function App() {
 
   return (
     <>
-      <div className="min-h-dvh lg:bg-home-desktop bg-cover bg-no-repeat bg-center md:bg-home-tablet bg-home-mobile  bg-black">
+      <div className="min-h-svh lg:bg-home-desktop bg-cover bg-[#6B0A29] bg-no-repeat bg-center md:bg-home-tablet bg-home-mobile">
         <RouterProvider router={router} />
         <Toaster toastOptions={{ style: { width: "300px", height: "55px" } }} />
       </div>
