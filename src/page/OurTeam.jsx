@@ -13,33 +13,8 @@ import Committee from "../components/OurTeam/Committee";
 const OurTeam = () => {
   const [activeTab, setActiveTab] = useState("faculty");
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case "faculty":
-        return (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {facultyMembers.map((member, index) => (
-              <Faculty key={member.name} member={member} index={index} />
-            ))}
-          </div>
-        );
-      case "committee":
-        return (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {committeeMembers.map((member, index) => (
-              <Committee key={member.name} member={member} index={index} />
-            ))}
-          </div>
-        );
-      case "department":
-        return <DepartmentCard />;
-      default:
-        return null;
-    }
-  };
-
   return (
-    <section className="min-h-screen py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8 z-[100]">
       <div className="max-w-7xl mx-auto">
         <motion.h1
           className="main-heading"
@@ -95,8 +70,21 @@ const OurTeam = () => {
           </button>
         </div>
 
-        {/* Content based on activeTab */}
-        {renderContent()}
+        {activeTab === "faculty" ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {facultyMembers.map((member, index) => (
+              <Faculty key={member.name} member={member} index={index} />
+            ))}
+          </div>
+        ) : activeTab === "committee" ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {committeeMembers.map((member, index) => (
+              <Committee key={member.name} member={member} index={index} />
+            ))}
+          </div>
+        ) : (
+          <DepartmentCard />
+        )}
       </div>
     </section>
   );

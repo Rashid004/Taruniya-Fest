@@ -1,10 +1,9 @@
 /** @format */
 import { motion } from "framer-motion";
-import { FaEnvelope, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Committee = ({ member, index }) => (
   <motion.div
-    className="flex flex-col items-center justify-center w-full h-full gap-4 p-4"
+    className="flex flex-col items-center justify-center w-full h-full gap-4 p-4 "
     initial={{ opacity: 0, y: 50 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
