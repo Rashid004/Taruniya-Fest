@@ -46,7 +46,7 @@ function Navigation() {
     <header
       className={`relative  ${
         isScrolled
-          ? "bg-black bg-opacity-60 backdrop-blur-md sticky top-0 z-[9999] "
+          ? "bg-black bg-opacity-60 backdrop-blur-md sticky top-0 z-[999] hidden xl:block"
           : ""
       }`}
     >
@@ -69,7 +69,7 @@ function Navigation() {
       </nav>
 
       {/* Mobile Navigation */}
-      <div className="xl:hidden flex justify-between px-4 py-4 bg-opacity-60 backdrop-blur-md">
+      <div className="xl:hidden flex justify-between px-4 py-4 ">
         <Logo />
         <button
           className="z-50 focus:outline-none"

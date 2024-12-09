@@ -8,7 +8,7 @@ function Logo() {
       <img
         src="/icons/tarunya.png"
         alt="logo"
-        className="w-24 md:w-32 lg:w-44 "
+        className="w-24 md:w-32 lg:w-52 "
       />
     </Link>
   );
