@@ -139,7 +139,7 @@ function Home() {
         <img
           src="/home/logo.webp"
           alt="Logo"
-          className="w-auto max-w-[30%] lg:max-w-[55%] min-w-[200px] md:min-w-[350px] lg:min-w-[420px] object-contain hidden lg:block"
+          className="w-auto max-w-[30%] lg:max-w-[55%] min-w-[200px] md:min-w-[350px] lg:min-w-[420px] xl:min-w-[440px] object-contain hidden lg:block"
         />
         <img
           src="/home/logoMobile.png"
