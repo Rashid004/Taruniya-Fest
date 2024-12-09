@@ -9,7 +9,7 @@ function BlogDetails() {
 
   const blog = blogs.find((b) => b.id === id); // Find the blog by ID
 
-  if (!blog) return <div>Blog not found!</div>;
+  if (!blog) return;
 
   return (
     <section className="bg-primaryDark px-4 py-4 sm:py-8 lg:py-6 mx-auto max-w-6xl rounded-lg shadow-md">

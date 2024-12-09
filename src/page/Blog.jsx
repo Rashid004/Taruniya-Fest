@@ -70,7 +70,7 @@ function Blog() {
                 <p className="text-base sm:text-lg text-gray-300 mt-2 line-clamp-3">
                   {post.description}
                 </p>
-                <Link to={`/blog/${post.id}`}>
+                <Link to={`/blog/${post.id}`} target="_blank">
                   <button className="mt-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-black px-4 sm:px-6 py-2 rounded-lg shadow-lg hover:shadow-amber-500/20 transition duration-300 font-medium">
                     Read More
                   </button>
