@@ -12,14 +12,21 @@ function BlogDetails() {
   if (!blog) return <div>Blog not found!</div>;
 
   return (
-    <section className="bg-primaryDark px-4 py-4 sm:py-8  lg:py-6 mx-12 rounded-lg ">
-      <div className="min-h-screen p-6">
-        <h1 className="text-5xl font-medium text-amber-200 py-2">
+    <section className="bg-primaryDark px-4 py-4 sm:py-8 lg:py-6 mx-auto max-w-6xl rounded-lg shadow-md">
+      <div className="p-6">
+        <h1 className="text-5xl font-semibold text-amber-200 py-2 text-start">
           {blog.title}
         </h1>
-        <p className="text-gray-300">{blog.date}</p>
+        <p className="text-gray-400 text-start">{blog.date}</p>
+        <div className="flex justify-start py-4">
+          <img
+            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/9df41c53449221.59355d5209abe.jpg"
+            alt={blog.title}
+            className="w-full max-w-6xl md:w-2/3 rounded-md shadow-lg object-cover"
+          />
+        </div>
         <div
-          className="mt-4 text-lg"
+          className="mt-4 text-lg text-gray-200"
           dangerouslySetInnerHTML={{ __html: blog.content }}
         />
       </div>
