@@ -1,6 +1,5 @@
 /** @format */
 
-import { useForm } from "@formspree/react";
 import { MdOutlineMail } from "react-icons/md";
 import { FiInstagram } from "react-icons/fi";
 import { FaTwitter, FaYoutube } from "react-icons/fa";
@@ -9,23 +8,60 @@ import InputField from "../components/InputField/InputField";
 import TextAreaField from "../components/InputField/TextArea";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { CreateContactInquiry } from "../service/contactInquiry";
+import { useState } from "react";
+import { nanoid } from "nanoid";
 
 function Contact() {
-  const [state, handleSubmit] = useForm("xdknqwjj");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const submitForm = async (event) => {
-    event.preventDefault();
-    await handleSubmit(event);
-
-    if (state.succeeded) {
-      toast.success("Thank you for contacting us!", {
-        duration: 3000,
-        position: "bottom-center",
-      });
-      event.target.reset(); // Reset form fields after successful submission
-    }
+  const reset = () => {
+    setName("");
+    setEmail("");
+    setPhone("");
+    setMessage("");
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const id = nanoid();
+    if (!name || !email || !phone || !message) {
+      toast.error("Please fill in all required fields");
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      // Prepare data
+      const contactInquiryData = {
+        id: nanoid(),
+        name,
+        email,
+        phone,
+        message,
+        submittedAt: new Date().toISOString(), // Optional: Add a timestamp
+      };
+      // Save to Firestore
+      await CreateContactInquiry(contactInquiryData);
+
+      // Reset form
+      reset();
+
+      // Notify success
+      toast.success("Contact Details Added Successfully");
+    } catch (error) {
+      console.error("Error submitting contact inquiry:", error);
+      toast.error("Failed to add Contact Details");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <motion.div
       layout
@@ -115,42 +151,44 @@ function Contact() {
             <h2 className="text-xl md:text-3xl font-medium mb-6 text-amber-400 tracking-widest">
               Send us a message
             </h2>
-            <form
-              className="space-y-6"
-              onSubmit={submitForm}
-              method="POST"
-              action="https://formspree.io/f/xdknqwjj"
-            >
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <InputField
                 label="Name"
                 name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)} // Pass onChange handler
                 type="text"
                 placeholder="Enter your name"
               />
               <InputField
                 label="Email"
                 name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)} // Pass onChange handler
                 type="email"
                 placeholder="Enter your email"
               />
               <InputField
                 label="Phone"
                 name="phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)} // Pass onChange handler
                 type="tel"
                 placeholder="Enter your phone number"
               />
               <TextAreaField
                 label="Message"
                 name="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)} // Pass onChange handler
                 placeholder="Enter your message"
               />
               <button
                 className="w-full py-3 px-4 text-base rounded-md bg-[#171717] shadow-md transition-all duration-300 ease-in-out border-2 border-amber-400 text-amber-400 hover:bg-primaryDark hover:text-amber-500 hover:border-amber-500"
-                s
                 type="submit"
-                disabled={state.submitting}
+                disabled={isSubmitting}
               >
-                {state.submitting ? "Submitting..." : "Submit"}
+                {isSubmitting ? "Submitting..." : "Submit"}
               </button>
             </form>
           </div>
@@ -160,5 +198,4 @@ function Contact() {
     </motion.div>
   );
 }
-
 export default Contact;

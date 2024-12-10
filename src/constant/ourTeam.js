@@ -41,20 +41,17 @@ export const committeeMembers = [
     img: "/images/committee/photo1.webp",
   },
   {
-    name: "Hyder Ali",
-    designation: "Chairperson",
-    img: "/images/committee/photo2.webp",
+    name: "Shubham Chaubey",
+    designation: "Jt. Chairperson",
+    img: "/images/committee/photo4.webp",
   },
+
   {
     name: "Jayshree Matala",
     designation: "Vice Chairperson",
     img: "/images/committee/photo3.webp",
   },
-  {
-    name: "Shubham Chaubey",
-    designation: "Vice Chairperson",
-    img: "/images/committee/photo4.webp",
-  },
+
   {
     name: "Prathamesh Chaudhari",
     designation: "Vice Chairperson",
@@ -116,21 +113,21 @@ export const committeeMembers = [
     designation: "Media Head",
     img: null,
   },
-  {
-    name: "Vaibhavi Sawardekar",
-    designation: "Finance Head",
-    img: null,
-  },
-  {
-    name: "Jidnesh Salve",
-    designation: "Admin Head",
-    img: null,
-  },
-  {
-    name: "Sultan Khan",
-    designation: "Security Head",
-    img: null,
-  },
+  // {
+  //   name: "Vaibhavi Sawardekar",
+  //   designation: "Finance Head",
+  //   img: null,
+  // },
+  // {
+  //   name: "Jidnesh Salve",
+  //   designation: "Admin Head",
+  //   img: null,
+  // },
+  // {
+  //   name: "Sultan Khan",
+  //   designation: "Security Head",
+  //   img: null,
+  // },
 ];
 
 export const departmentImages = [

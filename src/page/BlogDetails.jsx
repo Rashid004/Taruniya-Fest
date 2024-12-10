@@ -12,7 +12,7 @@ function BlogDetails() {
   if (!blog) return;
 
   return (
-    <section className="bg-primaryDark px-4 py-4 sm:py-8 lg:py-6 mx-auto max-w-6xl rounded-lg shadow-md">
+    <section className="bg-primaryDark px-4 py-4 sm:py-8 lg:py-6 mx-auto max-w-5xl rounded-lg shadow-md">
       <div className="p-6">
         <h1 className="text-5xl font-semibold text-amber-200 py-2 text-start">
           {blog.title}

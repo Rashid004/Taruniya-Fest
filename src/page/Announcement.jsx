@@ -13,6 +13,8 @@ import {
 } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ComingSoon from "../ui/ComingSoon";
+import { div } from "framer-motion/client";
 
 const AnnouncementCard = ({ announcement }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -83,24 +85,7 @@ const AnnouncementsPage = () => {
     (state) => state.announcement.announcements
   );
 
-  if (!announcements)
-    return (
-      <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-10 rounded-lg shadow-xl text-center space-y-6">
-        <h2 className="text-4xl font-extrabold text-amber-200 drop-shadow-lg">
-          🚀 Stay Tuned! 🚀
-        </h2>
-        <p className="text-2xl text-white font-semibold italic tracking-wide">
-          Some{" "}
-          <span className="text-yellow-300 font-bold underline">
-            awesome announcements
-          </span>{" "}
-          are on the way!
-        </p>
-        <div className="animate-bounce">
-          <span className="text-amber-300 text-3xl">✨✨✨</span>
-        </div>
-      </div>
-    );
+  if (announcements) return <ComingSoon />;
 
   console.log(announcements.length, announcements);
 

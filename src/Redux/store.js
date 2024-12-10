@@ -6,6 +6,7 @@ import announcementReducer from "./reducer/announcementReducer";
 import eventReducer from "./reducer/event";
 import blogReducer from "./reducer/blog";
 import leaderBoardReducer from "./reducer/leaderboard";
+import contactReducer from "./reducer/contactReducer";
 
 export default configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export default configureStore({
     event: eventReducer,
     blog: blogReducer,
     leaderboard: leaderBoardReducer,
+    contactInquiries: contactReducer,
   },
 });
