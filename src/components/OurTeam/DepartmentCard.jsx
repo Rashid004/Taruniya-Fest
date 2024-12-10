@@ -104,13 +104,13 @@ const DepartmentCard = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <button
+                  {/* <button
                     className="px-6 py-2 bg-amber-500 text-primaryDark rounded-lg font-semibold 
                     transform transition-all duration-300 hover:bg-amber-400 hover:shadow-lg
                     hover:shadow-amber-500/30"
                   >
                     Learn More
-                  </button>
+                  </button> */}
                 </motion.div>
               </motion.div>
             </div>

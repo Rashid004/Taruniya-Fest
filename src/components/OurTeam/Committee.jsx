@@ -9,7 +9,10 @@ const Committee = ({ member, index }) => (
     transition={{ duration: 0.5, delay: index * 0.1 }}
   >
     {/* Image Container with Background */}
-    <motion.div className="bg-primaryDark rounded-2xl hover:shadow-[0_20px_50px_rgba(255,191,0,0.15)] shadow-lg p-4 w-full max-w-xs md:max-w-sm lg:max-w-md flex flex-col items-center justify-center">
+    <motion.div
+      className="bg-primaryDark rounded-2xl hover:shadow-[0_20px_50px_rgba(255,191,0,0.25)] shadow-lg
+ p-4 w-full max-w-xs md:max-w-sm lg:max-w-md flex flex-col items-center justify-center"
+    >
       <motion.img
         src={member.img}
         alt={member.name}

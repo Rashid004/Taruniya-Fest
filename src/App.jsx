@@ -47,6 +47,7 @@ import "./index.css";
 import BlogDetails from "./page/BlogDetails";
 import { getBlogs } from "./service/Blog";
 import { setBlogData } from "./Redux/reducer/blog";
+import ContactInquiry from "./AdminPages/ContactInquiry";
 
 function App() {
   const dispatch = useDispatch();
@@ -261,6 +262,14 @@ function App() {
               element: (
                 <Suspense fallback={<Loading />}>
                   <EditUser />
+                </Suspense>
+              ),
+            },
+            {
+              path: "contact-inquiry",
+              element: (
+                <Suspense fallback={<Loading />}>
+                  <ContactInquiry />
                 </Suspense>
               ),
             },

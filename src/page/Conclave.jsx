@@ -1,5 +1,4 @@
 /** @format */
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -9,7 +8,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import ConclaveGrid from "../components/conclave/ConclaveGrid";
-
+import ComingSoon from "../ui/ComingSoon";
 const slideData = [
   {
     title: "Dr. Ryan Fernando",
@@ -28,20 +27,20 @@ const slideData = [
       "https://images.unsplash.com/photo-1731484636246-ba9365148d60?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDF8dG93SlpGc2twR2d8fGVufDB8fHx8fA%3D%3D",
   },
 ];
-
 function Conclave() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isTrue, setIsTrue] = useState(true);
   const slideCount = slideData.length;
 
   const onSlideChange = (swiper) => {
     setActiveIndex(swiper.realIndex);
   };
 
-  return (
+  return !isTrue ? (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen py-4 sm:py-6 md:py-8 "
+      className="min-h-screen py-4 sm:py-6 md:py-8"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h1
@@ -113,8 +112,8 @@ function Conclave() {
             ))}
           </Swiper>
 
-          {/* Corrected Navigation Buttons */}
-          <div className="absolute bottom-2  left-1/2 -translate-x-1/2 flex items-center gap-4 z-50 ">
+          {/* Navigation Buttons */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-4 z-50">
             <button className="custom-prev group flex items-center justify-center w-10 h-10 rounded-full bg-[#371221] border border-[#DECBA7] hover:bg-[#DECBA7]/20 transition-all">
               <ChevronLeft className="w-6 h-6 text-[#DECBA7]" />
             </button>
@@ -139,6 +138,11 @@ function Conclave() {
       </div>
       <ConclaveGrid />
     </motion.section>
+  ) : (
+    <ComingSoon
+      data1="An extraordinary conclave awaits, featuring renowned guests and enlightening discussions."
+      data2="Updates will be revealed here shortly!"
+    />
   );
 }
 

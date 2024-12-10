@@ -9,6 +9,7 @@ import {
   Users,
   Trophy,
   LayoutDashboard,
+  Contact,
 } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
@@ -27,6 +28,11 @@ const links = [
   { icon: <CalendarDays />, name: "Events", href: "/admin-panel/events" },
   { icon: <SquarePlus />, name: "Blog", href: "/admin-panel/blog" },
   { icon: <Trophy />, name: "Leaderboard", href: "/admin-panel/leaderboard" },
+  {
+    icon: <Contact />,
+    name: "Contact Inquiry",
+    href: "/admin-panel/contact-inquiry",
+  },
 ];
 
 function Sidebar() {

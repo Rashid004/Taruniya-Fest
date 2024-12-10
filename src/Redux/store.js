@@ -15,6 +15,6 @@ export default configureStore({
     event: eventReducer,
     blog: blogReducer,
     leaderboard: leaderBoardReducer,
-    contactInquiries: contactReducer,
+    contact: contactReducer, // Correct reducer key for "contact"
   },
 });

@@ -85,7 +85,15 @@ const AnnouncementsPage = () => {
     (state) => state.announcement.announcements
   );
 
-  if (announcements) return <ComingSoon />;
+  if (announcements)
+    return (
+      <ComingSoon
+        data1={
+          "Get ready for exclusive updates and important notices about our Tarunya Fest."
+        }
+        data2={"This is your go-to space for all the buzz!"}
+      />
+    );
 
   console.log(announcements.length, announcements);
 

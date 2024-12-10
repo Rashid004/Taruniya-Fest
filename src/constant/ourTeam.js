@@ -2,24 +2,24 @@
 
 export const facultyMembers = [
   {
-    name: "Dr. Amelia Thornton",
-    position: "Principal",
-    img: "https://randomuser.me/api/portraits/women/1.jpg",
+    name: "Sonika",
+    position: "Not Defined",
+    img: "/images/faculty/Sonika.webp",
   },
   {
-    name: "Prof. Rajesh Kumar",
-    position: "Head of Department",
-    img: "https://randomuser.me/api/portraits/men/2.jpg",
+    name: "Bushra",
+    position: "Not Defined",
+    img: "/images/faculty/bushra.webp",
   },
   {
-    name: "Ms. Sophia Chen",
-    position: "Cultural Secretary",
-    imageCommitee: "https://randomuser.me/api/portraits/women/3.jpg",
+    name: "Riya",
+    position: "Not Defined",
+    img: "/images/faculty/Riya.webp",
   },
   {
-    name: "Mr. Jamal Williams",
-    position: "Technical Director",
-    img: "https://randomuser.me/api/portraits/men/51.jpg",
+    name: "Omkar",
+    position: "Not Defined",
+    img: "/images/faculty/Omkar.webp",
   },
   // Add more faculty members as needed
 ];
@@ -66,7 +66,7 @@ export const committeeMembers = [
   {
     name: "Ansari Rashid",
     designation: "Tech Lead",
-    img: null,
+    img: "/images/committee/photo17.webp",
   },
   {
     name: "Gauri Sawant",
@@ -111,7 +111,7 @@ export const committeeMembers = [
   {
     name: "Malhar Malap",
     designation: "Media Head",
-    img: null,
+    img: "/images/committee/photo18.webp",
   },
   // {
   //   name: "Vaibhavi Sawardekar",

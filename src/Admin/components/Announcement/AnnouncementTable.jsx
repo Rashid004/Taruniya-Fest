@@ -5,7 +5,6 @@ import AnnouncementRow from "./AnnouncementRow";
 import usePagination from "../../../hook/usePagination";
 import { ITEMS_PER_PAGE } from "../../../utils/const";
 import { useEffect } from "react";
-import { s } from "framer-motion/client";
 
 function AnnouncementTable({
   announcements,

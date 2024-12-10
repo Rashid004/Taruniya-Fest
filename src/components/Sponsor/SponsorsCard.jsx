@@ -2,9 +2,10 @@
 import { motion } from "framer-motion";
 const SponsorCard = ({ sponsor, isHovered, onHover, isFeatured = false }) => (
   <motion.div
-    className={`bg-primaryDark hover:shadow-[0_20px_50px_rgba(255,191,0,0.15)] shadow-lg rounded-lg  p-6 transition-all duration-300 transform ${
-      isHovered ? "scale-105" : ""
-    } ${isFeatured ? "col-span-full lg:col-span-2" : ""}`}
+    className={`bg-primaryDark hover:shadow-[0_20px_50px_rgba(255,191,0,0.25)] shadow-lg
+ rounded-lg  p-6 transition-all duration-300 transform ${
+   isHovered ? "scale-105" : ""
+ } ${isFeatured ? "col-span-full lg:col-span-2" : ""}`}
     onMouseEnter={() => onHover(sponsor.name)}
     onMouseLeave={() => onHover(null)}
     initial={{ opacity: 0, y: 50 }}

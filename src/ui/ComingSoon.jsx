@@ -2,7 +2,7 @@
 
 import { PartyPopper, Sparkles, Star } from "lucide-react";
 
-function ComingSoon() {
+function ComingSoon({ data1, data2 }) {
   return (
     <div className="min-h-[50vh] flex items-center justify-center p-4">
       <div className="relative w-full max-w-4xl">
@@ -40,22 +40,16 @@ function ComingSoon() {
             </h2>
 
             <p className="text-xl md:text-2xl text-[#DECBA7] font-medium max-w-2xl mx-auto leading-relaxed">
-              Get ready for an unforgettable experience! Our college fest is
-              about to bring you
+              {data1}
+              <span className="text-amber-200 font-semibold">{data2}</span>
+              {/* ,
               <span className="text-amber-200 font-semibold">
-                {" "}
-                amazing performances
-              </span>
-              ,
-              <span className="text-amber-200 font-semibold">
-                {" "}
                 exciting events
               </span>
               , and
               <span className="text-amber-200 font-semibold">
-                {" "}
                 endless memories
-              </span>
+              </span> */}
               .
             </p>
 

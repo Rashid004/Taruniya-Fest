@@ -51,7 +51,8 @@ function Blog() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: post.id * 0.1 }}
               key={post.id}
-              className="bg-primaryDark hover:shadow-[0_20px_50px_rgba(255,191,0,0.15)] shadow-lg rounded-xl overflow-hidden transform transition-transform duration-300 hover:scale-105"
+              className="bg-primaryDark hover:shadow-[0_20px_50px_rgba(255,191,0,0.25)] shadow-lg
+ rounded-xl overflow-hidden transform transition-transform duration-300 hover:scale-105"
             >
               <motion.img
                 src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/9df41c53449221.59355d5209abe.jpg"
