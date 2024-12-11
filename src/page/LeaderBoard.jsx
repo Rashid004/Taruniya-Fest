@@ -1,7 +1,5 @@
 /** @format */
 
-"use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import { Trophy, Medal, Award, Crown } from "lucide-react";
 

@@ -10,21 +10,21 @@ export default defineConfig({
     host: "0.0.0.0",
     port: 5173,
   },
-  build: {
-    sourcemap: true,
-    chunkSizeWarningLimit: 1024,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          lucide: ["lucide-react"],
-          framer: ["framer-motion"],
-        },
-      },
-    },
-  },
-  resolve: {
-    alias: {
-      "@": "/src",
-    },
-  },
+  // build: {
+  //   sourcemap: true,
+  //   chunkSizeWarningLimit: 1024,
+  //   rollupOptions: {
+  //     output: {
+  //       manualChunks: {
+  //         lucide: ["lucide-react"],
+  //         framer: ["framer-motion"],
+  //       },
+  //     },
+  //   },
+  // },
+  // resolve: {
+  //   alias: {
+  //     "@": "/src",
+  //   },
+  // },
 });
