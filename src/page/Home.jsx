@@ -144,7 +144,7 @@ function Home() {
         <img
           src="/home/logoMobile.png"
           alt="Logo"
-          className="w-auto max-w-[30%] lg:max-w-[55%] min-w-[180px] md:min-w-[300px]  object-contain block lg:hidden"
+          className="w-auto max-w-[30%] lg:max-w-[55%] min-w-[190px] md:min-w-[300px]  object-contain block lg:hidden"
         />
       </motion.div>
 
