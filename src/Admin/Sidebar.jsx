@@ -28,11 +28,11 @@ const links = [
   { icon: <CalendarDays />, name: "Events", href: "/admin-panel/events" },
   { icon: <SquarePlus />, name: "Blog", href: "/admin-panel/blog" },
   { icon: <Trophy />, name: "Leaderboard", href: "/admin-panel/leaderboard" },
-  // {
-  //   icon: <Contact />,
-  //   name: "Contact Inquiry",
-  //   href: "/admin-panel/contact-inquiry",
-  // },
+  {
+    icon: <Contact />,
+    name: "Contact Inquiry",
+    href: "/admin-panel/contact-inquiry",
+  },
 ];
 
 function Sidebar() {

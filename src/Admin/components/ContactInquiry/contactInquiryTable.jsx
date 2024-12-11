@@ -1,7 +1,4 @@
 /** @format */
-
-// /** @format */
-
 // import { Table, Flex, Pagination } from "@mantine/core";
 // // import ContactInquiryRow from "./ContactInquiryRow";
 // import { ITEMS_PER_PAGE } from "../../../utils/const";
