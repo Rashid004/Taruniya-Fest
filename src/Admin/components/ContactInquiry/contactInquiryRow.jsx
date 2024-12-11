@@ -2,7 +2,13 @@
 
 import { Table, Text } from "@mantine/core";
 
-function ContactInquiryRow({ name, email, phone, message, submittedAt }) {
+export default function ContactInquiryRow({
+  name,
+  email,
+  phone,
+  message,
+  submittedAt,
+}) {
   const handleClick = () => {
     console.log("Row clicked!");
   };
@@ -33,5 +39,3 @@ function ContactInquiryRow({ name, email, phone, message, submittedAt }) {
     </Table.Tr>
   );
 }
-
-export default ContactInquiryRow;

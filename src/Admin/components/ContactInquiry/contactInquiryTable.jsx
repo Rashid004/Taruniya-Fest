@@ -1,18 +1,20 @@
 /** @format */
 
 import { Table, Flex, Pagination } from "@mantine/core";
-import { useState } from "react";
 import ContactInquiryRow from "./ContactInquiryRow";
+import { ITEMS_PER_PAGE } from "../../../utils/const";
+import usePagination from "../../../hook/usePagination";
+import { useEffect } from "react";
 
-const ITEMS_PER_PAGE = 10;
-
-function ContactInquiryTable({ contactInquiries }) {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const paginatedItems = contactInquiries.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
+export default function ContactInquiryTable({ contactInquiries }) {
+  const { handlePageChange, paginatedItems, currentPage } = usePagination(
+    contactInquiries,
+    ITEMS_PER_PAGE
   );
+
+  useEffect(() => {
+    handlePageChange(1);
+  }, [handlePageChange]);
 
   const totalPage = Math.ceil(contactInquiries.length / ITEMS_PER_PAGE);
 
@@ -46,5 +48,3 @@ function ContactInquiryTable({ contactInquiries }) {
     </div>
   );
 }
-
-export default ContactInquiryTable;
