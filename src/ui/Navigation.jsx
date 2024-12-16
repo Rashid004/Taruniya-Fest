@@ -72,7 +72,7 @@ function Navigation() {
       <div className="xl:hidden flex justify-between px-4 py-4 ">
         <Logo />
         <button
-          className="z-50 focus:outline-none"
+          className="z-[999] focus:outline-none"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >

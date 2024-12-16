@@ -27,7 +27,7 @@ export default {
         xs: "400px",
       },
       backgroundImage: {
-        "home-desktop": "url('/home/bg-home2.jpg')",
+        "home-desktop": "url('/home/bg-home.svg')",
         "home-tablet": "url('/home/bgTablet.jpg')",
         "home-mobile": "url('/home/bg-homeMobile.png')",
       },

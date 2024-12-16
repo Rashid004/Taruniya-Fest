@@ -18,7 +18,7 @@ function EditLeaderBoard() {
   const { id } = useParams();
 
   const [name, setName] = useState("");
-  const [date, setDate] = useState(null);
+  const [score, setScore] = useState(null);
   const [rank, setRank] = useState(null);
   const [description, setDescription] = useState("");
 
@@ -34,9 +34,9 @@ function EditLeaderBoard() {
       try {
         const leaderBoardId = await getLederBoardById(id);
         setRank(leaderBoardId.rank || "");
-        setName(leaderBoardId.title || "");
-        setDescription(leaderBoardId.description || "");
-        setDate(leaderBoardId.date || "");
+        setName(leaderBoardId.name || "");
+        // setDescription(leaderBoardId.description || "");
+        setScore(leaderBoardId.score || "");
       } catch (error) {
         console.log(error);
       } finally {
@@ -53,7 +53,7 @@ function EditLeaderBoard() {
       updateLeaderBoard(id, {
         rank,
         name,
-        date,
+        score,
         description,
       });
       toast.success("LeaderBoard updated successfully");
@@ -127,28 +127,21 @@ function EditLeaderBoard() {
           required
           className="w-1/4"
         />
-        <Textarea
+        {/* <Textarea
           label="Description"
           placeholder="Enter description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
           className="w-1/4 "
-        />
+        /> */}
         <TextInput
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          label="Date"
-          valueFormat="YYYY MMM DD"
-          placeholder="Select date"
+          label="Score"
+          placeholder="Enter Score"
+          value={score}
+          type="score"
+          onChange={(e) => setScore(e.target.value)}
           required
-          className="w-1/4"
-          radius="md" // Control input border radius
-          styles={{
-            input: { fontSize: "1rem" },
-            dropdown: { backgroundColor: "#f8f9fa" },
-          }}
         />
       </Flex>
 

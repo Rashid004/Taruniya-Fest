@@ -37,7 +37,7 @@ function VisionMission() {
         <h1 className="uppercase text-lg sm:text-xl md:text-3xl lg:text-4xl font-medium tracking-widest text-amber-200 mb-4">
           Vision
         </h1>
-        <ul className="list-disc pl-5 text-xs sm:text-sm md:text-base lg:text-lg tracking-wider text-amber-500 space-y-3">
+        <ul className="  text-xs sm:text-sm md:text-base lg:text-lg tracking-wider text-amber-500 space-y-3">
           <li>
             To celebrate youth and passion through a vibrant festival that
             fosters creativity, connection, and unforgettable experiences,
@@ -52,7 +52,7 @@ function VisionMission() {
         <h1 className="uppercase text-lg sm:text-xl md:text-3xl lg:text-4xl font-medium tracking-widest text-amber-200 mb-4">
           Mission
         </h1>
-        <ul className="list-disc pl-5 text-xs sm:text-sm md:text-base lg:text-lg tracking-wider text-amber-500 space-y-3">
+        <ul className="  text-xs sm:text-sm md:text-base lg:text-lg tracking-wider text-amber-500 space-y-3">
           {missionItems.map((item, index) => (
             <li key={index}>
               <span className="text-amber-300 text-sm sm:text-base md:text-lg lg:text-xl font-semibold">

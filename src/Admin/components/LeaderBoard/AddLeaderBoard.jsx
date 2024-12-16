@@ -14,9 +14,9 @@ export default function AddLeaderBoard({
 }) {
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  // const [description, setDescription] = useState("");
   const [rank, setRank] = useState("");
-  const [date, setDate] = useState("");
+  const [score, setScore] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Add Blog
@@ -24,7 +24,7 @@ export default function AddLeaderBoard({
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      if (!name || !rank || !date) {
+      if (!name || !rank || !score) {
         toast.error("Please fill in all required fields");
         setIsSubmitting(false);
         return;
@@ -35,9 +35,9 @@ export default function AddLeaderBoard({
       const leaderBoardData = {
         id,
         name,
-        description,
+        // description,
         rank,
-        date,
+        score,
         // image: imageUrl, // Commented out as per the request
       };
       await createLeaderBoard(leaderBoardData);
@@ -55,7 +55,7 @@ export default function AddLeaderBoard({
   const reset = () => {
     setName("");
     setDescription("");
-    setDate("");
+    setScore("");
     setRank("");
     // setSelectImage(null); // Commented out as per the request
   };
@@ -119,19 +119,19 @@ export default function AddLeaderBoard({
             onChange={(e) => setName(e.target.value)}
             required
           />
-          <TextInput
+          {/* <TextInput
             label="Description"
             placeholder="Enter description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
-          />
+          /> */}
           <TextInput
-            label="Date"
-            placeholder="Enter date"
-            value={date}
-            type="date"
-            onChange={(e) => setDate(e.target.value)}
+            label="Score"
+            placeholder="Enter Score"
+            value={score}
+            type="score"
+            onChange={(e) => setScore(e.target.value)}
             required
           />
 
@@ -142,7 +142,9 @@ export default function AddLeaderBoard({
             <Button
               type="submit"
               variant="filled"
-              disabled={!rank || !name || !description || !date || isSubmitting}
+              disabled={
+                !rank || !name || !description || !score || isSubmitting
+              }
             >
               {isSubmitting ? "Submitting..." : "Add Blog"}
             </Button>

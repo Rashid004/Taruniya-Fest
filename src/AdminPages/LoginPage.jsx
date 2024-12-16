@@ -60,26 +60,30 @@ function LoginPage() {
       </div>
 
       {/* Right section with form */}
-      <div className="flex items-center justify-center w-1/3 bg-gray-100">
+      <div className="flex items-center justify-center w-1/3 bg-[#6B0A29] opacity-75 ">
         <form
           onSubmit={handleSubmit}
           className="p-8 rounded-lg w-full max-w-sm"
         >
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6">Login</h2>
+          <h2 className="text-3xl font-semibold text-amber-200 mb-6">
+            Login to Admin Panel
+          </h2>
           <TextInput
             label="Email"
             placeholder="Enter your email"
             value={email}
+            size="md"
             onChange={(e) => setEmail(e.target.value)}
-            className="mb-6 focus:border-blue-500"
+            className="mb-6 text-white focus:border-blue-500"
           />
           <PasswordInput
             label="Password"
             value={password}
+            size="md"
             placeholder="Enter your password"
             onChange={(e) => setPassword(e.target.value)}
             type="password"
-            className="mb-2 focus:border-blue-500"
+            className="mb-2 focus:border-blue-500 text-white"
             error={
               password.length > 0 && password.length < 6
                 ? "Password must be at least 6 characters"
@@ -88,7 +92,7 @@ function LoginPage() {
           />
           <button
             type="button"
-            className="text-red-500 font-semibold hover:underline mb-4"
+            className="text-amber-500 font-semibold hover:underline mb-4 text-lg"
             onClick={handleResetPassword}
           >
             Forget Password?
@@ -96,7 +100,7 @@ function LoginPage() {
           <button
             disabled={loading}
             type="submit"
-            className="w-full text-xl bg-blue-600 text-white py-3 rounded-sm font-medium hover:bg-blue-700 transition mt-8"
+            className="w-full text-xl bg-blue-600 text-white py-2 rounded-sm font-medium hover:bg-blue-700 transition mt-8 rounded-sm"
           >
             {loading ? <Loader size="sm" /> : "Login"}
           </button>

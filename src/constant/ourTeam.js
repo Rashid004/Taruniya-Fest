@@ -2,25 +2,35 @@
 
 export const facultyMembers = [
   {
-    name: "Sonika",
-    position: "Not Defined",
+    name: "Sonika Gupta",
+    position: "Cultural Incharge",
     img: "/images/faculty/Sonika.webp",
   },
   {
-    name: "Bushra",
-    position: "Not Defined",
+    name: "Bushra Sayyed",
+    position: "Student Co-ordinator",
     img: "/images/faculty/bushra.webp",
   },
   {
-    name: "Riya",
-    position: "Not Defined",
+    name: "Riya Mehta",
+    position: "Logistics Manager",
     img: "/images/faculty/Riya.webp",
   },
   {
-    name: "Omkar",
-    position: "Not Defined",
+    name: "Omkar More",
+    position: "Sports Incharge",
     img: "/images/faculty/Omkar.webp",
   },
+  // {
+  //   name: "Priya Gupta",
+  //   position: "Finance Incharge",
+  //   img: null
+  // },
+  // {
+  //   name: "Poonam Shah",
+  //   position: "Student Co-ordinator",
+  //   img: null,
+  // },
   // Add more faculty members as needed
 ];
 

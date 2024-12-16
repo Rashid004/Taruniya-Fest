@@ -23,7 +23,7 @@ function About() {
   };
 
   const buttonStyles = `
-    relative text-amber-500 font-semibold tracking-widest text-xs sm:text-base md:text-lg lg:text-xl py-2 px-4 
+    relative text-amber-500 font-semibold tracking-widest  text-xs sm:text-base md:text-lg lg:text-xl py-2 px-4 
     transition-all duration-300 ease-in-out 
     after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] 
     after:bg-amber-500 after:scale-x-0 hover:after:scale-x-100 after:origin-left z-[999]
@@ -66,7 +66,7 @@ function About() {
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`${buttonStyles} ${
+                  className={`${buttonStyles}  ${
                     activeTab === tab ? activeStyles : ""
                   }`}
                 >

@@ -55,7 +55,11 @@ function VisualIdentity() {
       <div className="space-y-6">
         {visualIdentity1.map((item, index) => (
           <div key={index} className="flex items-start gap-4">
-            <img src={item.icon} alt={item.title} className="w-[16%] h-auto" />
+            <img
+              src={item.icon}
+              alt={item.title}
+              className="w-[16%] h-auto mt-3"
+            />
             <div>
               <h3 className="text-xl md:text-2xl font-medium tracking-widest text-amber-200">
                 {item.title}:
@@ -70,7 +74,11 @@ function VisualIdentity() {
       <div className="space-y-6">
         {visualIdentity2.map((item, index) => (
           <div key={index} className="flex items-start gap-4">
-            <img src={item.icon} alt={item.title} className="w-[16%] h-auto" />
+            <img
+              src={item.icon}
+              alt={item.title}
+              className="w-[16%] h-auto mt-3"
+            />
             <div>
               <h3 className="text-xl md:text-2xl font-medium tracking-widest text-amber-200">
                 {item.title}:

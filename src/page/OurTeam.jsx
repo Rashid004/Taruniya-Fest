@@ -28,7 +28,7 @@ const OurTeam = () => {
         {/* Tabs */}
         <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 lg:mb-12  rounded-2xl backdrop-blur-xl">
           <button
-            className={`px-3 py-2 sm:px-4 sm:py-2 text-xl font-medium flex items-center gap-2 ${
+            className={`px-3 py-2 sm:px-4 sm:py-2 text-xl font-medium flex items-center gap-2 rounded-md ${
               activeTab === "faculty"
                 ? "bg-pink-800 text-amber-500  decoration-amber-500 decoration-2"
                 : "bg-pink-950 text-amber-300"
@@ -42,7 +42,7 @@ const OurTeam = () => {
           </button>
 
           <button
-            className={`px-3 py-2 sm:px-4 sm:py-2 text-xl font-medium flex items-center gap-2 ${
+            className={`px-3 py-2 sm:px-4 sm:py-2 text-xl font-medium flex items-center gap-2 rounded-md ${
               activeTab === "committee"
                 ? "bg-pink-800 text-amber-500  decoration-amber-500 decoration-2"
                 : "bg-pink-950 text-amber-300"
@@ -56,7 +56,7 @@ const OurTeam = () => {
           </button>
 
           <button
-            className={`px-3 py-2 sm:px-4 sm:py-2 text-xl font-medium flex items-center gap-2 ${
+            className={`px-3 py-2 sm:px-4 sm:py-2 text-xl font-medium flex items-center gap-2 rounded-md ${
               activeTab === "department"
                 ? "bg-pink-800 text-amber-500  decoration-amber-500 decoration-2"
                 : "bg-pink-950 text-amber-300"
