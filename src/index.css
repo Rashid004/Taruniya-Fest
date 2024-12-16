@@ -32,7 +32,7 @@ body {
 
 @layer components {
   .main-heading {
-    @apply text-2xl uppercase sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 lg:mb-12 text-[#FFF6E1] tracking-[0.1em] my-6;
+    @apply text-2xl uppercase sm:text-3xl md:text-4xl lg:text-[40px] font-bold text-center mb-6 sm:mb-8 lg:mb-12 text-[#FFF6E1] tracking-[0.1em] my-6;
   }
   .rounded-top {
     @apply rounded-t-md rounded-b-none;

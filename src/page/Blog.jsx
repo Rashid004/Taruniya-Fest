@@ -33,7 +33,7 @@ function Blog() {
   const blogs = useSelector((state) => state.blog.blogs);
   console.log(blogs);
   return (
-    <section className="min-h-screen px-4 py-4 sm:py-6 md:py-8">
+    <section className="min-h-screen px-4 sm:px-6 lg:px-12 py-4 sm:py-6 md:py-8 ">
       <div className="max-w-7xl mx-auto">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}

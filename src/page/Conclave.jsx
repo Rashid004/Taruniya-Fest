@@ -29,18 +29,18 @@ const slideData = [
 ];
 function Conclave() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isTrue, setIsTrue] = useState(true);
+  const [isComingSoon, setIsComingSoon] = useState(true);
   const slideCount = slideData.length;
 
   const onSlideChange = (swiper) => {
     setActiveIndex(swiper.realIndex);
   };
 
-  return !isTrue ? (
+  return isComingSoon ? (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen py-4 sm:py-6 md:py-8"
+      className="min-h-screen py-4 sm:py-6 md:py-8 container mx-auto"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h1

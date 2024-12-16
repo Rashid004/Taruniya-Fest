@@ -23,7 +23,7 @@ function About() {
   };
 
   const buttonStyles = `
-    relative text-amber-500 font-semibold tracking-widest  text-xs sm:text-base md:text-lg lg:text-xl py-2 px-4 
+    relative text-amber-500 font-semibold tracking-widest text-xs sm:text-sm md:text-base lg:text-lg py-1 px-3 
     transition-all duration-300 ease-in-out 
     after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] 
     after:bg-amber-500 after:scale-x-0 hover:after:scale-x-100 after:origin-left z-[999]
@@ -33,40 +33,27 @@ function About() {
   `;
 
   return (
-    <section className="min-h-screen py-4 sm:py-6 md:py-8 relative">
-      <div className="max-w-7xl mx-auto w-full px-4 md:px-8">
+    <section className="min-h-screen py-6 sm:py-8 md:py-10 relative">
+      <div className="max-w-6xl mx-auto w-full px-4 md:px-6 lg:px-8">
         <motion.h1
-          className="main-heading"
+          className="main-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           About Us
         </motion.h1>
-        {/* Unified Container for Buttons and Content */}
-        <div className="relative">
-          {/* Background Images */}
-          {/* {activeTab === "stand-for" && (
-            <img
-              src="/images/about/bg-1.png"
-              className="absolute bottom-0 left-1/4 hidden md:block w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/2 h-auto object-contain z-[-1] opacity-50 md:opacity-70 pointer-events-none"
-            />
-          )}
-          {activeTab === "vision-mission" && (
-            <img
-              src="/images/about/rocket.png"
-              className="absolute top-0 right-0 hidden md:block object-contain z-[-1] opacity-50 md:opacity-70 pointer-events-none"
-            />
-          )} */}
+
+        <div className="relative mt-6">
           {/* Content Container */}
-          <div className="bg-primaryDark relative z-10 rounded-2xl py-6 px-4 md:px-6 lg:px-8 flex flex-col gap-6 md:gap-8 min-h-[600px]">
+          <div className="bg-primaryDark relative z-10 rounded-xl py-5 px-4 md:px-6 lg:px-8 flex flex-col gap-5 min-h-[400px] md:min-h-[600px]">
             {/* Button Container */}
-            <div className="flex justify-center md:justify-around items-center">
+            <div className="flex justify-around items-center flex-wrap gap-3">
               {["stand-for", "visual-identity", "vision-mission"].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`${buttonStyles}  ${
+                  className={`${buttonStyles} ${
                     activeTab === tab ? activeStyles : ""
                   }`}
                 >
@@ -80,20 +67,21 @@ function About() {
                 </button>
               ))}
             </div>
+
             {/* Content Section */}
             <div className="flex-grow relative">{renderContent()}</div>
+
+            {/* Conditional Images */}
             {activeTab === "stand-for" && (
               <img
                 src="/images/about/bg-1.png"
-                className="absolute bottom-0 z-[-1] left-1/4 hidden md:block w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/2 h-auto object-contain  opacity-50 md:opacity-70"
+                className="absolute bottom-0 left-1/4 hidden md:block w-[50%] h-auto object-contain z-[-1] opacity-50 pointer-events-none"
               />
             )}
-
-            {/* Image for Vision-Mission */}
             {activeTab === "vision-mission" && (
               <img
                 src="/images/about/rocket.png"
-                className="absolute -top-[10%] right-0 hidden md:block object-contain z-[-1] opacity-50 md:opacity-70 h-[90%]"
+                className="absolute -top-10 right-0 hidden md:block w-[45vw] min-w-[310px] h-auto object-contain z-[-1] opacity-50 pointer-events-none"
               />
             )}
           </div>

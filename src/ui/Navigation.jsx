@@ -53,7 +53,7 @@ function Navigation() {
       {/* Desktop Navigation */}
       <nav className="bg-transparent hidden xl:flex justify-center items-center px-4 xl:px-6 py-8 transition-colors duration-300">
         <div className="container mx-auto px-4">
-          <ul className="flex  justify-center items-center gap-4 lg:gap-[9px] xl:gap-5 2xl:gap-10">
+          <ul className="flex  justify-center items-center gap-4 lg:gap-[9px] xl:gap-6 2xl:gap-12">
             {navLinks.map((link, index) => (
               <li
                 key={index}

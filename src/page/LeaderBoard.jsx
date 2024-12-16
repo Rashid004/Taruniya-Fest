@@ -84,7 +84,7 @@ const progressVariants = {
 
 const Leaderboard = () => {
   return (
-    <section className="min-h-screen  p-8 py-4 sm:py-6 md:py-8">
+    <section className="min-h-screen p-8 py-4 sm:py-6 md:py-8">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -100,7 +100,7 @@ const Leaderboard = () => {
         </motion.h2>
 
         <AnimatePresence>
-          <div className="space-y-6">
+          <div className="space-y-6 max-w-[800px] mx-auto">
             {leaderboardData.map((college, index) => (
               <motion.div
                 key={college.id}

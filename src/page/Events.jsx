@@ -57,7 +57,7 @@ const events = [
 function Events() {
   return (
     <section>
-      <div className="w-full max-w-6xl mx-auto px-6 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
+      <div className="w-full max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
         <motion.h1
           className="main-heading"
           initial={{ opacity: 0, y: -50 }}
