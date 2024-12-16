@@ -2,12 +2,12 @@
 
 import { motion } from "framer-motion";
 
-function Home() {
+function App() {
   return (
-    <section className="min-h-[90svh] bg-primary-dark">
+    <section className="relative min-h-[90svh] w-full  overflow-hidden">
       {/* Right Cloud */}
       <motion.div
-        className="absolute top-16 md:top-24 lg:top-16 right-0  z-[100]"
+        className="absolute top-[8vh] md:top-[10vh] lg:top-[8vh] right-0 z-[100] w-[35vw] max-w-[300px] min-w-[180px]"
         initial={{ x: 200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{
@@ -22,17 +22,18 @@ function Home() {
         <img
           src="/home/cloudright.svg"
           alt="Cloud 1"
-          className="hidden lg:block w-[300px]"
+          className="hidden lg:block w-full"
         />
         <img
           src="/home/rightcloudMobile.png"
           alt="Cloud 2"
-          className="block lg:hidden w-[200px]"
+          className="block lg:hidden w-full"
         />
       </motion.div>
+
       {/* Left Cloud Mobile */}
       <motion.div
-        className="absolute top-28 md:top-16 lg:top-24 left-0  z-[20]"
+        className="absolute top-[12vh] md:top-[8vh] lg:top-[2vh] left-0 z-[20] w-[35vw] max-w-[300px] min-w-[180px]"
         initial={{ x: -200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{
@@ -47,17 +48,18 @@ function Home() {
         <img
           src="/home/leftCloudMobile.png"
           alt="Cloud Mobile 1"
-          className="block lg:hidden w-[200px]"
+          className="block lg:hidden w-full"
         />
         <img
           src="/home/cloudleft.svg"
           alt="Cloud 1"
-          className="hidden lg:block w-[300px]"
+          className="hidden lg:block w-full"
         />
       </motion.div>
-      {/* Left Cloud */}
+
+      {/* Center Cloud */}
       <motion.div
-        className="absolute top-0 left-10 md:left-1/2  z-[100]"
+        className="absolute top-0 left-[5vw] md:left-1/2 md:-translate-x-1/2 w-[45vw] max-w-[400px] min-w-[250px]"
         initial={{ x: -200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{
@@ -72,18 +74,18 @@ function Home() {
         <img
           src="/home/maincloud.svg"
           alt="Cloud 1"
-          className="hidden lg:block"
+          className="hidden lg:block w-full"
         />
         <img
           src="/home/cloudleft.svg"
           alt="Cloud 2"
-          className="block lg:hidden"
+          className="block lg:hidden w-full"
         />
       </motion.div>
 
-      {/* First Image */}
+      {/* Background  */}
       <motion.div
-        className="absolute bottom-0  z-[20] w-full"
+        className="absolute bottom-0  w-full"
         initial={{ y: 500, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
@@ -94,16 +96,15 @@ function Home() {
           duration: 1.4,
         }}
       >
-        {/* <img
+        <img
           src="/home/bg-1.svg"
-          alt="Home Background"
-          className="object-cover "
-        /> */}
+          alt="Overlay Background 1"
+          className="w-full object-cover"
+          style={{ mixBlendMode: "multiply", opacity: 0.4 }}
+        />
       </motion.div>
-
-      {/* Second Image */}
       <motion.div
-        className="absolute bottom-0 z-[20] w-full"
+        className="absolute bottom-0 w-full"
         initial={{ y: 500, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
@@ -117,8 +118,9 @@ function Home() {
       >
         <img
           src="/home/bg-2.svg"
-          alt="Overlay Background"
-          className="object-cover "
+          alt="Overlay Background 2"
+          className="w-full object-cover"
+          style={{ mixBlendMode: "multiply", opacity: 0.4 }}
         />
       </motion.div>
 
@@ -134,22 +136,17 @@ function Home() {
           duration: 1.4,
           delay: 1.5,
         }}
-        className="absolute top-[10%] left-1/2 right-1/2 flex items-center justify-center z-[999]"
+        className=""
       >
         <img
           src="/home/logo.svg"
           alt="Logo"
-          className="w-auto max-w-[30%] lg:max-w-[55%] min-w-[200px] md:min-w-[350px] lg:min-w-[380px] xl:min-w-[420px] object-contain hidden lg:block"
-        />
-        <img
-          src="/home/logoMobile.png"
-          alt="Logo"
-          className="w-auto max-w-[30%] lg:max-w-[55%] min-w-[190px] md:min-w-[300px]  object-contain block lg:hidden"
+          className="absolute top-[10vh] md:top-[8vh] lg:top-0 left-1/2 -translate-x-1/2  z-20 w-[22vw] min-w-[250px] object-cover "
         />
       </motion.div>
 
-      {/* Right Image */}
-      <motion.div
+      {/* Right Character */}
+      <motion.img
         initial={{ x: 500, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{
@@ -160,22 +157,29 @@ function Home() {
           duration: 1.4,
           delay: 2,
         }}
-        className="absolute bottom-[8%] lg:bottom-[20%] right-0 flex items-center justify-center z-[99]"
-      >
-        <img
-          src="/home/right.svg"
-          alt="Right Image"
-          className="w-[620px] h-full hidden lg:block"
-        />
-        <img
-          src="/home/rightMobile.png"
-          alt="Right Image"
-          className="w-[180px] md:w-[350px] h-full block lg:hidden"
-        />
-      </motion.div>
+        src="/home/right.svg"
+        alt="Right Image"
+        className="absolute bottom-[8vh] lg:bottom-[15vh] right-0 z-[99] w-[34vw]  min-w-[290px] hidden lg:block"
+      />
+      <motion.img
+        initial={{ x: 500, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 40,
+          damping: 20,
+          mass: 1,
+          duration: 1.4,
+          delay: 2,
+        }}
+        src="/home/rightMobile.png"
+        alt="Right Image"
+        className="w-full block lg:hidden"
+      />
 
-      {/* Left Image */}
-      <motion.div
+      {/* Left Character */}
+
+      <motion.img
         initial={{ x: -500, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{
@@ -186,21 +190,27 @@ function Home() {
           duration: 1.4,
           delay: 2.5,
         }}
-        className="absolute bottom-0 left-[8%] lg:left-[12%] flex items-center justify-center z-50"
-      >
-        <img
-          src="/home/left.svg"
-          alt="Left Image"
-          className="w-[320px] h-full hidden lg:block"
-        />
-        <img
-          src="/home/leftMobile.png"
-          alt="Left Image"
-          className="w-[160px] md:w-[260px] h-full block lg:hidden"
-        />
-      </motion.div>
+        src="/home/left.svg"
+        alt="Left Image"
+        className=" hidden lg:block absolute bottom-0 left-[8vw] lg:left-[8vw] z-50 w-[18vw]  min-w-[170px]"
+      />
+      <motion.img
+        initial={{ x: -500, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 40,
+          damping: 20,
+          mass: 1,
+          duration: 1.4,
+          delay: 2.5,
+        }}
+        src="/home/leftMobile.png"
+        alt="Left Image"
+        className="absolute bottom-0 left-[8vw] lg:left-[8vw] z-50 w-[35vw] max-w-[240px] min-w-[160px] block lg:hidden"
+      />
     </section>
   );
 }
 
-export default Home;
+export default App;

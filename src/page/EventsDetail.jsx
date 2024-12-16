@@ -21,11 +21,7 @@ const eventDetails = {
         description:
           "Creative writing competition to unleash imaginative stories.",
       },
-      {
-        title: "Mumbai Monologues (Elocution & Speech)",
-        description:
-          "Elocution event focusing on engaging speech and delivery.",
-      },
+
       {
         title: "Shipwreck",
         description:
@@ -51,10 +47,7 @@ const eventDetails = {
         description:
           "Compete in a chess tournament to showcase strategy and patience.",
       },
-      {
-        title: "Carrom Carnival (Carrom)",
-        description: "Showcase your carrom skills in this classic board game.",
-      },
+
       {
         title: "Pitch Perfect (Cricket)",
         description: "A cricket match combining agility, skill, and teamwork.",
@@ -81,10 +74,7 @@ const eventDetails = {
         title: "Groove Crew (Group Dance)",
         description: "Group dance showcasing choreography and unity.",
       },
-      {
-        title: "Soulful Symphonies",
-        description: "Sing your heart out in this solo singing competition.",
-      },
+
       {
         title: "Tarunya Got Latent (Open Mic)",
         description:
@@ -99,14 +89,18 @@ const eventDetails = {
   psychologicalEvents: {
     heading: "Psychological Events",
     events: [
-      {
-        title: "Reality vs. Myth",
-        description:
-          "Determine fact from fiction in this mind-bending challenge.",
-      },
+      // {
+      //   title: "Reality vs. Myth",
+      //   description:
+      //     "Determine fact from fiction in this mind-bending challenge.",
+      // },
       {
         title: "Guess the Disorder",
         description: "Identify psychological disorders based on given clues.",
+      },
+      {
+        title: "Lie Detector",
+        description: "",
       },
     ],
   },
@@ -121,10 +115,6 @@ const eventDetails = {
       {
         title: "Face Canvas (Face Painting)",
         description: "Express creativity through unique face painting designs.",
-      },
-      {
-        title: "Story Strokes (Draw a Story)",
-        description: "Tell a story through an illustrated art piece.",
       },
     ],
   },

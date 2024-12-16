@@ -52,20 +52,22 @@ function Navigation() {
     >
       {/* Desktop Navigation */}
       <nav className="bg-transparent hidden xl:flex justify-center items-center px-4 xl:px-6 py-8 transition-colors duration-300">
-        <ul className="flex items-center lg:gap-[9px] xl:gap-6 2xl:gap-14">
-          {navLinks.map((link, index) => (
-            <li
-              key={index}
-              className={` text-nowrap tracking-wider hover:text-secondary-yellow transition-colors duration-300 text-lg 2xl:text-xl font-medium uppercase ${
-                location.pathname === link.href
-                  ? "text-secondary-yellow"
-                  : "text-secondary"
-              }`}
-            >
-              <Link to={link.href}>{link.label}</Link>
-            </li>
-          ))}
-        </ul>
+        <div className="container mx-auto px-4">
+          <ul className="flex  justify-center items-center gap-4 lg:gap-[9px] xl:gap-5 2xl:gap-10">
+            {navLinks.map((link, index) => (
+              <li
+                key={index}
+                className={`text-nowrap tracking-wider hover:text-secondary-yellow transition-colors duration-300 text-lg 2xl:text-xl font-medium uppercase ${
+                  location.pathname === link.href
+                    ? "text-secondary-yellow"
+                    : "text-secondary"
+                }`}
+              >
+                <Link to={link.href}>{link.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
 
       {/* Mobile Navigation */}

@@ -37,12 +37,12 @@ export const facultyMembers = [
 export const committeeMembers = [
   {
     name: "Altamash Ansari",
-    designation: "Advisory",
+    designation: "Advisor",
     img: "/images/committee/photo7.webp",
   },
   {
     name: "Alok Gupta",
-    designation: "Advisory",
+    designation: "Advisor",
     img: "/images/committee/photo8.webp",
   },
   {
@@ -52,7 +52,7 @@ export const committeeMembers = [
   },
   {
     name: "Shubham Chaubey",
-    designation: "Jt. Chairperson",
+    designation: "Deputy Chairperson",
     img: "/images/committee/photo4.webp",
   },
 
