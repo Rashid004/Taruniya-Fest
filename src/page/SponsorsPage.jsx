@@ -10,6 +10,7 @@ import {
   FaBolt,
 } from "react-icons/fa";
 import SponsorCard from "../components/Sponsor/SponsorsCard";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const featuredSponsor = {
   name: "Blinkit",
@@ -62,35 +63,44 @@ const SponsorsPage = () => {
   const [hoveredSponsor, setHoveredSponsor] = useState(null);
 
   return (
-    <div className="min-h-screen py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <motion.h1
-          className="main-heading"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Our Awesome Sponsors
-        </motion.h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <SponsorCard
-            key={featuredSponsor.name}
-            sponsor={featuredSponsor}
-            isHovered={hoveredSponsor === featuredSponsor.name}
-            onHover={setHoveredSponsor}
-            isFeatured={true}
-          />
-          {sponsors.map((sponsor) => (
+    <HelmetProvider>
+      <Helmet>
+        <title>Sponsorship | Tarunya Fests</title>
+        <meta
+          name="description"
+          content="Partner with Tarunya Fest as a sponsor and showcase your brand to a vibrant, engaged audience. Join us in supporting creativity, innovation, and community growth."
+        />
+      </Helmet>
+      <div className="min-h-screen py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.h1
+            className="main-heading"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Our Awesome Sponsors
+          </motion.h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <SponsorCard
-              key={sponsor.name}
-              sponsor={sponsor}
-              isHovered={hoveredSponsor === sponsor.name}
+              key={featuredSponsor.name}
+              sponsor={featuredSponsor}
+              isHovered={hoveredSponsor === featuredSponsor.name}
               onHover={setHoveredSponsor}
+              isFeatured={true}
             />
-          ))}
+            {sponsors.map((sponsor) => (
+              <SponsorCard
+                key={sponsor.name}
+                sponsor={sponsor}
+                isHovered={hoveredSponsor === sponsor.name}
+                onHover={setHoveredSponsor}
+              />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </HelmetProvider>
   );
 };
 

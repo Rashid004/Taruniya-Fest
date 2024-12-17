@@ -1,6 +1,7 @@
 /** @format */
 import { motion } from "framer-motion";
 import EventCard from "../components/EventCard/EventCard";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 /** @format */
 const events = [
@@ -56,26 +57,35 @@ const events = [
 
 function Events() {
   return (
-    <section>
-      <div className="w-full max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
-        <motion.h1
-          className="main-heading"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Events
-        </motion.h1>
-        {events.map((event) => (
-          <EventCard
-            key={event.id}
-            title={event.title}
-            description={event.description}
-            link={`/events/${event.id}`}
+    <HelmetProvider>
+      <section>
+        <Helmet>
+          <title>Events | Tarunya Fest</title>
+          <meta
+            name="description"
+            content="Explore the diverse events at Tarunya Fest, from competitions and workshops to performances and exhibitions. Join us for a celebration of talent, creativity, and excitement."
           />
-        ))}
-      </div>
-    </section>
+        </Helmet>
+        <div className="w-full max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
+          <motion.h1
+            className="main-heading"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Events
+          </motion.h1>
+          {events.map((event) => (
+            <EventCard
+              key={event.id}
+              title={event.title}
+              description={event.description}
+              link={`/events/${event.id}`}
+            />
+          ))}
+        </div>
+      </section>
+    </HelmetProvider>
   );
 }
 

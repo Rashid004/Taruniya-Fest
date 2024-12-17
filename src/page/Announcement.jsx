@@ -14,7 +14,7 @@ import {
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ComingSoon from "../ui/ComingSoon";
-import { div } from "framer-motion/client";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const AnnouncementCard = ({ announcement }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -98,26 +98,35 @@ const AnnouncementsPage = () => {
   console.log(announcements.length, announcements);
 
   return (
-    <div className="min-h-screen  py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl mx-auto">
-        <motion.h1
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="main-heading"
-        >
-          Announcements
-        </motion.h1>
-        <div className="space-y-6">
-          {announcements.map((announcement) => (
-            <AnnouncementCard
-              key={announcement.id}
-              announcement={announcement}
-            />
-          ))}
+    <HelmetProvider>
+      <div className="min-h-screen  py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8">
+        <Helmet>
+          <title>Announcement | Tarunya Fest</title>
+          <meta
+            name="description"
+            content="Stay updated with the latest news and announcements about Tarunya Fest, including event details, schedules, and important updates for all participants and attendees."
+          />
+        </Helmet>
+        <div className="max-w-2xl mx-auto">
+          <motion.h1
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="main-heading"
+          >
+            Announcements
+          </motion.h1>
+          <div className="space-y-6">
+            {announcements.map((announcement) => (
+              <AnnouncementCard
+                key={announcement.id}
+                announcement={announcement}
+              />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </HelmetProvider>
   );
 };
 

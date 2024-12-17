@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Trophy, Medal, Award, Crown } from "lucide-react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const leaderboardData = [
   {
@@ -84,97 +85,106 @@ const progressVariants = {
 
 const Leaderboard = () => {
   return (
-    <section className="min-h-screen p-8 py-4 sm:py-6 md:py-8">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="max-w-4xl mx-auto"
-      >
-        <motion.h2
-          initial={{ opacity: 0, y: -50 }}
+    <HelmetProvider>
+      <section className="min-h-screen p-8 py-4 sm:py-6 md:py-8">
+        <Helmet>
+          <title>Leaderboard | Tarunya Fest</title>
+          <meta
+            name="description"
+            content="Check out the latest leaderboard rankings at Tarunya Fest! See which colleges and participants are leading the competitions and celebrate their victories."
+          />
+        </Helmet>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="main-heading"
+          className="max-w-4xl mx-auto"
         >
-          College Rankings
-        </motion.h2>
+          <motion.h2
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="main-heading"
+          >
+            College Rankings
+          </motion.h2>
 
-        <AnimatePresence>
-          <div className="space-y-6 max-w-[800px] mx-auto">
-            {leaderboardData.map((college, index) => (
-              <motion.div
-                key={college.id}
-                custom={index}
-                variants={cardVariants}
-                initial="hidden"
-                animate="visible"
-                whileHover="hover"
-                className={`relative overflow-hidden rounded-xl ${
-                  college.rank === 1
-                    ? "bg-gradient-to-r from-[#FFD700]/10 to-[#FFD700]/30"
-                    : college.rank === 2
-                    ? "bg-gradient-to-r from-[#C0C0C0]/10 to-[#C0C0C0]/30"
-                    : college.rank === 3
-                    ? "bg-gradient-to-r from-[#CD7F32]/10 to-[#CD7F32]/30"
-                    : "bg-white/5"
-                }`}
-              >
-                <div className="relative z-10 p-6 backdrop-blur-sm">
-                  <div className="flex items-center gap-6">
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.5 }}
-                      className="relative"
-                    >
-                      <img
-                        src={college.logoURL}
-                        alt={college.name}
-                        className="w-16 h-16 rounded-full object-cover border-4 border-secondary relative z-10"
-                      />
-                    </motion.div>
-
-                    <div className="flex-grow">
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-lg md:text-2xl font-bold text-amber-200">
-                          {college.name}
-                        </h3>
-                        <div className="flex items-center gap-2">
-                          {getRankIcon(college.rank)}
-                          <span className="text-accent-light font-bold">
-                            #{college.rank}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="relative h-2 bg-accent-semidark/20 rounded-full overflow-hidden">
-                        <motion.div
-                          variants={progressVariants}
-                          initial="initial"
-                          animate="animate"
-                          custom={college.score}
-                          className={`absolute h-full rounded-full ${
-                            college.rank === 1
-                              ? "bg-gradient-to-r from-yellow-500 to-yellow-300"
-                              : college.rank === 2
-                              ? "bg-gradient-to-r from-gray-400 to-gray-300"
-                              : college.rank === 3
-                              ? "bg-gradient-to-r from-amber-600 to-amber-400"
-                              : "bg-accent"
-                          }`}
+          <AnimatePresence>
+            <div className="space-y-6 max-w-[800px] mx-auto">
+              {leaderboardData.map((college, index) => (
+                <motion.div
+                  key={college.id}
+                  custom={index}
+                  variants={cardVariants}
+                  initial="hidden"
+                  animate="visible"
+                  whileHover="hover"
+                  className={`relative overflow-hidden rounded-xl ${
+                    college.rank === 1
+                      ? "bg-gradient-to-r from-[#FFD700]/10 to-[#FFD700]/30"
+                      : college.rank === 2
+                      ? "bg-gradient-to-r from-[#C0C0C0]/10 to-[#C0C0C0]/30"
+                      : college.rank === 3
+                      ? "bg-gradient-to-r from-[#CD7F32]/10 to-[#CD7F32]/30"
+                      : "bg-white/5"
+                  }`}
+                >
+                  <div className="relative z-10 p-6 backdrop-blur-sm">
+                    <div className="flex items-center gap-6">
+                      <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.5 }}
+                        className="relative"
+                      >
+                        <img
+                          src={college.logoURL}
+                          alt={college.name}
+                          className="w-16 h-16 rounded-full object-cover border-4 border-secondary relative z-10"
                         />
-                      </div>
-                      <div className="mt-2 text-right text-secondary text-sm">
-                        Score: {college.score}
+                      </motion.div>
+
+                      <div className="flex-grow">
+                        <div className="flex items-center justify-between mb-2">
+                          <h3 className="text-lg md:text-2xl font-bold text-amber-200">
+                            {college.name}
+                          </h3>
+                          <div className="flex items-center gap-2">
+                            {getRankIcon(college.rank)}
+                            <span className="text-accent-light font-bold">
+                              #{college.rank}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="relative h-2 bg-accent-semidark/20 rounded-full overflow-hidden">
+                          <motion.div
+                            variants={progressVariants}
+                            initial="initial"
+                            animate="animate"
+                            custom={college.score}
+                            className={`absolute h-full rounded-full ${
+                              college.rank === 1
+                                ? "bg-gradient-to-r from-yellow-500 to-yellow-300"
+                                : college.rank === 2
+                                ? "bg-gradient-to-r from-gray-400 to-gray-300"
+                                : college.rank === 3
+                                ? "bg-gradient-to-r from-amber-600 to-amber-400"
+                                : "bg-accent"
+                            }`}
+                          />
+                        </div>
+                        <div className="mt-2 text-right text-secondary text-sm">
+                          Score: {college.score}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </AnimatePresence>
-      </motion.div>
-    </section>
+                </motion.div>
+              ))}
+            </div>
+          </AnimatePresence>
+        </motion.div>
+      </section>
+    </HelmetProvider>
   );
 };
 
