@@ -36,7 +36,7 @@ function Conclave() {
     setActiveIndex(swiper.realIndex);
   };
 
-  return isComingSoon ? (
+  return !isComingSoon ? (
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

@@ -20,9 +20,10 @@ function App() {
         }}
       >
         <img
-          src="/home/cloudright.svg"
+          src="/home/rightcloud.webp"
           alt="Cloud 1"
           className="hidden lg:block w-full"
+          // style={{ mixBlendMode: "multiply", opacity: 1 }}
         />
         <img
           src="/home/rightcloudMobile.png"
@@ -51,7 +52,7 @@ function App() {
           className="block lg:hidden w-full"
         />
         <img
-          src="/home/cloudleft.svg"
+          src="/home/leftcloud.webp"
           alt="Cloud 1"
           className="hidden lg:block w-full"
         />
@@ -71,21 +72,17 @@ function App() {
           delay: 2.8,
         }}
       >
-        <img
-          src="/home/maincloud.svg"
-          alt="Cloud 1"
-          className="hidden lg:block w-full"
-        />
-        <img
+        <img src="/home/maincloud.svg" alt="Cloud 1" className=" w-full" />
+        {/* <img
           src="/home/cloudleft.svg"
           alt="Cloud 2"
           className="block lg:hidden w-full"
-        />
+        /> */}
       </motion.div>
 
       {/* Background  */}
       <motion.div
-        className="absolute bottom-0  w-full"
+        className="absolute bottom-0 w-full"
         initial={{ y: 500, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
@@ -99,10 +96,14 @@ function App() {
         <img
           src="/home/bg-1.svg"
           alt="Overlay Background 1"
-          className="w-full object-cover"
-          style={{ mixBlendMode: "multiply", opacity: 0.4 }}
+          className="w-full object-cover h-64  md:h-auto"
+          style={{
+            mixBlendMode: "multiply",
+            opacity: 0.4,
+          }}
         />
       </motion.div>
+
       <motion.div
         className="absolute bottom-0 w-full"
         initial={{ y: 500, opacity: 0 }}
@@ -119,7 +120,7 @@ function App() {
         <img
           src="/home/bg-2.svg"
           alt="Overlay Background 2"
-          className="w-full object-cover"
+          className="w-full object-cover h-[295px]  md:h-auto"
           style={{ mixBlendMode: "multiply", opacity: 0.4 }}
         />
       </motion.div>
@@ -139,9 +140,9 @@ function App() {
         className=""
       >
         <img
-          src="/home/logo.svg"
+          src="/home/logo-v1.svg"
           alt="Logo"
-          className="absolute top-[10vh] md:top-[8vh] lg:top-0 left-1/2 -translate-x-1/2  z-20 w-[22vw] min-w-[250px] object-cover "
+          className="absolute top-[12vh] md:top-[8vh] lg:top-0 left-1/2 -translate-x-1/2  z-20 w-[22vw] min-w-[250px] object-cover "
         />
       </motion.div>
 
@@ -172,9 +173,9 @@ function App() {
           duration: 1.4,
           delay: 2,
         }}
-        src="/home/rightMobile.png"
+        src="/home/right.svg"
         alt="Right Image"
-        className="w-full block lg:hidden"
+        className="absolute bottom-[6vh] right-0 z-[99] w-[20vw] min-w-[170px] md:min-w block lg:hidden"
       />
 
       {/* Left Character */}
@@ -192,7 +193,7 @@ function App() {
         }}
         src="/home/left.svg"
         alt="Left Image"
-        className=" hidden lg:block absolute bottom-0 left-[8vw] lg:left-[8vw] z-50 w-[18vw]  min-w-[170px]"
+        className=" absolute bottom-0 left-[8vw] lg:left-[8vw] z-50 w-[18vw]  min-w-[170px] hidden lg:block"
       />
       <motion.img
         initial={{ x: -500, opacity: 0 }}
@@ -205,9 +206,9 @@ function App() {
           duration: 1.4,
           delay: 2.5,
         }}
-        src="/home/leftMobile.png"
+        src="/home/left.svg"
         alt="Left Image"
-        className="absolute bottom-0 left-[8vw] lg:left-[8vw] z-50 w-[35vw] max-w-[240px] min-w-[160px] block lg:hidden"
+        className="absolute bottom-0 left-[8vw]  z-50 w-[15vw]  min-w-[110px] md:min-w-[170px] block lg:hidden"
       />
     </section>
   );
