@@ -28,8 +28,8 @@ export default {
       },
       backgroundImage: {
         "home-desktop": "url('/home/bg-home.svg')",
-        "home-tablet": "url('/home/bgTablet.jpg')",
-        "home-mobile": "url('/home/bg-homeMobile.png')",
+        // "home-tablet": "url('/home/bgTablet.jpg')",
+        "home-mobile": "url('/home/bg-homeMobile.svg')",
       },
     },
   },

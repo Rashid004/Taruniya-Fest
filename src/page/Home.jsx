@@ -7,7 +7,7 @@ function App() {
     <section className="relative min-h-[90svh] w-full  overflow-hidden">
       {/* Right Cloud */}
       <motion.div
-        className="absolute top-[8vh] md:top-[10vh] lg:top-[8vh] right-0 z-[100] w-[35vw] max-w-[300px] min-w-[180px]"
+        className="absolute top-[8vh] md:top-[10vh] lg:top-[8vh] right-0  w-[35vw] max-w-[300px] min-w-[180px]"
         initial={{ x: 200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{
@@ -23,18 +23,17 @@ function App() {
           src="/home/rightcloud.webp"
           alt="Cloud 1"
           className="hidden lg:block w-full"
-          // style={{ mixBlendMode: "multiply", opacity: 1 }}
         />
         <img
-          src="/home/rightcloudMobile.png"
+          src="/home/cloudrightMobile.svg"
           alt="Cloud 2"
-          className="block lg:hidden w-full"
+          className="block lg:hidden w-full "
         />
       </motion.div>
 
       {/* Left Cloud Mobile */}
       <motion.div
-        className="absolute top-[12vh] md:top-[8vh] lg:top-[2vh] left-0 z-[20] w-[35vw] max-w-[300px] min-w-[180px]"
+        className="absolute top-[18vh] md:top-[8vh] lg:top-[2vh] left-0  w-[35vw] max-w-[300px] min-w-[180px]"
         initial={{ x: -200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{
@@ -47,7 +46,7 @@ function App() {
         }}
       >
         <img
-          src="/home/leftCloudMobile.png"
+          src="/home/cloudLeftMobile.svg"
           alt="Cloud Mobile 1"
           className="block lg:hidden w-full"
         />
@@ -96,11 +95,17 @@ function App() {
         <img
           src="/home/bg-1.svg"
           alt="Overlay Background 1"
-          className="w-full object-cover h-64  md:h-auto"
+          className="w-full object-cover hidden md:block"
           style={{
             mixBlendMode: "multiply",
             opacity: 0.4,
           }}
+        />
+        <img
+          src="/home/bgMobile-1.svg"
+          alt="Background 1"
+          className="block md:hidden object-cover w-full"
+          style={{ mixBlendMode: "multiply", opacity: 0.4 }}
         />
       </motion.div>
 
@@ -120,7 +125,13 @@ function App() {
         <img
           src="/home/bg-2.svg"
           alt="Overlay Background 2"
-          className="w-full object-cover h-[295px]  md:h-auto"
+          className="w-full object-cover hidden md:block"
+          style={{ mixBlendMode: "multiply", opacity: 0.4 }}
+        />
+        <img
+          src="/home/bgMobile-2.svg"
+          alt="Background 2"
+          className="block md:hidden object-cover w-full"
           style={{ mixBlendMode: "multiply", opacity: 0.4 }}
         />
       </motion.div>
@@ -142,7 +153,12 @@ function App() {
         <img
           src="/home/logo-v1.svg"
           alt="Logo"
-          className="absolute top-[12vh] md:top-[8vh] lg:top-0 left-1/2 -translate-x-1/2  z-20 w-[22vw] min-w-[250px] object-cover "
+          className="absolute top-[12vh] md:top-[8vh] lg:top-0 left-1/2 -translate-x-1/2  z-20 w-[22vw] min-w-[250px] object-cover hidden lg:block"
+        />
+        <img
+          src="/home/logoMobile.svg"
+          alt="Logo"
+          className="absolute top-[12vh] left-1/2 -translate-x-1/2  z-20 object-cover block lg:hidden w-[20vw] min-w-[255px]"
         />
       </motion.div>
 
@@ -160,7 +176,7 @@ function App() {
         }}
         src="/home/right.svg"
         alt="Right Image"
-        className="absolute bottom-[8vh] lg:bottom-[15vh] right-0 z-[99] w-[34vw]  min-w-[290px] hidden lg:block"
+        className="absolute lg:bottom-[15vh] right-0 z-[99] w-[34vw]  min-w-[290px] hidden lg:block"
       />
       <motion.img
         initial={{ x: 500, opacity: 0 }}
@@ -173,9 +189,9 @@ function App() {
           duration: 1.4,
           delay: 2,
         }}
-        src="/home/right.svg"
+        src="/home/rightMobile.svg"
         alt="Right Image"
-        className="absolute bottom-[6vh] right-0 z-[99] w-[20vw] min-w-[170px] md:min-w block lg:hidden"
+        className="absolute bottom-[6vh] -right-12 z-[99] w-[10vw] min-w-[240px] block lg:hidden"
       />
 
       {/* Left Character */}
@@ -206,9 +222,9 @@ function App() {
           duration: 1.4,
           delay: 2.5,
         }}
-        src="/home/left.svg"
+        src="/home/leftMobile.svg"
         alt="Left Image"
-        className="absolute bottom-0 left-[8vw]  z-50 w-[15vw]  min-w-[110px] md:min-w-[170px] block lg:hidden"
+        className="absolute bottom-0 left-[8vw] w-[12vw] min-w-[140px] z-50  block lg:hidden"
       />
     </section>
   );
