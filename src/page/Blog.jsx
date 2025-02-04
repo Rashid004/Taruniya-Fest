@@ -10,7 +10,7 @@ function Blog() {
 
   return (
     <HelmetProvider>
-      <section className="min-h-screen px-4 sm:px-6 lg:px-12 py-4 sm:py-6 md:py-8">
+      <section className="min-h-screen px-4 sm:px-6 lg:px-12 py-4 sm:py-6 md:py-8 mt-16">
         {/* SEO Tags */}
         <Helmet>
           <title>Blog | Tarunya Fest</title>
@@ -28,6 +28,10 @@ function Blog() {
             content="http://www.tarunyafest.nesedu.in/blog"
           />
           <meta property="og:type" content="website" />
+          <meta
+            name="keywords"
+            content="Tarunya Fest blog, college fest articles, Tarunya Fest updates, Tarunya Fest events, Tarunya Fest highlights, cultural festival blog, college events blog, Tarunya Fest news, creative fest blog, event blogs"
+          />
         </Helmet>
 
         {/* Blog Content */}
@@ -51,10 +55,7 @@ function Blog() {
                 className="bg-primaryDark hover:shadow-xl rounded-xl overflow-hidden"
               >
                 <motion.img
-                  src={
-                    post.imageUrl ||
-                    "https://images.unsplash.com/photo-1433477155337-9aea4e790195?w=620&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
-                  }
+                  src={post.imageUrl || "/images/blog-1.webp"}
                   alt={post.title}
                   className="w-full h-48 sm:h-52 object-cover"
                   whileHover={{ scale: 1.1 }}

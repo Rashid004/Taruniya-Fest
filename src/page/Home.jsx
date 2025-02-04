@@ -6,12 +6,30 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 function App() {
   return (
     <HelmetProvider>
-      <section className="relative min-h-[90svh] w-full  overflow-hidden">
+      <section className="relative min-h-[95svh] mt-16 w-full overflow-hidden">
         <Helmet>
-          <title>Tarunya Fest</title>
+          <title>
+            Tarunya Fest 2024 | Celebrating Talent, Creativity, and Innovation
+          </title>
           <meta
             name="description"
-            content="Experience the magic of Tarunya Fest – a vibrant celebration of creativity, talent, and innovation. Explore events, competitions, workshops, and unforgettable performances. Join us for an extraordinary journey!"
+            content="Experience Tarunya Fest 2024 – a vibrant celebration of talent, creativity, and innovation. Dive into an array of events, competitions, workshops, and unforgettable performances. Join us for the ultimate fest experience!"
+          />
+          <meta
+            property="og:title"
+            content="Tarunya Fest 2024 | Celebrating Talent, Creativity, and Innovation"
+          />
+          <meta
+            property="og:description"
+            content="Join Tarunya Fest 2024 to celebrate creativity, culture, and innovation. Explore exciting events, workshops, and performances. The ultimate fest experience awaits you!"
+          />
+          <meta property="og:image" content="/images/tarunya.png" />
+          <meta property="og:url" content="https://www.tarunyafest.nesedu.in" />
+          <meta property="og:type" content="website" />
+
+          <meta
+            name="keywords"
+            content="Tarunya Fest 2024, college fest, cultural festival, innovation, talent, workshops, competitions, performances, best college fests in India"
           />
         </Helmet>
         {/* Right Cloud */}
@@ -91,7 +109,7 @@ function App() {
         {/* Background  */}
         <motion.div
           className="absolute bottom-0 w-full"
-          initial={{ y: 500, opacity: 0 }}
+          initial={{ y: 110, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{
             type: "spring",
@@ -99,6 +117,7 @@ function App() {
             damping: 20,
             mass: 1,
             duration: 1.4,
+            delay: 1,
           }}
         >
           <img
@@ -120,7 +139,7 @@ function App() {
 
         <motion.div
           className="absolute bottom-0 w-full"
-          initial={{ y: 500, opacity: 0 }}
+          initial={{ y: 150, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{
             type: "spring",
@@ -128,7 +147,7 @@ function App() {
             damping: 20,
             mass: 1,
             duration: 1.4,
-            delay: 1,
+            delay: 1.6,
           }}
         >
           <img

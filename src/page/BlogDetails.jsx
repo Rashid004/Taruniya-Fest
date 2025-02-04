@@ -49,12 +49,9 @@ function BlogDetails() {
         </header>
 
         <img
-          src={
-            blog.imageUrl ||
-            "https://images.unsplash.com/photo-1433477155337-9aea4e790195?w=620&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
-          }
+          src={blog.imageUrl || "/images/blog-1.webp"}
           alt={blog.title}
-          className="w-full h-96 object-cover rounded-xl mb-8"
+          className="w-full h-1/3  rounded-xl mb-8 object-cover"
         />
 
         <div className="text-gray-200 leading-relaxed space-y-6">

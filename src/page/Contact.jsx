@@ -66,18 +66,25 @@ function Contact() {
   return (
     <HelmetProvider>
       <Helmet>
-        <title>Contact | Tarunya Fest</title>
+        <title>Contact Us | Tarunya Fest 2024</title>
+
         <meta
           name="description"
-          content="Get in touch with the Tarunya Fest team. Whether you have questions, suggestions, or need assistance, we’re here to help you make the most of this experience."
+          content="Reach out to the Tarunya Fest 2024 team for any queries, feedback, or support. We're here to assist you and ensure you have an incredible experience at the fest."
+        />
+
+        <meta
+          name="keywords"
+          content="Contact Tarunya Fest, Tarunya Fest team, Tarunya Fest queries, event support, fest assistance, Tarunya Fest feedback, contact us, Tarunya Fest 2024 help"
         />
       </Helmet>
-      <motion.div
+
+      <motion.section
         layout
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="min-h-screen flex items-center justify-center px-4 py-12 "
+        className="min-h-screen flex items-center justify-center px-4 py-12 mt-16"
       >
         <div className="w-full max-w-7xl  rounded-3xl shadow-2xl overflow-hidden">
           <div className="flex flex-col-reverse md:flex-row">
@@ -204,7 +211,7 @@ function Contact() {
           </div>
         </div>
         <Toaster />
-      </motion.div>
+      </motion.section>
     </HelmetProvider>
   );
 }

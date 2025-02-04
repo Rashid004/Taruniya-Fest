@@ -4,7 +4,7 @@ import { PartyPopper, Sparkles, Star } from "lucide-react";
 
 function ComingSoon({ data1, data2 }) {
   return (
-    <div className="min-h-[50vh] flex items-center justify-center p-4">
+    <div className="min-h-[50vh] flex items-center justify-center p-4 mt-16">
       <div className="relative w-full max-w-4xl">
         {/* Background decorative elements */}
         <div className="absolute inset-0 bg-[#371221] rounded-2xl transform rotate-1"></div>

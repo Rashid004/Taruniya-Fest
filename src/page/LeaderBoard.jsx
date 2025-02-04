@@ -3,41 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Trophy, Medal, Award, Crown } from "lucide-react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-
-const leaderboardData = [
-  {
-    id: 1,
-    name: "College A",
-    rank: 1,
-    score: 2500,
-    logoURL:
-      "https://images.unsplash.com/20/cambridge.JPG?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dW5pdmVyc2l0eXxlbnwwfHwwfHx8MA%3D%3D",
-  },
-  {
-    id: 2,
-    name: "College B",
-    rank: 2,
-    score: 2300,
-    logoURL:
-      "https://cdn.pixabay.com/photo/2017/09/01/13/56/university-2704306_640.jpg",
-  },
-  {
-    id: 3,
-    name: "College C",
-    rank: 3,
-    score: 2100,
-    logoURL:
-      "https://plus.unsplash.com/premium_photo-1697729447666-c39f50d595ea?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5kaWFuJTIwY29sbGVnZXxlbnwwfHwwfHx8MA%3D%3D",
-  },
-  {
-    id: 4,
-    name: "College D",
-    rank: 4,
-    score: 1900,
-    logoURL:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-  },
-];
+import { leaderboardData, leaderboardPreData } from "../constant/leaderboard";
 
 const getRankIcon = (rank) => {
   switch (rank) {
@@ -75,25 +41,44 @@ const cardVariants = {
   },
 };
 
-const progressVariants = {
-  initial: { width: 0 },
-  animate: (score) => ({
-    width: `${(score / 2500) * 100}%`,
-    transition: { duration: 1, ease: "easeOut" },
-  }),
-};
+// const progressVariants = {
+//   initial: { width: 0 },
+//   animate: (score) => ({
+//     width: `${(score / 2500) * 100}%`,
+//     transition: { duration: 1, ease: "easeOut" },
+//   }),
+// };
 
 const Leaderboard = () => {
   return (
     <HelmetProvider>
-      <section className="min-h-screen p-8 py-4 sm:py-6 md:py-8">
+      <section className="min-h-screen p-8 py-4 sm:py-6 md:py-8 mt-16">
         <Helmet>
-          <title>Leaderboard | Tarunya Fest</title>
+          <title>Leaderboard | Tarunya Fest 2024</title>
+
           <meta
             name="description"
-            content="Check out the latest leaderboard rankings at Tarunya Fest! See which colleges and participants are leading the competitions and celebrate their victories."
+            content="Discover the latest leaderboard rankings at Tarunya Fest 2024! Find out which colleges and participants are excelling in the competitions and celebrate their achievements."
           />
+
+          <meta
+            name="keywords"
+            content="Tarunya Fest leaderboard, college rankings, competition winners, Tarunya Fest 2024 results, college fest leaderboard, participant rankings, event standings, Tarunya Fest top colleges, leaderboard highlights"
+          />
+
+          <meta property="og:title" content="Leaderboard | Tarunya Fest 2024" />
+          <meta
+            property="og:description"
+            content="Explore the leaderboard rankings of Tarunya Fest 2024. See which colleges and participants are leading the competitions and celebrate their victories."
+          />
+          <meta property="og:image" content="/images/tarunya.png" />
+          <meta
+            property="og:url"
+            content="https://www.tarunyafest.nesedu.in/leaderboard"
+          />
+          <meta property="og:type" content="website" />
         </Helmet>
+
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -105,12 +90,12 @@ const Leaderboard = () => {
             transition={{ duration: 0.5 }}
             className="main-heading"
           >
-            College Rankings
+            Colleges Participate
           </motion.h2>
 
           <AnimatePresence>
             <div className="space-y-6 max-w-[800px] mx-auto">
-              {leaderboardData.map((college, index) => (
+              {leaderboardPreData.map((college, index) => (
                 <motion.div
                   key={college.id}
                   custom={index}
@@ -129,8 +114,8 @@ const Leaderboard = () => {
                   }`}
                 >
                   <div className="relative z-10 p-6 backdrop-blur-sm">
-                    <div className="flex items-center gap-6">
-                      <motion.div
+                    <div className="flex items-center justify-between gap-6">
+                      {/* <motion.div
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.5 }}
                         className="relative"
@@ -140,22 +125,24 @@ const Leaderboard = () => {
                           alt={college.name}
                           className="w-16 h-16 rounded-full object-cover border-4 border-secondary relative z-10"
                         />
-                      </motion.div>
+                      </motion.div> */}
 
-                      <div className="flex-grow">
-                        <div className="flex items-center justify-between mb-2">
-                          <h3 className="text-lg md:text-2xl font-bold text-amber-200">
-                            {college.name}
-                          </h3>
-                          <div className="flex items-center gap-2">
+                      {/* <div className="flex-grow"> */}
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="text-lg md:text-2xl font-bold text-amber-200 uppercase tracking-widest">
+                          {college.name}
+                        </h3>
+                        {/* <div className="flex items-center gap-2">
                             {getRankIcon(college.rank)}
                             <span className="text-accent-light font-bold">
                               #{college.rank}
                             </span>
-                          </div>
-                        </div>
-
-                        <div className="relative h-2 bg-accent-semidark/20 rounded-full overflow-hidden">
+                          </div> */}
+                      </div>
+                      <h3 className="uppercase text-3xl font-bold text-secondary border-4 p-2 md:p-4 border-primaryDark rounded-full tracking-wider">
+                        {college.title}
+                      </h3>
+                      {/* <div className="relative h-2 bg-accent-semidark/20 rounded-full overflow-hidden">
                           <motion.div
                             variants={progressVariants}
                             initial="initial"
@@ -171,11 +158,11 @@ const Leaderboard = () => {
                                 : "bg-accent"
                             }`}
                           />
-                        </div>
-                        <div className="mt-2 text-right text-secondary text-sm">
+                        </div> */}
+                      {/* <div className="mt-2 text-right text-secondary text-sm">
                           Score: {college.score}
-                        </div>
-                      </div>
+                        </div> */}
+                      {/* </div> */}
                     </div>
                   </div>
                 </motion.div>

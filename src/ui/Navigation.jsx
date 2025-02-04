@@ -9,7 +9,6 @@ import Logo from "./Logo";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about-us", label: "About Us" },
-  { href: "/conclave", label: "Conclave" },
   { href: "/announcement", label: "Announcement" },
   { href: "/events", label: "Events" },
   { href: "/leaderboard", label: "Leader Board" },
@@ -31,7 +30,8 @@ function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > window.innerHeight * 0.6) {
+      if (window.scrollY > 0) {
+        // Changed to trigger immediately on scroll
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -44,16 +44,16 @@ function Navigation() {
 
   return (
     <header
-      className={`relative  ${
+      className={`fixed top-0 left-0 right-0 w-full z-[999] transition-all duration-300 ${
         isScrolled
-          ? "bg-black bg-opacity-60 backdrop-blur-md sticky top-0 z-[999] hidden xl:block"
-          : ""
+          ? "bg-black bg-opacity-60 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
       }`}
     >
       {/* Desktop Navigation */}
-      <nav className="bg-transparent hidden xl:flex justify-center items-center px-4 xl:px-6 py-8 transition-colors duration-300">
-        <div className="container mx-auto px-4">
-          <ul className="flex  justify-center items-center gap-4 lg:gap-[9px] xl:gap-6 2xl:gap-12">
+      <nav className="hidden xl:flex justify-center items-center px-4 xl:px-6 py-8 transition-colors duration-300">
+        <div className="container mx-auto">
+          <ul className="flex justify-center items-center gap-4 lg:gap-[9px] xl:gap-6 2xl:gap-12">
             {navLinks.map((link, index) => (
               <li
                 key={index}
@@ -71,7 +71,7 @@ function Navigation() {
       </nav>
 
       {/* Mobile Navigation */}
-      <div className="xl:hidden flex justify-between px-4 py-4 ">
+      <div className="xl:hidden flex justify-between px-4 py-4">
         <Logo />
         <button
           className="z-[999] focus:outline-none"
@@ -84,15 +84,15 @@ function Navigation() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-[9999] xl:hidden transition-transform duration-300 ease-in-out  ${
+        className={`fixed inset-0 z-[9999] xl:hidden transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } `}
+        }`}
       >
         <div
           className="fixed inset-0 z-[9998] bg-black bg-opacity-60 backdrop-blur-md"
           onClick={toggleMenu}
         ></div>
-        <nav className="fixed top-0 right-0 bottom-0 w-full h-full shadow-xl bg-primary-dark transform transition-transform duration-300 ease-in-out flex flex-col z-[9999]">
+        <nav className="fixed top-0 right-0 bottom-0 w-full h-full  transform transition-transform duration-300 ease-in-out flex flex-col z-[9999] shadow-xl ">
           <div className="flex justify-between py-4 px-4">
             <Logo />
             <button onClick={toggleMenu} className="focus:outline-none">
@@ -104,7 +104,7 @@ function Navigation() {
               <Link
                 key={index}
                 to={item.href}
-                className={`tracking-wider block py-3 text-lg  font-medium hover:text-secondary-yellow transition-colors ${
+                className={`tracking-wider block py-3 text-lg font-medium hover:text-secondary-yellow transition-colors ${
                   location.pathname === item.href
                     ? "text-secondary-yellow"
                     : "text-secondary"

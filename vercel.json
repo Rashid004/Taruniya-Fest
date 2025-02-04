@@ -1,8 +1,9 @@
 {
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/:path*",
-      "destination": "/"
+      "source": "https://www.tarunyafest.nesedu.in/:path*",
+      "destination": "https://tarunyafest.nesedu.in/:path*",
+      "permanent": true
     }
   ]
 }

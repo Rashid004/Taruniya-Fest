@@ -85,7 +85,7 @@ const AnnouncementsPage = () => {
     (state) => state.announcement.announcements
   );
 
-  if (announcements)
+  if (!announcements)
     return (
       <ComingSoon
         data1={
@@ -99,12 +99,33 @@ const AnnouncementsPage = () => {
 
   return (
     <HelmetProvider>
-      <div className="min-h-screen  py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8">
+      <section className="min-h-screen  py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8 mt-16">
         <Helmet>
-          <title>Announcement | Tarunya Fest</title>
+          <title>Announcements | Tarunya Fest 2024 - Latest Updates</title>
+
           <meta
             name="description"
-            content="Stay updated with the latest news and announcements about Tarunya Fest, including event details, schedules, and important updates for all participants and attendees."
+            content="Stay updated with the latest news and announcements about Tarunya Fest 2024. Get important updates on event details, schedules, and exclusive insights for all participants and attendees."
+          />
+
+          <meta
+            property="og:title"
+            content="Announcements | Tarunya Fest 2024 - Latest Updates & News"
+          />
+          <meta
+            property="og:description"
+            content="Don't miss out on any updates! Check the latest announcements for Tarunya Fest 2024, including event schedules, changes, and essential news."
+          />
+          <meta property="og:image" content="/images/tarunya.png" />
+          <meta
+            property="og:url"
+            content="https://www.tarunyafest.nesedu.in/announcement"
+          />
+          <meta property="og:type" content="website" />
+
+          <meta
+            name="keywords"
+            content="Tarunya Fest announcements, Tarunya Fest 2024 news, event updates, festival news, schedule changes, latest Tarunya updates"
           />
         </Helmet>
         <div className="max-w-2xl mx-auto">
@@ -125,7 +146,7 @@ const AnnouncementsPage = () => {
             ))}
           </div>
         </div>
-      </div>
+      </section>
     </HelmetProvider>
   );
 };

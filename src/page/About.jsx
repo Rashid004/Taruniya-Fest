@@ -35,12 +35,27 @@ function About() {
 
   return (
     <HelmetProvider>
-      <section className="min-h-screen py-6 sm:py-8 md:py-10 relative">
+      <section className="min-h-screen py-6 mt-16 sm:py-8 md:py-10 relative">
         <Helmet>
           <title>About | Tarunya Fest</title>
           <meta
             name="description"
-            content="Discover the story behind Tarunya Fest – a celebration of creativity, innovation, and community. Learn about our mission, vision, and the amazing team that brings this fest to life."
+            content="Learn about Tarunya Fest – a dynamic college fest that blends creativity, culture, and competition. Explore our vision, mission, and the dedicated team behind the magic."
+          />
+          <meta property="og:title" content="About Us | Tarunya Fest 2024" />
+          <meta
+            property="og:description"
+            content="Discover the story of Tarunya Fest – an exciting celebration of culture and creativity. Learn about our mission, vision, and values."
+          />
+          <meta property="og:image" content="/images/tarunya.png" />
+          <meta
+            property="og:url"
+            content="https://www.tarunyafest.nesedu.in/about-us"
+          />
+          <meta property="og:type" content="website" />
+          <meta
+            name="keywords"
+            content="About Tarunya Fest, Tarunya Fest 2024, college fest history, Tarunya Fest mission, cultural festival, creative college fest, Tarunya Fest vision, Tarunya Fest team, college events, Tarunya Fest story"
           />
         </Helmet>
         <div className="max-w-6xl mx-auto w-full px-4 md:px-6 lg:px-8">

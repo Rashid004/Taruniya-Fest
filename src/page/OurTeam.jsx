@@ -17,13 +17,32 @@ const OurTeam = () => {
   return (
     <HelmetProvider>
       <Helmet>
-        <title>Our Team | Tarunya Fest</title>
+        <title>Our Team | Tarunya Fest 2024</title>
+
         <meta
           name="description"
-          content="Meet the dedicated team behind Tarunya Fest. A group of passionate organizers, coordinators, and volunteers working together to create an unforgettable experience."
+          content="Meet the passionate and dedicated team behind Tarunya Fest 2024. Discover the organizers, coordinators, and volunteers who work tirelessly to make the fest a grand success."
         />
+
+        <meta
+          name="keywords"
+          content="Tarunya Fest team, event organizers, Tarunya Fest coordinators, event volunteers, Tarunya Fest 2024 team, college fest organizers, Tarunya Fest members, organizing committee, team behind Tarunya Fest"
+        />
+
+        <meta property="og:title" content="Our Team | Tarunya Fest 2024" />
+        <meta
+          property="og:description"
+          content="Discover the dedicated team of organizers, coordinators, and volunteers behind Tarunya Fest 2024. Learn about the people making this fest a remarkable event."
+        />
+        <meta property="og:image" content="/images/tarunya.png" />
+        <meta
+          property="og:url"
+          content="https://www.tarunyafest.nesedu.in/ourteam"
+        />
+        <meta property="og:type" content="website" />
       </Helmet>
-      <section className="min-h-screen py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8 z-[100]">
+
+      <section className="min-h-screen py-4 sm:py-6 md:py-8 px-4 sm:px-6 lg:px-8 z-[100] mt-16">
         <div className="max-w-7xl mx-auto">
           <motion.h1
             className="main-heading"
@@ -64,7 +83,7 @@ const OurTeam = () => {
               Committee
             </button>
 
-            <button
+            {/* <button
               className={`px-3 py-2 sm:px-4 sm:py-2 text-xl font-medium flex items-center gap-2 rounded-md ${
                 activeTab === "department"
                   ? "bg-pink-800 text-amber-500  decoration-amber-500 decoration-2"
@@ -76,7 +95,7 @@ const OurTeam = () => {
                 <ImTree />
               </span>
               Department
-            </button>
+            </button> */}
           </div>
 
           {activeTab === "faculty" ? (
@@ -92,7 +111,8 @@ const OurTeam = () => {
               ))}
             </div>
           ) : (
-            <DepartmentCard />
+            // <DepartmentCard />
+            ""
           )}
         </div>
       </section>
