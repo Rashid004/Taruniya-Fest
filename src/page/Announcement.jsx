@@ -1,5 +1,3 @@
-/** @format */
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { GiBugleCall } from "react-icons/gi";

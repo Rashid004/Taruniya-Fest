@@ -1,6 +1,3 @@
-/** @format */
-
-import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
