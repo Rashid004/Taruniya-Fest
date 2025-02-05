@@ -16,7 +16,7 @@ function BlogDetails() {
 
   return (
     <HelmetProvider>
-      <article className="px-4 py-8 mx-auto max-w-4xl">
+      <article className="px-4 py-8 mx-auto max-w-4xl mt-24">
         {/* SEO Tags */}
         <Helmet>
           <title>{blog.title} | Tarunya Fest</title>
