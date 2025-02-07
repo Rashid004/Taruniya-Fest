@@ -23,8 +23,8 @@ const SponsorCard = ({ sponsor, isHovered, onHover, isFeatured = false }) => (
         className={`${
           isFeatured
             ? "w-40 h-40 sm:w-56 sm:h-56 lg:w-64 lg:h-64"
-            : "w-24 h-24 sm:w-32 sm:h-32"
-        } mx-auto mb-4 object-contain`}
+            : "w-24 h-24 sm:w-32 sm:h-32 rounded-3xl"
+        } mx-auto mb-4 object-cover`}
         whileHover={{ scale: 1.05 }}
       />
       <div

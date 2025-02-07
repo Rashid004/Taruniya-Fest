@@ -5,50 +5,50 @@ import {
   FaMagic,
   FaLaughSquint,
   FaBolt,
+  FaHeadphones,
 } from "react-icons/fa";
 export const featuredSponsor = {
-  name: "Blinkit",
-  title: "Instant Everything",
-  image: "https://cdn.siasat.com/wp-content/uploads/2023/02/Blinkit.jpg",
+  name: "Red Bull",
+  title: "Gives You Wings",
+  image: "/images/sponsored/red-bull3.png",
   description:
-    "Blinkit: Because waiting is so last season. We deliver your desires faster than you can say 'I want it now!'",
+    "Red Bull: Fueling your energy and pushing you to new heights. Get ready to soar with every sip!",
   icon: FaBolt,
 };
 
 export const sponsors = [
   {
-    name: "Myntra",
-    title: "Fashion Forward",
-    image: "https://ifp.world/wp-content/uploads/2021/05/Myntra-Logo.png",
+    name: "Ubon",
+    title: "Sound That Moves You",
+    image: "/images/sponsored/ubon.webp",
     description:
-      "Myntra, your go-to fashion destination, bringing style to your doorstep faster than you can say 'wardrobe malfunction'!",
-    icon: FaRocket,
+      "Ubon: Elevate your audio experience with our cutting-edge earbuds, neckbands, and smartwatches. Hear the difference!",
+    icon: FaHeadphones,
   },
   {
-    name: "JioSaavn",
-    title: "Tune Into Fun",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/JioSaavn_Logo.svg/1024px-JioSaavn_Logo.svg.png",
+    name: "Try Fit Gym",
+    title: "Your Fitness Partner",
+    image: "/images/sponsored/gym.webp",
+
     description:
-      "JioSaavn, where music meets magic. We're not saying we're better than silence, but... okay, yes we are.",
+      "TryFit: Transforming your fitness journey with state-of-the-art equipment and expert guidance. Let's get fit together!",
     icon: FaMagic,
   },
   {
-    name: "Dabur",
-    title: "Naturally Nurturing",
-    image:
-      "https://w1.pngwing.com/pngs/57/180/png-transparent-india-food-dabur-dabur-international-logo-personal-care-fastmoving-consumer-goods-ayurveda-company.png",
+    name: "Oh!G",
+    title: "Snack Attack",
+    image: "/images/sponsored/ohsnack.webp",
     description:
-      "Dabur: Because 'au naturel' sounds much fancier than 'we put plants in a bottle'. Your health, our playground!",
+      "Oh!G: Satisfy your cravings with our delicious and irresistible snacks. Perfect for any time, any place!",
     icon: FaHeart,
   },
   {
-    name: "Zomato",
-    title: "Foodies Unite",
-    image:
-      "https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png",
+    name: "Juice Time",
+    title: "Freshness in Every Sip",
+    image: "/images/sponsored/juice.webp",
+
     description:
-      "Zomato: Turning 'I'm hungry' into 'I'm happy' faster than you can say 'extra cheese'. We're not just an app, we're your food soulmate!",
+      "Juice Time: Quench your thirst with our refreshing and natural juices. A burst of flavor in every drop!",
     icon: FaLaughSquint,
   },
 ];
